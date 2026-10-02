@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Administration — Atlas Horizon</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              charcoal: '#0f1012',
+              surface: '#16181c',
+              card: '#1c1f24',
+              copper: '#c85a32',
+              copperHover: '#db683d',
+              white: '#F4F3EF',
+              whiteMuted: '#9e9e9e',
+              grey: '#6e727a'
+            }
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="admin.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-charcoal text-brand-white min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+  <!-- Subtle background grid graphics -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+  <div class="w-full max-w-md relative z-10">
+    
+    <!-- Header Logo & Title -->
+    <div class="text-center mb-8 space-y-4">
+      <div class="inline-block p-4 bg-brand-surface border border-white/10 rounded-2xl shadow-2xl mb-2">
+        <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-10 mx-auto">
+      </div>
+      <div>
+        <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block mb-1">PORTAIL D'ADMINISTRATION</span>
+        <h1 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Espace Gestionnaire</h1>
+        <p class="text-brand-whiteMuted text-xs mt-1 font-light">Connectez-vous pour gérer les demandes de réservation et de devis.</p>
+      </div>
+    </div>
+
+    <!-- Login Card -->
+    <div class="bg-brand-surface border border-white/10 p-8 shadow-2xl relative">
+      <form id="admin-login-form" onsubmit="handleLogin(event)" class="space-y-6">
+        
+        <div id="login-error-alert" class="hidden p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono flex items-center gap-3">
+          <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+          <span id="login-error-text">Identifiants incorrects. Veuillez réessayer.</span>
+        </div>
+
+        <div class="space-y-2">
+          <label for="admin-email" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted">Nom d'utilisateur ou Email</label>
+          <div class="relative">
+            <i data-lucide="user" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+            <input type="text" id="admin-email" required placeholder="admin@atlashorizon.com" value="admin@atlashorizon.com" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-11 pr-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label for="admin-password" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted">Mot de passe</label>
+            <span class="text-[10px] font-mono text-brand-grey">Par défaut: admin123</span>
+          </div>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+            <input type="password" id="admin-password" required placeholder="••••••••" value="admin123" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-11 pr-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(200,90,50,0.3)]">
+          <span>Se connecter au Dashboard</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+      </form>
+
+      <div class="mt-8 pt-6 border-t border-white/10 text-center">
+        <a href="../index.html" class="inline-flex items-center gap-2 font-mono text-xs text-brand-whiteMuted hover:text-brand-white transition-colors">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Retour au site public Atlas Horizon</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer Copyright -->
+    <p class="text-center font-mono text-[11px] text-brand-grey mt-8 uppercase tracking-widest">
+      © 2026 ATLAS HORIZON — Système de Gestion Interne
+    </p>
+
+  </div>
+
+  <script src="../assets/js/reservation-store.js"></script>
+  <script>
+    // Redirect if already logged in
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      if (ReservationStore.getAuth()) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('admin-email').value;
+      const passInput = document.getElementById('admin-password').value;
+      const errorAlert = document.getElementById('login-error-alert');
+      const errorText = document.getElementById('login-error-text');
+
+      const result = ReservationStore.login(emailInput, passInput);
+      if (result.success) {
+        window.location.href = 'dashboard.html';
+      } else {
+        errorText.textContent = result.message || 'Identifiants invalides.';
+        errorAlert.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

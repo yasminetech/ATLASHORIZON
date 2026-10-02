@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirection Administration — Atlas Horizon</title>
+  <script src="../assets/js/reservation-store.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (ReservationStore.getAuth()) {
+        window.location.replace('dashboard.html');
+      } else {
+        window.location.replace('login.html');
+      }
+    });
+  </script>
+</head>
+<body style="background:#0f1012; color:#fff; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh;">
+  <p>Chargement du système d'administration Atlas Horizon...</p>
+</body>
+</html>

@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Horizon — Construction & Architecture with Precision</title>
+  <meta name="description" content="Atlas Horizon delivers construction projects where technical expertise, quality, and attention to detail come together. Portugal & Belgium operations.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts: Syne (Editorial Display), Plus Jakarta Sans (Body), Space Mono (Technical Labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              charcoal: '#0f1012',
+              surface: '#15171b',
+              surfaceLight: '#1d2026',
+              white: '#F4F3EF',
+              whiteMuted: '#B5B3ac',
+              grey: '#7a7c85',
+              greyDark: '#2c2e35',
+              copper: '#c85a32',
+              copperHover: '#dc663a',
+              copperLight: 'rgba(200, 90, 50, 0.12)'
+            }
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Mono', 'monospace']
+          },
+          letterSpacing: {
+            tighter: '-0.04em',
+            tight: '-0.02em',
+            widest: '0.25em',
+            mega: '0.35em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-brand-charcoal text-brand-white font-sans antialiased selection:bg-brand-copper selection:text-white overflow-x-hidden">
+
+  <!-- TOP ANNOUNCEMENT / ARCHITECTURAL TICKER -->
+  <div class="border-b border-white/5 bg-[#0a0b0d] py-2 px-4 text-xs font-mono tracking-widest text-brand-grey uppercase flex justify-between items-center overflow-hidden">
+    <div class="flex items-center gap-6 animate-pulse">
+      <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-copper"></span> <span data-i18n="tickerText">ATLAS HORIZON — GENERAL CONTRACTING & ARCHITECTURAL ENGINEERING</span></span>
+      <span class="hidden md:inline text-white/20">|</span>
+      <span class="hidden md:inline" data-i18n="tickerCert">ISO 9001 & ISO 45001 CERTIFIED</span>
+      <span class="hidden lg:inline text-white/20">|</span>
+      <span class="hidden lg:inline" data-i18n="tickerCities">PORTUGAL — BELGIUM</span>
+    </div>
+    <div class="flex items-center gap-4 text-[11px] text-brand-whiteMuted hidden sm:flex">
+      <span>TEL: +351 926 930 272</span>
+      <span class="text-brand-copper font-bold">● ACTIVE SITES</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 border-b border-white/10 backdrop-blur-md bg-brand-charcoal/90">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+      
+      <!-- LEFT: Atlas Horizon Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="Atlas Horizon Home">
+        <div class="w-56 h-12 md:w-64 md:h-14 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img src="assets/logo.svg" alt="Atlas Horizon Logo" class="w-full h-full object-contain object-left">
+        </div>
+      </a>
+
+      <!-- CENTER/RIGHT: Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
+        <a href="#projects" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navProjects">Projects</a>
+        <a href="#services" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navServices">Services</a>
+        <a href="#about" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navAbout">About</a>
+        <a href="#approach" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navApproach">Approach</a>
+        <a href="#contact" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navContact">Contact</a>
+      </nav>
+
+      <!-- RIGHT: Language Switcher & CTA Button -->
+      <div class="hidden sm:flex items-center gap-6">
+        
+        <!-- Language Switcher Toggle (EN | FR | PT) -->
+        <div class="flex items-center gap-2 font-mono text-xs border border-white/10 bg-brand-surface px-3 py-1.5 rounded">
+          <button onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-copper font-bold hover:text-brand-white transition-colors px-1">EN</button>
+          <span class="text-white/20">|</span>
+          <button onclick="setLanguage('fr')" data-lang="fr" class="lang-btn text-brand-whiteMuted hover:text-brand-white transition-colors px-1">FR</button>
+          <span class="text-white/20">|</span>
+          <button onclick="setLanguage('pt')" data-lang="pt" class="lang-btn text-brand-whiteMuted hover:text-brand-white transition-colors px-1">PT</button>
+        </div>
+
+        <button onclick="openQuoteModal()" class="group relative px-6 py-3 border border-brand-copper/60 hover:border-brand-copper bg-brand-copperLight text-brand-white font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-brand-copper hover:shadow-[0_0_20px_rgba(200,90,50,0.3)]">
+          <span class="relative z-10 flex items-center gap-2">
+            <span data-i18n="navQuoteBtn">Request a Quote</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-brand-white hover:text-brand-copper focus:outline-none" aria-label="Open Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[9999] flex flex-col justify-between p-6 sm:p-8 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 overflow-y-auto bg-[#0f1012]" style="background-color: #0f1012;">
+    <div>
+      <div class="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
+        <div class="w-48 h-10">
+          <img src="assets/logo.svg" alt="Atlas Horizon" class="w-full h-full object-contain object-left">
+        </div>
+        <button onclick="toggleMobileMenu()" class="p-2 text-brand-white hover:text-brand-copper focus:outline-none" aria-label="Close Menu">
+          <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Language Selector -->
+      <div class="flex items-center justify-center gap-4 font-mono text-xs border border-white/10 bg-brand-surface p-3 mb-8 rounded">
+        <button onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-copper font-bold px-2 py-1 transition-colors">ENGLISH</button>
+        <span class="text-white/20">|</span>
+        <button onclick="setLanguage('fr')" data-lang="fr" class="lang-btn text-brand-whiteMuted hover:text-brand-white px-2 py-1 transition-colors">FRANÇAIS</button>
+        <span class="text-white/20">|</span>
+        <button onclick="setLanguage('pt')" data-lang="pt" class="lang-btn text-brand-whiteMuted hover:text-brand-white px-2 py-1 transition-colors">PORTUGUÊS</button>
+      </div>
+
+      <nav class="flex flex-col gap-6 text-2xl font-syne font-bold">
+        <a href="#projects" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navProjects">Selected Projects</a>
+        <a href="#services" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navServices">Services & Solutions</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navAbout">About Atlas Horizon</a>
+        <a href="#approach" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navApproach">Our Approach</a>
+        <a href="#details" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="detSectionLabel">Craftsmanship</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navContact">Start a Project</a>
+      </nav>
+    </div>
+
+    <div class="border-t border-white/10 pt-6 mt-8 space-y-3">
+      <button onclick="toggleMobileMenu(); openQuoteModal()" class="w-full py-4 text-center bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-sm uppercase tracking-widest transition-colors shadow-lg">
+        <span data-i18n="navQuoteBtn">Request a Quote</span> ↗
+      </button>
+      <p class="text-xs font-mono text-brand-grey text-center">contacto@mbplimpeza.pt | +351 926 930 272</p>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-end overflow-hidden border-b border-white/10">
+    
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/hero-site.jpg" alt="Atlas Horizon Construction Site" class="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08] scale-105 transition-transform duration-1000 ease-out" id="hero-img">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/40 to-brand-charcoal/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal/80 via-transparent to-brand-charcoal/40"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+    </div>
+
+    <!-- Hero Content Overlay -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-32 pb-16 lg:pb-24">
+      <div class="max-w-3xl space-y-6">
+        
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 text-brand-copper font-mono text-xs md:text-sm tracking-widest uppercase">
+          <span class="w-8 h-[2px] bg-brand-copper"></span>
+          <span data-i18n="heroEyebrow">CONSTRUCTION & ARCHITECTURE</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-syne font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-brand-white">
+          <span data-i18n="heroTitleLine1">Building tomorrow.</span><br>
+          <span class="text-brand-whiteMuted italic font-normal" data-i18n="heroTitleLine2">With precision today.</span>
+        </h1>
+
+        <!-- Short Paragraph -->
+        <p class="text-lg md:text-xl text-brand-whiteMuted font-light leading-relaxed max-w-2xl pt-2" data-i18n="heroParagraph">
+          Atlas Horizon delivers construction projects where technical expertise, quality and attention to detail come together.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4 pt-6">
+          <a href="#projects" class="inline-flex items-center gap-3 px-8 py-4 bg-brand-copper text-white font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-brand-copperHover shadow-[0_4px_25px_rgba(200,90,50,0.35)] group">
+            <span data-i18n="heroBtnProjects">Our Projects</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-3 px-8 py-4 border border-white/20 hover:border-white bg-brand-charcoal/50 backdrop-blur-sm text-brand-white font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white/10">
+            <span data-i18n="heroBtnContact">Contact Us</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Hero Technical Bar -->
+      <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-mono text-brand-whiteMuted">
+        <div class="space-y-1">
+          <span class="block text-brand-copper uppercase tracking-widest text-[10px]">FOUNDED</span>
+          <span class="text-brand-white font-bold text-sm" data-i18n="heroFounding">2011 — INTERNATIONAL</span>
+        </div>
+        <div class="space-y-1">
+          <span class="block text-brand-copper uppercase tracking-widest text-[10px]">CORE DISCIPLINE</span>
+          <span class="text-brand-white font-bold text-sm" data-i18n="heroDiscipline">HEAVY STRUCTURES</span>
+        </div>
+        <div class="space-y-1">
+          <span class="block text-brand-copper uppercase tracking-widest text-[10px]">GEOGRAPHY</span>
+          <span class="text-brand-white font-bold text-sm" data-i18n="heroGeo">PORTUGAL & BELGIUM</span>
+        </div>
+        <div class="space-y-1">
+          <span class="block text-brand-copper uppercase tracking-widest text-[10px]">QUALITY METHOD</span>
+          <span class="text-brand-white font-bold text-sm" data-i18n="heroMethod">BIM + ZERO-DEFECT</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTRODUCTION SECTION (Asymmetric & Editorial) -->
+  <section class="py-24 md:py-36 border-b border-white/10 bg-brand-charcoal relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Column: Large Typography Statement -->
+        <div class="lg:col-span-7 space-y-8">
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="introSectionLabel">01 / PHILOSOPHY</span>
+          <h2 class="font-syne font-bold text-3xl sm:text-5xl leading-[1.15] text-brand-white uppercase tracking-tight">
+            <span data-i18n="introStatementLine1">WE BUILD MORE THAN STRUCTURES.</span><br>
+            <span class="text-brand-copper" data-i18n="introStatementLine2">WE BUILD PLACES WITH PURPOSE.</span>
+          </h2>
+          <div class="space-y-6 text-brand-whiteMuted text-base sm:text-lg leading-relaxed font-light border-l-2 border-brand-copper/40 pl-6 my-6">
+            <p data-i18n="introPara1">
+              At Atlas Horizon, every foundation we lay and every beam we hoist is driven by a commitment to longevity and engineering perfection. We believe true architecture lives at the intersection of raw structural resilience and refined human experience.
+            </p>
+            <p data-i18n="introPara2">
+              From complex civil infrastructure to landmark commercial towers and private residential estates, our multidisciplinary team handles every phase with uncompromised rigour and transparency.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-6 pt-4 font-mono text-xs">
+            <div class="p-4 border border-white/10 bg-brand-surface">
+              <span class="text-brand-copper font-bold text-base block mb-1" data-i18n="introValue1Title">01. ACCURACY</span>
+              <span class="text-brand-grey" data-i18n="introValue1Desc">Precision tolerances down to millimeter specs in concrete & steel.</span>
+            </div>
+            <div class="p-4 border border-white/10 bg-brand-surface">
+              <span class="text-brand-copper font-bold text-base block mb-1" data-i18n="introValue2Title">02. DURABILITY</span>
+              <span class="text-brand-grey" data-i18n="introValue2Desc">Engineered for century-long structural performance.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <div class="relative group overflow-hidden border border-white/10">
+            <img src="assets/images/detail-precision.jpg" alt="Atlas Horizon Site Precision" class="w-full aspect-[4/5] object-cover filter contrast-[1.05] transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-transparent to-transparent opacity-80"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 font-mono text-xs text-brand-white space-y-2">
+              <div class="flex items-center justify-between border-b border-white/20 pb-2">
+                <span class="text-brand-copper" data-i18n="introCaptionLocation">LOCATION</span>
+                <span data-i18n="introCaptionLocValue">LISBON PORTUGAL SITE B</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-white/20 pb-2">
+                <span class="text-brand-copper" data-i18n="introCaptionType">STRUCTURAL TYPE</span>
+                <span data-i18n="introCaptionTypeValue">DEEP REINFORCED SLAB</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-brand-copper" data-i18n="introCaptionInspection">INSPECTION</span>
+                <span class="text-emerald-400" data-i18n="introCaptionInspValue">PASSED 100% SPEC</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs font-mono text-brand-grey text-right uppercase tracking-wider" data-i18n="introFigCaption">
+            [FIG 01.1] REAL SITE VERIFICATION — LISBON PROJECT
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SELECTED PROJECTS SECTION -->
+  <section id="projects" class="py-28 md:py-40 border-b border-white/10 bg-[#0c0d0f]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-white/10 gap-6">
+        <div>
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-3" data-i18n="projSectionLabel">02 / PORTFOLIO</span>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-white" data-i18n="projTitle">Selected Projects</h2>
+        </div>
+        <p class="text-brand-whiteMuted max-w-md text-sm font-light leading-relaxed" data-i18n="projSub">
+          An editorial showcase of signature developments engineered and executed by Atlas Horizon across Portugal, Belgium, and international hubs.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 mb-16 font-mono text-xs">
+        <button onclick="filterProjects('all')" class="project-filter-btn active-filter px-5 py-2.5 border border-brand-copper bg-brand-copper text-white uppercase tracking-wider transition-all" data-i18n="filterAll">All Projects</button>
+        <button onclick="filterProjects('residential')" class="project-filter-btn px-5 py-2.5 border border-white/10 hover:border-white/40 text-brand-whiteMuted hover:text-white uppercase tracking-wider transition-all" data-i18n="filterRes">Residential</button>
+        <button onclick="filterProjects('commercial')" class="project-filter-btn px-5 py-2.5 border border-white/10 hover:border-white/40 text-brand-whiteMuted hover:text-white uppercase tracking-wider transition-all" data-i18n="filterCom">Commercial</button>
+        <button onclick="filterProjects('structural')" class="project-filter-btn px-5 py-2.5 border border-white/10 hover:border-white/40 text-brand-whiteMuted hover:text-white uppercase tracking-wider transition-all" data-i18n="filterStr">Structural & Civil</button>
+      </div>
+
+      <div class="space-y-32">
+        
+        <!-- PROJECT 1 -->
+        <article class="project-item group" data-category="residential">
+          <div class="relative overflow-hidden border border-white/10 bg-brand-surface mb-8">
+            <div class="aspect-[16/9] lg:aspect-[21/9] overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" alt="Villa Horizon" class="w-full h-full object-cover object-center filter brightness-90 contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-105" onclick="openLightbox(this.src, '01 / VILLA HORIZON — CASCAIS, PORTUGAL')">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent opacity-60"></div>
+              
+              <div class="absolute top-6 right-6 bg-brand-charcoal/90 backdrop-blur-md px-4 py-2 border border-white/10 font-mono text-xs text-brand-copper uppercase tracking-wider flex items-center gap-2">
+                <span data-i18n="proj1Tag">VIEW FULL ARCHIVE</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline pt-2">
+            <div class="lg:col-span-6">
+              <h3 class="font-syne font-bold text-3xl sm:text-4xl text-brand-white group-hover:text-brand-copper transition-colors duration-300 flex items-center gap-3">
+                <span data-i18n="proj1Title">01 / VILLA HORIZON</span>
+                <i data-lucide="arrow-up-right" class="w-7 h-7 text-brand-copper opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2 group-hover:translate-x-0"></i>
+              </h3>
+            </div>
+            <div class="lg:col-span-3 font-mono text-xs text-brand-whiteMuted space-y-1">
+              <p class="text-brand-white uppercase font-bold" data-i18n="proj1Cat">Residential Construction</p>
+              <p data-i18n="proj1Loc">Cascais Coast, Lisbon, Portugal</p>
+            </div>
+            <div class="lg:col-span-3 font-mono text-xs text-brand-grey text-right">
+              <p data-i18n="proj1Date">COMPLETED 2025</p>
+              <p data-i18n="proj1Footprint">1,250 M² FOOTPRINT</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-item group" data-category="commercial">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 relative overflow-hidden border border-white/10 bg-brand-surface">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img src="assets/images/hero-site.jpg" alt="Atlas Commercial Tower Construction" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, '02 / ATLAS TOWER & COMMERCIAL COMPLEX — BRUSSELS')">
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6">
+              <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="proj2Section">02 / COMMERCIAL & TOWER</span>
+              <h3 class="font-syne font-bold text-3xl sm:text-4xl text-brand-white group-hover:text-brand-copper transition-colors duration-300" data-i18n="proj2Title">
+                ATLAS TOWER & COMMERCIAL COMPLEX
+              </h3>
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proj2Desc">
+                A 16-storey mixed-use corporate tower featuring post-tensioned floor plates, custom glass curtain wall facades, and deep basement foundation engineering.
+              </p>
+              <ul class="space-y-3 font-mono text-xs text-brand-whiteMuted border-t border-b border-white/10 py-4">
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">LOCATION:</span>
+                  <span class="text-brand-white" data-i18n="proj2LocVal">Brussels International Hub, Belgium</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">SCOPE:</span>
+                  <span class="text-brand-white" data-i18n="proj2ScopeVal">Turnkey Structural & Fit-out</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">CERTIFICATION:</span>
+                  <span class="text-brand-copper" data-i18n="proj2CertVal">LEED Gold Target</span>
+                </li>
+              </ul>
+              <div class="pt-2">
+                <span class="inline-flex items-center gap-2 font-mono text-xs text-brand-copper uppercase tracking-wider group-hover:underline">
+                  <span data-i18n="proj2Btn">Explore Project Details</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"></i>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-item group" data-category="structural">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <div class="lg:col-span-8 relative overflow-hidden border border-white/10 bg-brand-surface">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img src="assets/images/project-structural-dome.jpg" alt="Horizon Infrastructure Dome" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, '03 / HORIZON INFRASTRUCTURE DOME — LISBON')">
+              </div>
+              <div class="absolute bottom-4 left-4 bg-brand-charcoal/90 px-3 py-1.5 border border-white/10 font-mono text-[11px] text-brand-white" data-i18n="proj3Fig">
+                FIG 03.A — REINFORCED CONCRETE DOME VAULTING
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col justify-between border border-white/10 p-8 bg-brand-surface">
+              <div>
+                <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-4" data-i18n="proj3Section">03 / CIVIL & INFRASTRUCTURE</span>
+                <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors duration-300 mb-4" data-i18n="proj3Title">
+                  THE HORIZON FOUNDATION & INFRASTRUCTURE
+                </h3>
+                <p class="text-brand-whiteMuted text-sm font-light leading-relaxed mb-6" data-i18n="proj3Desc">
+                  Circular reinforced concrete foundation with high-density rebar matrix, engineered to ensure structural stability and load endurance.
+                </p>
+              </div>
+              
+              <div class="space-y-4 pt-6 border-t border-white/10 font-mono text-xs">
+                <div class="flex items-center gap-3">
+                  <img src="assets/images/project-rebar-mesh.jpg" alt="Rebar Mesh" class="w-16 h-12 object-cover border border-white/20">
+                  <div>
+                    <span class="block text-brand-white font-bold" data-i18n="proj3SteelVal">1,800 TONNES</span>
+                    <span class="text-brand-grey" data-i18n="proj3SteelSub">High-yield structural steel</span>
+                  </div>
+                </div>
+                <div class="pt-2 text-right">
+                  <span class="text-brand-copper uppercase tracking-wider font-bold" data-i18n="proj3Zone">LISBON INDUSTRIAL HUB ↗</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="project-item group" data-category="residential">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-5 order-2 lg:order-1 space-y-6">
+              <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="proj4Section">04 / RENOVATION & HERITAGE</span>
+              <h3 class="font-syne font-bold text-3xl sm:text-4xl text-brand-white group-hover:text-brand-copper transition-colors duration-300" data-i18n="proj4Title">
+                MAISON DU SOLEIL
+              </h3>
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proj4Desc">
+                Complete structural rehabilitation of an architectural estate in Porto. Preserving historical masonry walls while embedding modern steel cantilevers and invisible geothermal HVAC systems.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 font-mono text-[11px] text-brand-whiteMuted">
+                <span class="px-3 py-1 border border-white/10 bg-brand-surfaceLight">Masonry Restoration</span>
+                <span class="px-3 py-1 border border-white/10 bg-brand-surfaceLight">Exposed Concrete</span>
+                <span class="px-3 py-1 border border-white/10 bg-brand-surfaceLight">Structural Steel</span>
+                <span class="px-3 py-1 border border-white/10 bg-brand-surfaceLight">Porto</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 order-1 lg:order-2 relative overflow-hidden border border-white/10 bg-brand-surface">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=85" alt="Maison Du Soleil" class="w-full h-full object-cover filter brightness-90 contrast-[1.05] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, '04 / MAISON DU SOLEIL — PORTO')">
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="py-28 md:py-40 border-b border-white/10 bg-brand-charcoal relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="mb-20 pb-8 border-b border-white/10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-3" data-i18n="servSectionLabel">03 / CAPABILITIES</span>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-6xl text-brand-white" data-i18n="servTitle">What we do</h2>
+        </div>
+        <p class="text-brand-whiteMuted max-w-sm text-sm font-light" data-i18n="servSub">
+          Hover over any discipline to inspect our operational scope and visual reference.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-7 divide-y divide-white/10 border-t border-b border-white/10">
+          
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(0)" onclick="openQuoteModal('Construction')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">01</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv1Name">
+                    Construction
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv1Desc">
+                    Turnkey general contracting for ground-up commercial buildings, luxury residential compounds, and institutional facilities.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(1)" onclick="openQuoteModal('Renovation')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">02</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv2Name">
+                    Renovation
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv2Desc">
+                    Comprehensive structural restoration, modern facade upgrades, interior adaptive reuse, and high-spec architectural additions.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(2)" onclick="openQuoteModal('Structural Works')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">03</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv3Name">
+                    Structural Works
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv3Desc">
+                    Deep foundation pilings, post-tensioned slabs, heavy rebar reinforcement matrices, and structural steel framing.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(3)" onclick="openQuoteModal('Commercial Projects')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">04</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv4Name">
+                    Commercial Projects
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv4Desc">
+                    High-capacity retail centers, corporate headquarters, logistics centers, and hospitality developments engineered for yield.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(4)" onclick="openQuoteModal('Residential Projects')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">05</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv5Name">
+                    Residential Projects
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv5Desc">
+                    Custom architectural estates, ultra-luxury private villas, and multi-family residential towers built to bespoke standards.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-row group py-8 px-4 sm:px-6 transition-colors duration-300 hover:bg-brand-surface cursor-pointer" onmouseenter="updateServicePreview(5)" onclick="openQuoteModal('Project Management')">
+            <div class="flex items-start justify-between">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-brand-copper text-sm font-bold">06</span>
+                <div>
+                  <h3 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="serv6Name">
+                    Project Management
+                  </h3>
+                  <p class="text-brand-whiteMuted font-light text-sm mt-2 max-w-lg leading-relaxed" data-i18n="serv6Desc">
+                    Full 4D BIM site coordination, safety compliance audits, budget control, and sub-contractor supervision.
+                  </p>
+                </div>
+              </div>
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-brand-whiteMuted group-hover:border-brand-copper group-hover:text-brand-copper transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-5 sticky top-28 hidden lg:block">
+          <div class="border border-white/10 bg-brand-surface p-4 space-y-4">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              <img id="service-preview-img" src="assets/images/hero-site.jpg" alt="Service Preview" class="w-full h-full object-cover filter contrast-[1.05] transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 font-mono text-xs">
+                <span id="service-preview-tag" class="text-brand-copper uppercase font-bold block mb-1">01 / GENERAL CONSTRUCTION</span>
+                <span id="service-preview-desc" class="text-brand-white block text-[11px]">SITE EXECUTION & STRUCTURAL INTEGRITY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPANY VALUES -->
+  <section class="py-28 md:py-36 border-b border-white/10 bg-[#0a0b0d]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="max-w-2xl mb-20">
+        <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-3" data-i18n="valSectionLabel">04 / CORE VALUES</span>
+        <h2 class="font-syne font-extrabold text-4xl sm:text-5xl text-brand-white" data-i18n="valTitle">Built on four principles.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border-t border-b border-white/10">
+        
+        <div class="py-12 md:py-16 md:px-8 first:pl-0 space-y-4">
+          <span class="font-mono text-brand-copper text-xs block" data-i18n="val1Label">01 / DISCIPLINE</span>
+          <h3 class="font-syne font-bold text-3xl text-brand-white tracking-wide" data-i18n="val1Title">PRECISION</h3>
+          <p class="text-brand-whiteMuted text-base font-light leading-relaxed" data-i18n="val1Desc">
+            Every detail matters. From micro-tolerances in concrete pours to laser alignment of structural steel.
+          </p>
+        </div>
+
+        <div class="py-12 md:py-16 md:px-8 space-y-4">
+          <span class="font-mono text-brand-copper text-xs block" data-i18n="val2Label">02 / ENDURANCE</span>
+          <h3 class="font-syne font-bold text-3xl text-brand-white tracking-wide" data-i18n="val2Title">QUALITY</h3>
+          <p class="text-brand-whiteMuted text-base font-light leading-relaxed" data-i18n="val2Desc">
+            Built for long-term performance. We select materials engineered to withstand time, climate, and structural load.
+          </p>
+        </div>
+
+        <div class="py-12 md:py-16 md:px-8 space-y-4">
+          <span class="font-mono text-brand-copper text-xs block" data-i18n="val3Label">03 / INTEGRITY</span>
+          <h3 class="font-syne font-bold text-3xl text-brand-white tracking-wide" data-i18n="val3Title">RELIABILITY</h3>
+          <p class="text-brand-whiteMuted text-base font-light leading-relaxed" data-i18n="val3Desc">
+            Clear communication from beginning to completion. Transparent schedules, honest pricing, and zero compromise on safety.
+          </p>
+        </div>
+
+        <div class="py-12 md:py-16 md:px-8 last:pr-0 space-y-4">
+          <span class="font-mono text-brand-copper text-xs block" data-i18n="val4Label">04 / MASTERY</span>
+          <h3 class="font-syne font-bold text-3xl text-brand-white tracking-wide" data-i18n="val4Title">CRAFTSMANSHIP</h3>
+          <p class="text-brand-whiteMuted text-base font-light leading-relaxed" data-i18n="val4Desc">
+            The difference is in the details. Hand-finished formwork, architectural joinery, and immaculate site management.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE PROCESS -->
+  <section id="approach" class="py-28 md:py-40 border-b border-white/10 bg-brand-charcoal">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div class="lg:col-span-6">
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-3" data-i18n="procSectionLabel">05 / METHODOLOGY</span>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-5xl text-brand-white" data-i18n="procTitle">
+            From first line to final detail.
+          </h2>
+        </div>
+        <div class="lg:col-span-6">
+          <p class="text-brand-whiteMuted text-base font-light leading-relaxed border-l border-brand-copper pl-6" data-i18n="procSub">
+            Our architectural process is structured, predictable, and rigorous. Every step is documented to guarantee seamless execution from initial concept through final key handover.
+          </p>
+        </div>
+      </div>
+
+      <div class="relative border-l border-white/15 ml-4 sm:ml-8 pl-8 sm:pl-16 space-y-16 py-4">
+        
+        <div class="relative group">
+          <div class="absolute -left-[41px] sm:-left-[73px] top-1.5 w-4 h-4 bg-brand-charcoal border-2 border-brand-copper rounded-full group-hover:bg-brand-copper transition-colors"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-white/10 pb-10">
+            <div class="md:col-span-4 flex items-center gap-4">
+              <span class="font-mono text-2xl font-bold text-brand-copper">01</span>
+              <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="proc1Name">Consultation</h3>
+            </div>
+            <div class="md:col-span-8 space-y-2">
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proc1Desc">
+                In-depth site feasibility analysis, architectural brief review, structural parameters, and preliminary budget framing.
+              </p>
+              <div class="font-mono text-xs text-brand-grey uppercase tracking-wider pt-2" data-i18n="proc1Deliv">
+                DELIVERABLE: FEASIBILITY REPORT & PRELIMINARY ESTIMATE
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[41px] sm:-left-[73px] top-1.5 w-4 h-4 bg-brand-charcoal border-2 border-brand-copper rounded-full group-hover:bg-brand-copper transition-colors"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-white/10 pb-10">
+            <div class="md:col-span-4 flex items-center gap-4">
+              <span class="font-mono text-2xl font-bold text-brand-copper">02</span>
+              <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="proc2Name">Planning</h3>
+            </div>
+            <div class="md:col-span-8 space-y-2">
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proc2Desc">
+                Engineering calculations, 3D BIM integration, regulatory permitting, material sourcing, and master construction scheduling.
+              </p>
+              <div class="font-mono text-xs text-brand-grey uppercase tracking-wider pt-2" data-i18n="proc2Deliv">
+                DELIVERABLE: EXECUTABLE BIM MODEL & BUILDING PERMITS
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[41px] sm:-left-[73px] top-1.5 w-4 h-4 bg-brand-charcoal border-2 border-brand-copper rounded-full group-hover:bg-brand-copper transition-colors"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-white/10 pb-10">
+            <div class="md:col-span-4 flex items-center gap-4">
+              <span class="font-mono text-2xl font-bold text-brand-copper">03</span>
+              <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="proc3Name">Construction</h3>
+            </div>
+            <div class="md:col-span-8 space-y-2">
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proc3Desc">
+                Earthworks, foundation reinforcement, steel framing, post-tensioned concrete slab installation, and structural core assembly.
+              </p>
+              <div class="font-mono text-xs text-brand-grey uppercase tracking-wider pt-2" data-i18n="proc3Deliv">
+                DELIVERABLE: STRUCTURAL SHELL & CORE HANDOVER
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[41px] sm:-left-[73px] top-1.5 w-4 h-4 bg-brand-charcoal border-2 border-brand-copper rounded-full group-hover:bg-brand-copper transition-colors"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-white/10 pb-10">
+            <div class="md:col-span-4 flex items-center gap-4">
+              <span class="font-mono text-2xl font-bold text-brand-copper">04</span>
+              <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="proc4Name">Finishing</h3>
+            </div>
+            <div class="md:col-span-8 space-y-2">
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proc4Desc">
+                Building envelope sealing, curtain wall installation, mechanical/electrical/plumbing systems, and architectural interior joinery.
+              </p>
+              <div class="font-mono text-xs text-brand-grey uppercase tracking-wider pt-2" data-i18n="proc4Deliv">
+                DELIVERABLE: INTEGRATED BUILDING SYSTEMS & SURFACES
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[41px] sm:-left-[73px] top-1.5 w-4 h-4 bg-brand-charcoal border-2 border-brand-copper rounded-full group-hover:bg-brand-copper transition-colors"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+            <div class="md:col-span-4 flex items-center gap-4">
+              <span class="font-mono text-2xl font-bold text-brand-copper">05</span>
+              <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="proc5Name">Delivery</h3>
+            </div>
+            <div class="md:col-span-8 space-y-2">
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proc5Desc">
+                Rigorous quality auditing, acoustic & thermal testing, regulatory sign-offs, and final client key commissioning.
+              </p>
+              <div class="font-mono text-xs text-brand-grey uppercase tracking-wider pt-2" data-i18n="proc5Deliv">
+                DELIVERABLE: OCCUPANCY CERTIFICATE & 10-YEAR WARRANTY
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARCHITECTURAL DETAIL SECTION -->
+  <section id="details" class="py-28 md:py-40 border-b border-white/10 bg-[#0b0c0e] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="detSectionLabel">06 / CRAFTSMANSHIP</span>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl lg:text-6xl text-brand-white leading-tight" data-i18n="detTitle">
+          Good construction is visible in the details.
+        </h2>
+        <p class="text-brand-whiteMuted text-base font-light" data-i18n="detSub">
+          Close-up material studies from active Atlas Horizon project sites.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/detail-craftsmanship.jpg" alt="Craftsman Formwork Detail" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'WOOD & TIMBER FORMWORK DETAIL')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
+            <span class="text-brand-copper font-bold block" data-i18n="det1Tag">01 / WOOD & FORMWORK</span>
+            <p class="text-brand-whiteMuted" data-i18n="det1Desc">Hand-built Doka formwork for custom concrete beam geometry.</p>
+          </div>
+        </div>
+
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/project-rebar-mesh.jpg" alt="Steel Rebar Foundation Grid" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'STEEL & REBAR MESH DETAIL')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
+            <span class="text-brand-copper font-bold block" data-i18n="det2Tag">02 / STEEL & REBAR</span>
+            <p class="text-brand-whiteMuted" data-i18n="det2Desc">High-density seismic rebar matting prior to foundation pour.</p>
+          </div>
+        </div>
+
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/detail-precision.jpg" alt="Precision Spirit Leveling" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'PRECISION ALIGNMENT DETAIL')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
+            <span class="text-brand-copper font-bold block" data-i18n="det3Tag">03 / CONCRETE & ALIGNMENT</span>
+            <p class="text-brand-whiteMuted" data-i18n="det3Desc">Sub-millimeter laser verification on trench foundation walls.</p>
+          </div>
+        </div>
+
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden lg:col-span-3">
+          <div class="aspect-[21/9] md:aspect-[16/9] overflow-hidden">
+            <img src="assets/images/project-structural-dome.jpg" alt="Structural Rebar Dome" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'CIRCULAR STRUCTURAL DOME REBAR')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
+            <span class="text-brand-copper font-bold block" data-i18n="det4Tag">04 / ARCHITECTURAL DOME GEOMETRY</span>
+            <p class="text-brand-whiteMuted" data-i18n="det4Desc">Heavy infrastructure circular reinforcement cage for heavy load bearing.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT ATLAS HORIZON SECTION -->
+  <section id="about" class="py-28 md:py-40 border-b border-white/10 bg-brand-charcoal">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-8">
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="aboutSectionLabel">07 / ABOUT US</span>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-5xl text-brand-white leading-tight" data-i18n="aboutTitle">
+            A team focused on building things the right way.
+          </h2>
+          <div class="space-y-6 text-brand-whiteMuted font-light text-base sm:text-lg leading-relaxed">
+            <p data-i18n="aboutPara1">
+              Atlas Horizon was established with a singular vision: to bring architectural clarity, engineering integrity, and uncompromising craftsman standards across Portugal, Belgium, and international markets.
+            </p>
+            <p data-i18n="aboutPara2">
+              We operate not merely as contractors, but as technical partners to architects, developers, and private visionaries. Our team combines veteran site engineers, BIM specialists, and master craftsmen who share an obsession for structural perfection.
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 font-mono text-xs">
+            <div>
+              <span class="font-syne font-bold text-3xl text-brand-copper block">15+</span>
+              <span class="text-brand-whiteMuted text-[11px] uppercase tracking-wider" data-i18n="aboutYears">Years of Experience</span>
+            </div>
+            <div>
+              <span class="font-syne font-bold text-3xl text-brand-copper block">80+</span>
+              <span class="text-brand-whiteMuted text-[11px] uppercase tracking-wider" data-i18n="aboutProjects">Completed Projects</span>
+            </div>
+            <div>
+              <span class="font-syne font-bold text-3xl text-brand-copper block">12</span>
+              <span class="text-brand-whiteMuted text-[11px] uppercase tracking-wider" data-i18n="aboutDisciplines">Professional Disciplines</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="relative border border-white/10 overflow-hidden bg-brand-surface">
+            <img src="assets/images/project-foundation.jpg" alt="Atlas Horizon Engineering Team Site" class="w-full aspect-[4/3] object-cover filter contrast-[1.05]">
+            <div class="p-6 bg-brand-surface border-t border-white/10 font-mono text-xs flex justify-between items-center text-brand-whiteMuted">
+              <span>SITE ENGINEER SUPERVISION — CIRCULAR RING POUR</span>
+              <span class="text-brand-copper font-bold">PORTUGAL / BELGIUM OPERATIONS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION (UPDATED WITH OFFICIAL CONTACT DETAILS) -->
+  <section id="contact" class="py-28 md:py-40 bg-[#090a0c] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <div class="lg:col-span-5 space-y-8">
+          <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="contactSectionLabel">08 / CONTACT</span>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-6xl text-brand-white leading-tight" data-i18n="contactTitle">
+            Have a project in mind?
+          </h2>
+          <p class="text-brand-whiteMuted text-lg font-light leading-relaxed" data-i18n="contactSub">
+            Tell us what you're planning. We'll take it from there.
+          </p>
+
+          <div class="space-y-6 pt-6 border-t border-white/10 font-mono text-xs text-brand-whiteMuted">
+            <!-- Offices & Locations -->
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-brand-copper shrink-0 mt-1">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block text-brand-white font-bold uppercase tracking-wider mb-1" data-i18n="contactHeadquarters">OPERATIONS & OFFICES</span>
+                <span data-i18n="contactLocationText">Portugal & Belgium Operations</span>
+              </div>
+            </div>
+
+            <!-- Direct Email -->
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-brand-copper shrink-0 mt-1">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block text-brand-white font-bold uppercase tracking-wider mb-1" data-i18n="contactEmailLabel">DIRECT EMAIL</span>
+                <a href="mailto:contacto@mbplimpeza.pt" class="text-brand-copper hover:underline text-sm font-bold">contacto@mbplimpeza.pt</a>
+              </div>
+            </div>
+
+            <!-- Telephone Numbers -->
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-brand-copper shrink-0 mt-1">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <div class="space-y-1">
+                <span class="block text-brand-white font-bold uppercase tracking-wider mb-1" data-i18n="contactPhoneLabel">TELEPHONE NUMBERS</span>
+                <p><a href="tel:+351926930272" class="hover:text-white transition-colors text-sm font-bold text-brand-white">+351 926 930 272</a></p>
+                <p><a href="tel:+351937131260" class="hover:text-white transition-colors text-sm font-bold text-brand-white">+351 937 131 260</a></p>
+              </div>
+            </div>
+
+            <!-- Official Instagram -->
+            <div class="flex items-start gap-4 pt-2">
+              <div class="w-8 h-8 rounded border border-white/10 flex items-center justify-center text-brand-copper shrink-0 mt-1">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block text-brand-white font-bold uppercase tracking-wider mb-1">INSTAGRAM</span>
+                <a href="https://www.instagram.com/atlas_horizonconstruction?stkn=MXFrNWxsY3V0a21pbQ==" target="_blank" rel="noopener noreferrer" class="text-brand-copper hover:underline font-bold">@atlas_horizonconstruction ↗</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7 bg-brand-surface border border-white/10 p-8 sm:p-12 relative">
+          <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="contact-name" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactNameLabel">Your Name *</label>
+                <input type="text" id="contact-name" required placeholder="Name" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+              </div>
+
+              <div class="space-y-2">
+                <label for="contact-email" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactEmailInputLabel">Email Address *</label>
+                <input type="email" id="contact-email" required placeholder="contacto@mbplimpeza.pt" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label for="contact-phone" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactPhoneInputLabel">Phone Number</label>
+                <input type="tel" id="contact-phone" placeholder="+351 926 930 272" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+              </div>
+
+              <div class="space-y-2">
+                <label for="contact-type" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactTypeLabel">Project Type *</label>
+                <select id="contact-type" required class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white text-sm focus:outline-none transition-colors">
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="Residential Construction">Residential Construction</option>
+                  <option value="Commercial Complex">Commercial Building</option>
+                  <option value="Structural & Engineering">Structural Works & Engineering</option>
+                  <option value="Renovation & Heritage">Renovation & Heritage</option>
+                  <option value="Project Management">Project Management & BIM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="contact-location" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactLocationLabel">Project Location (Portugal, Belgium...)</label>
+              <input type="text" id="contact-location" placeholder="e.g. Lisbon, Porto, Brussels..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors">
+            </div>
+
+            <div class="space-y-2">
+              <label for="contact-message" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted" data-i18n="contactMessageLabel">Project Summary / Message *</label>
+              <textarea id="contact-message" rows="5" required placeholder="Describe your site parameters, timeline, and architectural objectives..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper px-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none transition-colors resize-none"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-copper text-white font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-brand-copperHover flex items-center justify-center gap-3 shadow-[0_4px_25px_rgba(200,90,50,0.3)] group">
+                <span data-i18n="contactSubmitBtn">Start a Conversation</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </button>
+            </div>
+
+          </form>
+
+          <div id="contact-success" class="hidden absolute inset-0 bg-brand-surface p-12 flex flex-col justify-center items-center text-center space-y-4">
+            <div class="w-16 h-16 rounded-full bg-brand-copperLight border border-brand-copper flex items-center justify-center text-brand-copper">
+              <i data-lucide="check" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-syne font-bold text-2xl text-brand-white" data-i18n="contactSuccessTitle">Message Received</h3>
+            <p class="text-brand-whiteMuted text-sm max-w-md" data-i18n="contactSuccessDesc">
+              Thank you for reaching out. An Atlas Horizon principal engineer will review your project parameters and contact you within 24 hours.
+            </p>
+            <button onclick="resetContactForm()" class="mt-4 px-6 py-2 border border-white/20 font-mono text-xs uppercase text-brand-white hover:bg-white/10" data-i18n="contactAnotherBtn">Send Another Request</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-brand-charcoal pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <a href="#">
+            <img src="assets/logo.svg" alt="Atlas Horizon Logo" class="h-14 md:h-16">
+          </a>
+          <p class="text-brand-whiteMuted font-light text-sm max-w-sm leading-relaxed" data-i18n="footerDesc">
+            Construction, architecture and spaces built with purpose. Delivering uncompromised engineering and structural mastery across Portugal and Belgium.
+          </p>
+          <div class="font-mono text-xs text-brand-grey space-y-1">
+            <p>TECHNICAL LICENCE: IMPIC-PT-2026/8891</p>
+            <p>DIRECT EMAIL: contacto@mbplimpeza.pt</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-4">
+          <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block mb-2">NAVIGATION</span>
+          <ul class="space-y-3 font-mono text-xs text-brand-whiteMuted">
+            <li><a href="#projects" class="hover:text-brand-white transition-colors" data-i18n="navProjects">Projects Archive</a></li>
+            <li><a href="#services" class="hover:text-brand-white transition-colors" data-i18n="navServices">Services & Capabilities</a></li>
+            <li><a href="#about" class="hover:text-brand-white transition-colors" data-i18n="navAbout">About Atlas Horizon</a></li>
+            <li><a href="#approach" class="hover:text-brand-white transition-colors" data-i18n="navApproach">Execution Approach</a></li>
+            <li><a href="#details" class="hover:text-brand-white transition-colors">Craftsmanship Gallery</a></li>
+            <li><a href="#contact" class="hover:text-brand-white transition-colors" data-i18n="navContact">Start a Project</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4 space-y-4">
+          <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block mb-2" data-i18n="footerHoursTitle">OFFICE HOURS & INQUIRIES</span>
+          <div class="font-mono text-xs text-brand-whiteMuted space-y-2">
+            <p><strong class="text-brand-white">Portugal & Belgium Operations:</strong> 08:30 – 18:30 WET</p>
+            <p><strong class="text-brand-white">Direct Email:</strong> contacto@mbplimpeza.pt</p>
+            <p><strong class="text-brand-white">Phone 1:</strong> +351 926 930 272</p>
+            <p><strong class="text-brand-white">Phone 2:</strong> +351 937 131 260</p>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-4 flex items-center gap-4 text-brand-whiteMuted font-mono text-xs">
+            <a href="https://www.instagram.com/atlas_horizonconstruction?stkn=MXFrNWxsY3V0a21pbQ==" target="_blank" rel="noopener noreferrer" class="text-brand-copper hover:underline flex items-center gap-1">
+              <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+              Instagram ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-brand-grey">
+        <p data-i18n="footerCopyright">© 2026 Atlas Horizon. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-brand-whiteMuted">Privacy Policy</a>
+          <a href="#" class="hover:text-brand-whiteMuted">Terms of Engagement</a>
+          <a href="#" class="hover:text-brand-whiteMuted">Safety Charter</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- REQUEST A QUOTE MODAL -->
+  <div id="quote-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-brand-surface border border-white/15 max-w-2xl w-full p-8 sm:p-10 relative max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeQuoteModal()" class="absolute top-6 right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-8 border-b border-white/10 pb-6">
+        <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block mb-2" data-i18n="quoteModalLabel">ARCHITECTURAL INQUIRY</span>
+        <h3 class="font-syne font-bold text-3xl text-brand-white" data-i18n="quoteModalTitle">Request a Project Quote</h3>
+        <p class="text-brand-whiteMuted text-sm font-light mt-1" data-i18n="quoteModalSub">Specify your project parameters for a rapid technical evaluation.</p>
+      </div>
+
+      <form id="quote-modal-form" onsubmit="handleQuoteSubmit(event)" class="space-y-6">
+        
+        <div class="space-y-2">
+          <label class="block font-mono text-xs uppercase text-brand-whiteMuted">1. Primary Service Required</label>
+          <select id="modal-service" required class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+            <option value="Construction">01 / Construction (Ground-up)</option>
+            <option value="Renovation">02 / Renovation & Restoration</option>
+            <option value="Structural Works">03 / Structural Works & Foundations</option>
+            <option value="Commercial Projects">04 / Commercial Projects</option>
+            <option value="Residential Projects">05 / Residential Projects</option>
+            <option value="Project Management">06 / Project Management & BIM</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Estimated Area (m²)</label>
+            <input type="number" id="modal-area" placeholder="e.g. 850" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+          <div class="space-y-2">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Target Completion Year</label>
+            <select id="modal-year" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+              <option value="2026">2026 (Immediate)</option>
+              <option value="2027">2027</option>
+              <option value="2028+">2028+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Full Name *</label>
+            <input type="text" id="modal-name" required placeholder="Name" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+          <div class="space-y-2">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Email Address *</label>
+            <input type="email" id="modal-email" required placeholder="contacto@mbplimpeza.pt" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="space-y-2 sm:col-span-1">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Phone Number *</label>
+            <input type="tel" id="modal-phone" required placeholder="+351 926 930 272" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+          <div class="space-y-2 sm:col-span-1">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Desired Date</label>
+            <input type="date" id="modal-date" value="2026-10-15" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+          <div class="space-y-2 sm:col-span-1">
+            <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Desired Time</label>
+            <input type="time" id="modal-time" value="10:00" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none">
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block font-mono text-xs uppercase text-brand-whiteMuted">Brief Project Notes</label>
+          <textarea id="modal-notes" rows="3" placeholder="Additional details, site parameters in Portugal or Belgium..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-brand-copper text-white font-mono text-xs uppercase tracking-widest hover:bg-brand-copperHover transition-colors flex items-center justify-center gap-2">
+          <span data-i18n="quoteModalSubmit">Submit Quote Request</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+      </form>
+
+      <div id="quote-modal-success" class="hidden text-center py-12 space-y-4">
+        <i data-lucide="check-circle" class="w-16 h-16 text-brand-copper mx-auto"></i>
+        <h4 class="font-syne font-bold text-2xl text-white">Quote Request Registered</h4>
+        <p class="text-brand-whiteMuted text-sm">We have received your specifications. Our estimation team will prepare a cost parameter document for you.</p>
+        <button onclick="closeQuoteModal()" class="px-6 py-2 border border-white/20 font-mono text-xs text-white uppercase">Close Window</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR FULL RESOLUTION IMAGE INSPECTION -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300" onclick="closeLightbox()">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 p-3 text-white/80 hover:text-white bg-black/40 rounded-full border border-white/10 z-10">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="max-w-5xl w-full space-y-4" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Enlarged Project Photo" class="w-full max-h-[80vh] object-contain border border-white/10">
+      <p id="lightbox-caption" class="font-mono text-xs text-brand-copper uppercase tracking-wider text-center"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/reservation-store.js"></script>
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

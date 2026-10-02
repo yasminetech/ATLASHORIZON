@@ -1,0 +1,588 @@
+// Multi-language Translation Dictionary for Atlas Horizon (EN, FR, PT)
+
+const translations = {
+  en: {
+    // Navigation
+    navProjects: "Projects",
+    navServices: "Services",
+    navAbout: "About",
+    navApproach: "Approach",
+    navContact: "Contact",
+    navQuoteBtn: "Request a Quote",
+    
+    // Ticker
+    tickerText: "ATLAS HORIZON — GENERAL CONTRACTING & ARCHITECTURAL ENGINEERING",
+    tickerCert: "ISO 9001 & ISO 45001 CERTIFIED",
+    tickerCities: "PORTUGAL — BELGIUM — EUROPE",
+    
+    // Hero
+    heroEyebrow: "CONSTRUCTION & ARCHITECTURE",
+    heroTitleLine1: "Building tomorrow.",
+    heroTitleLine2: "With precision today.",
+    heroParagraph: "Atlas Horizon delivers construction projects where technical expertise, quality and attention to detail come together.",
+    heroBtnProjects: "Our Projects",
+    heroBtnContact: "Contact Us",
+    
+    heroFounding: "2011 — INTERNATIONAL",
+    heroDiscipline: "HEAVY STRUCTURES",
+    heroGeo: "PORTUGAL & BELGIUM",
+    heroMethod: "BIM + ZERO-DEFECT",
+
+    // Introduction
+    introSectionLabel: "01 / PHILOSOPHY",
+    introStatementLine1: "WE BUILD MORE THAN STRUCTURES.",
+    introStatementLine2: "WE BUILD PLACES WITH PURPOSE.",
+    introPara1: "At Atlas Horizon, every foundation we lay and every beam we hoist is driven by a commitment to longevity and engineering perfection. We believe true architecture lives at the intersection of raw structural resilience and refined human experience.",
+    introPara2: "From complex civil infrastructure to landmark commercial towers and private residential estates, our multidisciplinary team handles every phase with uncompromised rigour and transparency across Portugal and Belgium.",
+    introValue1Title: "01. ACCURACY",
+    introValue1Desc: "Precision tolerances down to millimeter specs in concrete & steel.",
+    introValue2Title: "02. DURABILITY",
+    introValue2Desc: "Engineered for century-long structural performance.",
+    introCaptionLocation: "LOCATION",
+    introCaptionLocValue: "LISBON PORTUGAL SITE B",
+    introCaptionType: "STRUCTURAL TYPE",
+    introCaptionTypeValue: "DEEP REINFORCED SLAB",
+    introCaptionInspection: "INSPECTION",
+    introCaptionInspValue: "PASSED 100% SPEC",
+    introFigCaption: "[FIG 01.1] REAL SITE VERIFICATION — LISBON PROJECT",
+
+    // Selected Projects
+    projSectionLabel: "02 / PORTFOLIO",
+    projTitle: "Selected Projects",
+    projSub: "An editorial showcase of signature developments engineered and executed by Atlas Horizon across Portugal and Belgium.",
+    filterAll: "All Projects",
+    filterRes: "Residential",
+    filterCom: "Commercial",
+    filterStr: "Structural & Civil",
+    
+    proj1Tag: "VIEW FULL ARCHIVE",
+    proj1Title: "01 / VILLA HORIZON",
+    proj1Cat: "Residential Construction",
+    proj1Loc: "Cascais Coast, Lisbon, Portugal",
+    proj1Date: "COMPLETED 2025",
+    proj1Footprint: "1,250 M² FOOTPRINT",
+
+    proj2Section: "02 / COMMERCIAL & TOWER",
+    proj2Title: "ATLAS TOWER & COMMERCIAL COMPLEX",
+    proj2Desc: "A 16-storey mixed-use corporate tower featuring post-tensioned floor plates, custom glass curtain wall facades, and deep basement foundation engineering.",
+    proj2LocVal: "Brussels International Hub, Belgium",
+    proj2ScopeVal: "Turnkey Structural & Fit-out",
+    proj2CertVal: "LEED Gold Target",
+    proj2Btn: "Explore Project Details",
+
+    proj3Section: "03 / CIVIL & INFRASTRUCTURE",
+    proj3Title: "THE HORIZON FOUNDATION & INFRASTRUCTURE",
+    proj3Desc: "Circular reinforced concrete foundation with high-density rebar matrix, engineered to ensure structural stability and load endurance.",
+    proj3Fig: "FIG 03.A — REINFORCED CONCRETE DOME VAULTING",
+    proj3SteelVal: "1,800 TONNES",
+    proj3SteelSub: "High-yield structural steel",
+    proj3Zone: "LISBON INDUSTRIAL HUB ↗",
+
+    proj4Section: "04 / RENOVATION & HERITAGE",
+    proj4Title: "MAISON DU SOLEIL",
+    proj4Desc: "Complete structural rehabilitation of an architectural estate in Porto. Preserving historical masonry walls while embedding modern steel cantilevers and invisible geothermal HVAC systems.",
+
+    // Services
+    servSectionLabel: "03 / CAPABILITIES",
+    servTitle: "What we do",
+    servSub: "Hover over any discipline to inspect our operational scope and visual reference.",
+    
+    serv1Name: "Construction",
+    serv1Desc: "Turnkey general contracting for ground-up commercial buildings, luxury residential compounds, and institutional facilities.",
+    
+    serv2Name: "Renovation",
+    serv2Desc: "Comprehensive structural restoration, modern facade upgrades, interior adaptive reuse, and high-spec architectural additions.",
+    
+    serv3Name: "Structural Works",
+    serv3Desc: "Deep foundation pilings, post-tensioned slabs, heavy rebar reinforcement matrices, and structural steel framing.",
+    
+    serv4Name: "Commercial Projects",
+    serv4Desc: "High-capacity retail centers, corporate headquarters, logistics centers, and hospitality developments engineered for yield.",
+    
+    serv5Name: "Residential Projects",
+    serv5Desc: "Custom architectural estates, ultra-luxury private villas, and multi-family residential towers built to bespoke standards.",
+    
+    serv6Name: "Project Management",
+    serv6Desc: "Full 4D BIM site coordination, safety compliance audits, budget control, and sub-contractor supervision.",
+
+    // Values
+    valSectionLabel: "04 / CORE VALUES",
+    valTitle: "Built on four principles.",
+    val1Label: "01 / DISCIPLINE",
+    val1Title: "PRECISION",
+    val1Desc: "Every detail matters. From micro-tolerances in concrete pours to laser alignment of structural steel.",
+    val2Label: "02 / ENDURANCE",
+    val2Title: "QUALITY",
+    val2Desc: "Built for long-term performance. We select materials engineered to withstand time, climate, and structural load.",
+    val3Label: "03 / INTEGRITY",
+    val3Title: "RELIABILITY",
+    val3Desc: "Clear communication from beginning to completion. Transparent schedules, honest pricing, and zero compromise on safety.",
+    val4Label: "04 / MASTERY",
+    val4Title: "CRAFTSMANSHIP",
+    val4Desc: "The difference is in the details. Hand-finished formwork, architectural joinery, and immaculate site management.",
+
+    // Process
+    procSectionLabel: "05 / METHODOLOGY",
+    procTitle: "From first line to final detail.",
+    procSub: "Our architectural process is structured, predictable, and rigorous. Every step is documented to guarantee seamless execution from initial concept through final key handover.",
+    proc1Name: "Consultation",
+    proc1Desc: "In-depth site feasibility analysis, architectural brief review, structural parameters, and preliminary budget framing.",
+    proc1Deliv: "DELIVERABLE: FEASIBILITY REPORT & PRELIMINARY ESTIMATE",
+    proc2Name: "Planning",
+    proc2Desc: "Engineering calculations, 3D BIM integration, regulatory permitting, material sourcing, and master construction scheduling.",
+    proc2Deliv: "DELIVERABLE: EXECUTABLE BIM MODEL & BUILDING PERMITS",
+    proc3Name: "Construction",
+    proc3Desc: "Earthworks, foundation reinforcement, steel framing, post-tensioned concrete slab installation, and structural core assembly.",
+    proc3Deliv: "DELIVERABLE: STRUCTURAL SHELL & CORE HANDOVER",
+    proc4Name: "Finishing",
+    proc4Desc: "Building envelope sealing, curtain wall installation, mechanical/electrical/plumbing systems, and architectural interior joinery.",
+    proc4Deliv: "DELIVERABLE: INTEGRATED BUILDING SYSTEMS & SURFACES",
+    proc5Name: "Delivery",
+    proc5Desc: "Rigorous quality auditing, acoustic & thermal testing, regulatory sign-offs, and final client key commissioning.",
+    proc5Deliv: "DELIVERABLE: OCCUPANCY CERTIFICATE & 10-YEAR WARRANTY",
+
+    // Craftsmanship
+    detSectionLabel: "06 / CRAFTSMANSHIP",
+    detTitle: "Good construction is visible in the details.",
+    detSub: "Close-up material studies from active Atlas Horizon project sites.",
+    det1Tag: "01 / WOOD & FORMWORK",
+    det1Desc: "Hand-built Doka formwork for custom concrete beam geometry.",
+    det2Tag: "02 / STEEL & REBAR",
+    det2Desc: "High-density seismic rebar matting prior to foundation pour.",
+    det3Tag: "03 / CONCRETE & ALIGNMENT",
+    det3Desc: "Sub-millimeter laser verification on trench foundation walls.",
+    det4Tag: "04 / ARCHITECTURAL DOME GEOMETRY",
+    det4Desc: "Heavy infrastructure circular reinforcement cage for heavy load bearing.",
+    det5Tag: "05 / GLASS & STEEL FACADES",
+    det5Desc: "Thermally broken double-glazed architectural envelope.",
+
+    // About
+    aboutSectionLabel: "07 / ABOUT US",
+    aboutTitle: "A team focused on building things the right way.",
+    aboutPara1: "Atlas Horizon was established with a singular vision: to bring architectural clarity, engineering integrity, and uncompromising craftsman standards across Portugal and Belgium.",
+    aboutPara2: "We operate not merely as contractors, but as technical partners to architects, developers, and private visionaries. Our team combines veteran site engineers, BIM specialists, and master craftsmen who share an obsession for structural perfection.",
+    aboutYears: "Years of Experience",
+    aboutProjects: "Completed Projects",
+    aboutDisciplines: "Professional Disciplines",
+
+    // Contact
+    contactSectionLabel: "08 / CONTACT",
+    contactTitle: "Have a project in mind?",
+    contactSub: "Tell us what you're planning. We'll take it from there.",
+    contactHeadquarters: "OPERATIONS & OFFICES",
+    contactLocationText: "Portugal & Belgium Operations",
+    contactEmailLabel: "DIRECT EMAIL",
+    contactPhoneLabel: "TELEPHONE NUMBERS",
+    contactNameLabel: "Your Name *",
+    contactEmailInputLabel: "Email Address *",
+    contactPhoneInputLabel: "Phone Number",
+    contactTypeLabel: "Project Type *",
+    contactLocationLabel: "Project Location (Portugal, Belgium...)",
+    contactMessageLabel: "Project Summary / Message *",
+    contactSubmitBtn: "Start a Conversation",
+    contactSuccessTitle: "Message Received",
+    contactSuccessDesc: "Thank you for reaching out. An Atlas Horizon principal engineer will review your project parameters and contact you within 24 hours.",
+    contactAnotherBtn: "Send Another Request",
+
+    // Quote Modal
+    quoteModalLabel: "ARCHITECTURAL INQUIRY",
+    quoteModalTitle: "Request a Project Quote",
+    quoteModalSub: "Specify your project parameters for a rapid technical evaluation.",
+    quoteModalSubmit: "Submit Quote Request",
+
+    // Footer
+    footerDesc: "Construction, architecture and spaces built with purpose. Delivering uncompromised engineering and structural mastery across Portugal and Belgium.",
+    footerHoursTitle: "OFFICE HOURS & INQUIRIES",
+    footerCopyright: "© 2026 Atlas Horizon. All rights reserved."
+  },
+
+  fr: {
+    // Navigation
+    navProjects: "Projets",
+    navServices: "Services",
+    navAbout: "À Propos",
+    navApproach: "Approche",
+    navContact: "Contact",
+    navQuoteBtn: "Demander un Devis",
+    
+    // Ticker
+    tickerText: "ATLAS HORIZON — ENTREPRISE GÉNÉRALE DE BÂTIMENT & INGÉNIERIE ARCHITECTURALE",
+    tickerCert: "CERTIFIÉ ISO 9001 & ISO 45001",
+    tickerCities: "PORTUGAL — BELGIQUE — EUROPE",
+    
+    // Hero
+    heroEyebrow: "CONSTRUCTION & ARCHITECTURE",
+    heroTitleLine1: "Bâtir demain.",
+    heroTitleLine2: "Avec précision aujourd'hui.",
+    heroParagraph: "Atlas Horizon réalise des projets de construction où expertise technique, qualité et souci du détail s'allient.",
+    heroBtnProjects: "Nos Projets",
+    heroBtnContact: "Nous Contacter",
+    
+    heroFounding: "2011 — INTERNATIONAL",
+    heroDiscipline: "STRUCTURES LOURDES",
+    heroGeo: "PORTUGAL & BELGIQUE",
+    heroMethod: "BIM + ZÉRO DÉFAUT",
+
+    // Introduction
+    introSectionLabel: "01 / PHILOSOPHIE",
+    introStatementLine1: "NOUS BÂTISSONS PLUS QUE DES STRUCTURES.",
+    introStatementLine2: "NOUS CRÉONS DES LIEUX AVEC UNE INTENTION.",
+    introPara1: "Chez Atlas Horizon, chaque fondation coulée et chaque poutre levée sont guidées par un engagement d'excellence et de durabilité. Nous croyons que la véritable architecture réside à l'intersection de la résilience structurelle et du confort humain.",
+    introPara2: "Des infrastructures civiles complexes aux tours commerciales emblématiques et résidences privées, notre équipe multidisciplinaire gère chaque phase avec une rigueur absolue au Portugal et en Belgique.",
+    introValue1Title: "01. PRÉCISION",
+    introValue1Desc: "Tolérances millimétriques dans les ouvrages en béton et structures métalliques.",
+    introValue2Title: "02. DURABILITÉ",
+    introValue2Desc: "Conçu pour une performance structurelle centenaire.",
+    introCaptionLocation: "LOCALISATION",
+    introCaptionLocValue: "PROJET LISBONNE PORTUGAL",
+    introCaptionType: "TYPE STRUCTUREL",
+    introCaptionTypeValue: "DALLE ARMÉE PROFONDE",
+    introCaptionInspection: "INSPECTION",
+    introCaptionInspValue: "VALIDÉ 100% CONFORME",
+    introFigCaption: "[FIG 01.1] VÉRIFICATION DU CHANTIER — SITE LISBONNE",
+
+    // Selected Projects
+    projSectionLabel: "02 / PORTFOLIO",
+    projTitle: "Projets Sélectionnés",
+    projSub: "Une sélection éditoriale de réalisations majeures conçues et exécutées par Atlas Horizon au Portugal et en Belgique.",
+    filterAll: "Tous les Projets",
+    filterRes: "Résidentiel",
+    filterCom: "Commercial",
+    filterStr: "Structure & Génie Civil",
+    
+    proj1Tag: "VOIR L'ARCHIVE COMPLÈTE",
+    proj1Title: "01 / VILLA HORIZON",
+    proj1Cat: "Construction Résidentielle",
+    proj1Loc: "Côte de Cascais, Lisbonne, Portugal",
+    proj1Date: "LIVRÉ EN 2025",
+    proj1Footprint: "EMPRISE 1 250 M²",
+
+    proj2Section: "02 / COMMERCIAL & TOUR",
+    proj2Title: "TOUR ATLAS & COMPLEXE COMMERCIAL",
+    proj2Desc: "Une tour d'affaires mixte de 16 étages dotée de dalles à précontrainte, d'une façade mur-rideau sur mesure et de fondations profondes.",
+    proj2LocVal: "Bruxelles, Belgique",
+    proj2ScopeVal: "Structure Clés en Main & Aménagement",
+    proj2CertVal: "Cible LEED Or",
+    proj2Btn: "Découvrir le Projet",
+
+    proj3Section: "03 / GÉNIE CIVIL & INFRASTRUCTURE",
+    proj3Title: "FONDATION HORIZON & INFRASTRUCTURE",
+    proj3Desc: "Fondation circulaire en béton armé avec ferraillage haute densité, conçue pour assurer la stabilité et la résistance de l’ouvrage.",
+    proj3Fig: "FIG 03.A — VOÛTE STRUCTURELLE EN BÉTON ARMÉ",
+    proj3SteelVal: "1 800 TONNES",
+    proj3SteelSub: "Acier structurel haute limite d'élasticité",
+    proj3Zone: "POLE INDUSTRIEL LISBONNE ↗",
+
+    proj4Section: "04 / RÉNOVATION & PATRIMOINE",
+    proj4Title: "MAISON DU SOLEIL",
+    proj4Desc: "Réhabilitation structurelle complète d'un domaine architectural à Porto. Préservation de la maçonnerie historique couplée à des consoles métalliques contemporaines.",
+
+    // Services
+    servSectionLabel: "03 / COMPÉTENCES",
+    servTitle: "Ce que nous faisons",
+    servSub: "Survolez une discipline pour inspecter notre périmètre d'intervention et nos références.",
+    
+    serv1Name: "Construction",
+    serv1Desc: "Entreprise générale clés en main pour bâtiments commerciaux, complexes résidentiels et ouvrages institutionnels.",
+    
+    serv2Name: "Rénovation",
+    serv2Desc: "Restauration structurelle complète, modernisation de façades, réhabilitation intérieure et extensions haut de gamme.",
+    
+    serv3Name: "Ouvrages Structurels",
+    serv3Desc: "Pieux de fondation profonde, dalles précontraintes, armatures béton armé et charpentes métalliques.",
+    
+    serv4Name: "Projets Commerciaux",
+    serv4Desc: "Centres d'affaires, sièges sociaux, bâtiments logistiques et espaces commerciaux conçus pour la rentabilité.",
+    
+    serv5Name: "Projets Résidentiels",
+    serv5Desc: "Villas d'architecte d'exception, résidences de grand standing et propriétés privées sur mesure.",
+    
+    serv6Name: "Gestion de Projet",
+    serv6Desc: "Coordination BIM 4D sur chantier, audits de sécurité, maîtrise des coûts et supervision du second œuvre.",
+
+    // Values
+    valSectionLabel: "04 / VALEURS CLÉS",
+    valTitle: "Bâti sur quatre principes.",
+    val1Label: "01 / DISCIPLINE",
+    val1Title: "PRÉCISION",
+    val1Desc: "Chaque détail compte. Des tolérances de coulage du béton jusqu'à l'alignement laser des structures d'acier.",
+    val2Label: "02 / ENDURANCE",
+    val2Title: "QUALITÉ",
+    val2Desc: "Conçu pour durer. Nous sélectionnons des matériaux éprouvés pour résister au temps, au climat et aux charges.",
+    val3Label: "03 / INTÉGRITÉ",
+    val3Title: "FIABILITÉ",
+    val3Desc: "Une communication transparente de la conception à la livraison. Plannings respectés et exigence zéro compromis.",
+    val4Label: "04 / MAÎTRISE",
+    val4Title: "SAVOIR-FAIRE",
+    val4Desc: "La différence se voit dans les détails. Coffrages soignés, finitions architecturales et conduite de chantier exemplaire.",
+
+    // Process
+    procSectionLabel: "05 / MÉTHODOLOGIE",
+    procTitle: "Du premier trait au dernier détail.",
+    procSub: "Notre processus est structuré, prévisible et rigoureux. Chaque étape est documentée pour garantir une exécution parfaite de la conception à la remise des clés.",
+    proc1Name: "Consultation",
+    proc1Desc: "Étude de faisabilité sur site, analyse du programme architectural, critères structurels et cadrage budgétaire initial.",
+    proc1Deliv: "LIVRABLE : RAPPORT DE FAISABILITÉ & ESTIMATION PRELIMINAIRE",
+    proc2Name: "Planification",
+    proc2Desc: "Notes de calcul de structure, modélisation BIM 3D, procédures d'autorisation et planning directeur.",
+    proc2Deliv: "LIVRABLE : MAQUETTE BIM EXÉCUTABLE & PERMIS DE CONSTRUIRE",
+    proc3Name: "Construction",
+    proc3Desc: "Terrassement, coulage des fondations, montage des armatures et élévation du gros œuvre.",
+    proc3Deliv: "LIVRABLE : LIVRAISON DU CLOS ET COUVERT (GROS ŒUVRE)",
+    proc4Name: "Finition",
+    proc4Desc: "Étanchéité, pose des façades vitrées, réseaux techniques (MEP) et aménagements architecturaux intérieurs.",
+    proc4Deliv: "LIVRABLE : ÉQUIPEMENTS & SURFACES EXTÉRIEURES / INTÉRIEURES",
+    proc5Name: "Livraison",
+    proc5Desc: "Audits de qualité, essais acoustiques et thermiques, réceptions légales et mise en service avec le maître d'ouvrage.",
+    proc5Deliv: "LIVRABLE : CERTIFICAT DE CONFORMITÉ & GARANTIE DÉCENNALE",
+
+    // Craftsmanship
+    detSectionLabel: "06 / SAVOIR-FAIRE",
+    detTitle: "La qualité d'une construction se révèle dans ses détails.",
+    detSub: "Études de matériaux et finitions sur nos chantiers Atlas Horizon.",
+    det1Tag: "01 / BOIS & COFFRAGE",
+    det1Desc: "Coffrage Doka réalisé sur mesure pour géométrie de poutre complexe.",
+    det2Tag: "02 / ACIER & FERRAILLAGE",
+    det2Desc: "Nappe d'armatures parasismiques haute densité avant coulage du radiers.",
+    det3Tag: "03 / BÉTON & ALIGNEMENT",
+    det3Desc: "Vérification laser sub-millimétrique des voiles de fondation.",
+    det4Tag: "04 / GÉOMÉTRIE DE DÔME STRUCTUREL",
+    det4Desc: "CAGE DE RENFORCEMENT CIRCULAIRE POUR FORTE CHARGE.",
+    det5Tag: "05 / VERRE & FAÇADE MÉTALLIQUE",
+    det5Desc: "Enveloppe vitrée à rupture de pont thermique et profilés acier.",
+
+    // About
+    aboutSectionLabel: "07 / À PROPOS",
+    aboutTitle: "Une équipe engagée à bâtir dans les règles de l'art.",
+    aboutPara1: "Atlas Horizon a été créée avec une vision claire : apporter rigueur d'ingénierie, clarté architecturale et excellence d'exécution au Portugal et en Belgique.",
+    aboutPara2: "Nous agissons en partenaires techniques des architectes et maîtres d'ouvrage. Notre équipe réunit des ingénieurs de chantier chevronnés, des experts BIM et des compagnons passionnés.",
+    aboutYears: "Ans d'Expérience",
+    aboutProjects: "Projets Réalisés",
+    aboutDisciplines: "Disciplines Métiers",
+
+    // Contact
+    contactSectionLabel: "08 / CONTACT",
+    contactTitle: "Vous avez un projet en tête ?",
+    contactSub: "Parlez-nous de vos intentions. Nous nous occupons du reste.",
+    contactHeadquarters: "OPÉRATIONS & BUREAUX",
+    contactLocationText: "Présence au Portugal & en Belgique",
+    contactEmailLabel: "EMAIL DIRECT",
+    contactPhoneLabel: "NUMÉROS DE TÉLÉPHONE",
+    contactNameLabel: "Votre Nom *",
+    contactEmailInputLabel: "Adresse Email *",
+    contactPhoneInputLabel: "Téléphone",
+    contactTypeLabel: "Type de Projet *",
+    contactLocationLabel: "Localisation du Projet (Portugal, Belgique...)",
+    contactMessageLabel: "Message / Résumé du Projet *",
+    contactSubmitBtn: "Lancer une Conversation",
+    contactSuccessTitle: "Message Reçu",
+    contactSuccessDesc: "Merci pour votre message. Un ingénieur principal d'Atlas Horizon étudiera vos paramètres et vous recontactera sous 24 heures.",
+    contactAnotherBtn: "Envoyer une Autre Demande",
+
+    // Quote Modal
+    quoteModalLabel: "DEMANDE TECHNIQUE",
+    quoteModalTitle: "Demander un Devis de Projet",
+    quoteModalSub: "Spécifiez vos paramètres pour une évaluation technique rapide.",
+    quoteModalSubmit: "Soumettre la Demande de Devis",
+
+    // Footer
+    footerDesc: "Construction, architecture et espaces conçus avec exigence. Maîtrise de l'ingénierie et des structures au Portugal et en Belgique.",
+    footerHoursTitle: "HORAIRES & CONTACT",
+    footerCopyright: "© 2026 Atlas Horizon. Tous droits réservés."
+  },
+
+  pt: {
+    // Navigation
+    navProjects: "Projetos",
+    navServices: "Serviços",
+    navAbout: "Sobre",
+    navApproach: "Abordagem",
+    navContact: "Contato",
+    navQuoteBtn: "Solicitar Orçamento",
+    
+    // Ticker
+    tickerText: "ATLAS HORIZON — ENGENHARIA DE CONSTRUÇÃO E ARQUITETURA",
+    tickerCert: "CERTIFICADO ISO 9001 E ISO 45001",
+    tickerCities: "PORTUGAL — BÉLGICA — EUROPA",
+    
+    // Hero
+    heroEyebrow: "CONSTRUÇÃO E ARQUITETURA",
+    heroTitleLine1: "Construindo o amanhã.",
+    heroTitleLine2: "Com precisão hoje.",
+    heroParagraph: "A Atlas Horizon entrega projetos de construção onde expertise técnica, qualidade e atenção aos detalhes se encontram.",
+    heroBtnProjects: "Nossos Projetos",
+    heroBtnContact: "Fale Conosco",
+    
+    heroFounding: "2011 — INTERNACIONAL",
+    heroDiscipline: "ESTRUTURAS PESADAS",
+    heroGeo: "PORTUGAL E BÉLGICA",
+    heroMethod: "BIM + ZERO DEFEITOS",
+
+    // Introduction
+    introSectionLabel: "01 / FILOSOFIA",
+    introStatementLine1: "CONSTRUÍMOS MAIS DO QUE ESTRUTURAS.",
+    introStatementLine2: "CONSTRUÍMOS ESPAÇOS COM PROPÓSITO.",
+    introPara1: "Na Atlas Horizon, cada fundação concretada e cada estrutura elevada são guiadas por um compromisso com a longevidade e a perfeição de engenharia. Acreditamos que a verdadeira arquitetura vive na união da resistência estrutural com o conforto humano.",
+    introPara2: "De obras de infraestrutura civil a torres corporativas e residências exclusivas, nossa equipe multidisciplinar conduz cada etapa com absoluto rigor e transparência em Portugal e na Bélgica.",
+    introValue1Title: "01. PRECISÃO",
+    introValue1Desc: "Tolerâncias milimétricas em estruturas de concreto e aço.",
+    introValue2Title: "02. DURABILIDADE",
+    introValue2Desc: "Projetado para desempenho estrutural centenário.",
+    introCaptionLocation: "LOCALIZAÇÃO",
+    introCaptionLocValue: "OBRA LISBOA PORTUGAL",
+    introCaptionType: "TIPO ESTRUTURAL",
+    introCaptionTypeValue: "LAJE ARMADA PROFUNDA",
+    introCaptionInspection: "INSPEÇÃO",
+    introCaptionInspValue: "100% APROVADO NAS ESPECIFICAÇÕES",
+    introFigCaption: "[FIG 01.1] VERIFICAÇÃO EM CANTEIRO — PROJETO LISBOA",
+
+    // Selected Projects
+    projSectionLabel: "02 / PORTFÓLIO",
+    projTitle: "Projetos Selecionados",
+    projSub: "Uma seleção editorial dos principais empreendimentos projetados e executados pela Atlas Horizon em Portugal e na Bélgica.",
+    filterAll: "Todos os Projetos",
+    filterRes: "Residencial",
+    filterCom: "Comercial",
+    filterStr: "Estruturas e Engenharia",
+    
+    proj1Tag: "VER ACERVO COMPLETO",
+    proj1Title: "01 / VILLA HORIZON",
+    proj1Cat: "Construção Residencial",
+    proj1Loc: "Costa de Cascais, Lisboa, Portugal",
+    proj1Date: "CONCLUÍDO EM 2025",
+    proj1Footprint: "1.250 M² DE ÁREA",
+
+    proj2Section: "02 / COMERCIAL E TORRE",
+    proj2Title: "TORRE ATLAS E COMPLEXO COMERCIAL",
+    proj2Desc: "Uma torre corporativa mista de 16 andares com lajes protendidas, fachadas em pele de vidro sob medida e fundações profundas.",
+    proj2LocVal: "Bruxelas, Bélgica",
+    proj2ScopeVal: "Estrutura Turnkey e Acabamentos",
+    proj2CertVal: "Meta LEED Gold",
+    proj2Btn: "Explorar Detalhes do Projeto",
+
+    proj3Section: "03 / ENGENHARIA CIVIL E INFRAESTRUTURA",
+    proj3Title: "FOSSA E INFRAESTRUTURA HORIZON",
+    proj3Desc: "Fundação circular em betão armado com armadura de alta densidade, concebida para garantir a estabilidade e resistência da estrutura.",
+    proj3Fig: "FIG 03.A — ABÓBADA ESTRUTURAL DE CONCRETO ARMADO",
+    proj3SteelVal: "1.800 TONELADAS",
+    proj3SteelSub: "Aço estrutural de alta resistência",
+    proj3Zone: "POLO INDUSTRIAL LISBOA ↗",
+
+    proj4Section: "04 / REFORMA E PATRIMÔNIO",
+    proj4Title: "MAISON DU SOLEIL",
+    proj4Desc: "Reabilitação estrutural completa de uma propriedade arquitetônica no Porto. Preservação de paredes históricas com balanços metálicos modernos.",
+
+    // Services
+    servSectionLabel: "03 / CAPACIDADES",
+    servTitle: "O que fazemos",
+    servSub: "Passe o mouse sobre qualquer disciplina para inspecionar nosso escopo de atuação.",
+    
+    serv1Name: "Construção",
+    serv1Desc: "Gerenciamento geral turnkey para edifícios comerciais, complexos residenciais e obras institucionais.",
+    
+    serv2Name: "Reformas",
+    serv2Desc: "Restauração estrutural completa, modernização de fachadas, readequação interior e extensões de alto padrão.",
+    
+    serv3Name: "Obras Estruturais",
+    serv3Desc: "Estacas de fundação profunda, lajes protendidas, malhas de rebarba de aço e estruturas metálicas.",
+    
+    serv4Name: "Projetos Comerciais",
+    serv4Desc: "Centros de compras, sedes corporativas, galpões logísticos e edifícios comerciais projetados para rentabilidade.",
+    
+    serv5Name: "Projetos Residenciais",
+    serv5Desc: "Residências de luxo sob medida, vilas arquitetônicas exclusivas e torres residenciais multifamiliares.",
+    
+    serv6Name: "Gestão de Projetos",
+    serv6Desc: "Coordenação BIM 4D no canteiro de obras, auditorias de segurança, controle orçamentário e supervisão.",
+
+    // Values
+    valSectionLabel: "04 / VALORES FUNDAMENTAIS",
+    valTitle: "Construído sobre quatro princípios.",
+    val1Label: "01 / DISCIPLINA",
+    val1Title: "PRECISÃO",
+    val1Desc: "Cada detalhe importa. De tolerâncias milimétricas no concreto ao alinhamento a laser da estrutura metálica.",
+    val2Label: "02 / RESISTÊNCIA",
+    val2Title: "QUALIDADE",
+    val2Desc: "Feito para durar. Selecionamos materiais projetados para resistir ao tempo, clima e cargas estruturais.",
+    val3Label: "03 / INTEGRIDADE",
+    val3Title: "CONFIABILIDADE",
+    val3Desc: "Comunicação clara do início à entrega. Prazos transparentes, preços honestos e zero compromisso na segurança.",
+    val4Label: "04 / MESTRIA",
+    val4Title: "CRAFTSMANSHIP",
+    val4Desc: "A diferença está nos detalhes. Fôrmas artesanais, acabamentos arquitetônicos e gestão impecável.",
+
+    // Process
+    procSectionLabel: "05 / METODOLOGIA",
+    procTitle: "Do primeiro traço ao último detalhe.",
+    procSub: "Nosso processo arquitetônico é estruturado, previsível e rigoroso. Cada etapa é documentada para garantir execução perfeita da concepção à entrega das chaves.",
+    proc1Name: "Consultoria",
+    proc1Desc: "Análise de viabilidade do terreno, revisão do programa arquitetônico, parâmetros estruturais e orçamento preliminar.",
+    proc1Deliv: "ENTREGÁVEL: RELATÓRIO DE VIABILIDADE E ESTIMATIVA PRELIMINAR",
+    proc2Name: "Planejamento",
+    proc2Desc: "Cálculos de engenharia, integração BIM 3D, licenciamento e cronograma mestre de construção.",
+    proc2Deliv: "ENTREGÁVEL: MODELO BIM EXECUTÁVEL E ALVARÁ DE CONSTRUÇÃO",
+    proc3Name: "Construção",
+    proc3Desc: "Terraplenagem, concretagem de fundações, estruturas metálicas e montagem do núcleo estrutural.",
+    proc3Deliv: "ENTREGÁVEL: ENTREGA DA ESTRUTURA E FECHAMENTO BRUTO",
+    proc4Name: "Acabamento",
+    proc4Desc: "Vedação da fachada, pele de vidro, instalações elétricas/hidráulicas e marcenaria arquitetônica.",
+    proc4Deliv: "ENTREGÁVEL: SISTEMAS PREDIAIS INTEGRADOS E SUPERFÍCIES",
+    proc5Name: "Entrega",
+    proc5Desc: "Auditoria rigorosa de qualidade, testes acústicos e térmicos, habite-se e entrega oficial de chaves.",
+    proc5Deliv: "ENTREGÁVEL: CERTIFICADO DE OCUPAÇÃO E GARANTIA DE 10 ANOS",
+
+    // Craftsmanship
+    detSectionLabel: "06 / CRAFTSMANSHIP",
+    detTitle: "A boa construção é visível nos detalhes.",
+    detSub: "Estudos de materiais e acabamentos em canteiros de obras ativos da Atlas Horizon.",
+    det1Tag: "01 / MADEIRA E FÔRMAS",
+    det1Desc: "Fôrma Doka artesanal para geometria complexa de vigas de concreto.",
+    det2Tag: "02 / AÇO E ARMAÇÃO",
+    det2Desc: "Malha de aço sísmica de alta densidade antes do concreto de fundação.",
+    det3Tag: "03 / CONCRETO E ALINHAMENTO",
+    det3Desc: "Verificação a laser submilibétrica em paredes de fundação.",
+    det4Tag: "04 / GEOMETRIA DE CÚPULA ESTRUTURAL",
+    det4Desc: "Armação circular para suportar altas cargas de infraestrutura.",
+    det5Tag: "05 / FACHADAS DE VIDRO E AÇO",
+    det5Desc: "Envelope arquitetônico de vidros duplos com corte térmico.",
+
+    // About
+    aboutSectionLabel: "07 / SOBRE NÓS",
+    aboutTitle: "Uma equipe focada em construir do jeito certo.",
+    aboutPara1: "A Atlas Horizon foi fundada com uma visão clara: trazer rigor de engenharia, clareza arquitetônica e padrões de excelência em construção em Portugal e na Bélgica.",
+    aboutPara2: "Atuamos não apenas como construtores, mas como parceiros técnicos de arquitetos, desenvolvedores e clientes exigentes. Nossa equipe reúne engenheiros veteranos e especialistas BIM.",
+    aboutYears: "Anos de Experiência",
+    aboutProjects: "Projetos Concluídos",
+    aboutDisciplines: "Disciplinas Profissionais",
+
+    // Contact
+    contactSectionLabel: "08 / CONTATO",
+    contactTitle: "Tem um projeto em mente?",
+    contactSub: "Conte-nos o que está planejando. Nós cuidamos do resto.",
+    contactHeadquarters: "OPERAÇÕES E ESCRITÓRIOS",
+    contactLocationText: "Operações em Portugal e Bélgica",
+    contactEmailLabel: "E-MAIL DIRETO",
+    contactPhoneLabel: "NÚMEROS DE TELEFONE",
+    contactNameLabel: "Seu Nome *",
+    contactEmailInputLabel: "Endereço de E-mail *",
+    contactPhoneInputLabel: "Telefone",
+    contactTypeLabel: "Tipo de Projeto *",
+    contactLocationLabel: "Localização do Projeto (Portugal, Bélgica...)",
+    contactMessageLabel: "Resumo do Projeto / Mensagem *",
+    contactSubmitBtn: "Iniciar uma Conversa",
+    contactSuccessTitle: "Mensagem Recebida",
+    contactSuccessDesc: "Obrigado pelo contato. Um engenheiro principal da Atlas Horizon analisará seus parâmetros e entrará em contato em até 24 horas.",
+    contactAnotherBtn: "Enviar Outra Solicitação",
+
+    // Quote Modal
+    quoteModalLabel: "SOLICITAÇÃO TÉCNICA",
+    quoteModalTitle: "Solicitar Orçamento de Projeto",
+    quoteModalSub: "Especifique os parâmetros do seu projeto para uma avaliação rápida.",
+    quoteModalSubmit: "Enviar Solicitação de Orçamento",
+
+    // Footer
+    footerDesc: "Construção, arquitetura e espaços construídos com propósito. Excelência em engenharia e estruturas em Portugal e na Bélgica.",
+    footerHoursTitle: "HORÁRIO E CONTATO",
+    footerCopyright: "© 2026 Atlas Horizon. Todos os direitos reservados."
+  }
+};

@@ -1,0 +1,78 @@
+/* Custom CSS for Atlas Horizon */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1012;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2b30;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c85a32;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #c85a32;
+  color: #ffffff;
+}
+
+/* Subtle Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Architectural Grid Lines Overlay */
+.blueprint-grid {
+  background-size: 4rem 4rem;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Service Row Hover Animation */
+.service-row {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-row:hover {
+  border-color: rgba(200, 90, 50, 0.4);
+}
+
+/* Project Filter Active State */
+.project-filter-btn.active-filter {
+  background-color: #c85a32 !important;
+  border-color: #c85a32 !important;
+  color: #ffffff !important;
+}
+
+/* Image Zoom & Reveal */
+.project-item img {
+  will-change: transform;
+}
+
+/* Custom Fade Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile Drawer Overlay Fix */
+#mobile-menu {
+  background-color: #0f1012 !important;
+  z-index: 9999 !important;
+}
