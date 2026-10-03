@@ -90,7 +90,7 @@ def init_db():
     if cursor.fetchone()[0] == 0:
         cursor.execute(
             'INSERT INTO admin_users (username, email, password, created_at) VALUES (?, ?, ?, datetime("now"))',
-            ('Admin Atlas Horizon', 'admin@atlashorizon.com', 'admin123')
+            ('Admin Atlas Horizon', 'contact@atlashorizon.eu', 'admin123')
         )
 
     # Insert initial sample reservations ONLY on very first setup
@@ -203,11 +203,11 @@ class AtlasHTTPRequestHandler(SimpleHTTPRequestHandler):
             user = cursor.fetchone()
             conn.close()
 
-            if user or (username in ['admin@atlashorizon.com', 'admin'] and password == 'admin123'):
+            if user or (username in ['contact@atlashorizon.eu', 'admin@atlashorizon.com', 'admin'] and password == 'admin123'):
                 return self._send_json({
                     'success': True,
                     'username': user[0] if user else 'Admin Atlas Horizon',
-                    'email': user[1] if user else 'admin@atlashorizon.com',
+                    'email': user[1] if user else 'contact@atlashorizon.eu',
                     'token': 'ATLAS_SQLITE_TOKEN_' + str(os.urandom(8).hex())
                 })
             else:

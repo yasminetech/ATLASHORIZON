@@ -69,7 +69,7 @@ const ReservationStore = {
     const record = {
       id: newId,
       clientName: data.clientName || 'Client Horizon',
-      email: data.email || 'contacto@mbplimpeza.pt',
+      email: data.email || 'contact@atlashorizon.eu',
       phone: data.phone || '+351 926 930 272',
       service: data.service || 'General Construction',
       desiredDate: data.desiredDate || `${year}-10-15`,
@@ -209,10 +209,10 @@ const ReservationStore = {
 
     // Default master admin credentials fallback
     const cleanUser = (emailOrUsername || '').trim().toLowerCase();
-    if ((cleanUser === 'admin@atlashorizon.com' || cleanUser === 'admin') && password === 'admin123') {
+    if ((cleanUser === 'contact@atlashorizon.eu' || cleanUser === 'admin@atlashorizon.com' || cleanUser === 'admin') && password === 'admin123') {
       const sessionData = {
         username: 'Admin Atlas Horizon',
-        email: 'admin@atlashorizon.com',
+        email: 'contact@atlashorizon.eu',
         token: 'ATLAS_TOKEN_' + Date.now(),
         loginAt: new Date().toISOString()
       };
@@ -295,15 +295,15 @@ const ReservationStore = {
     if (targetLang === 'pt') {
       // Portuguese
       subject = `ATLAS HORIZON — O seu agendamento / orçamento (${service})`;
-      body = `Olá ${client},\n\nEm seguimento do seu pedido para o projeto ${service} (Data pretendida: ${dateStr || 'Não especificada'}).\n\nEstado atual: ${status}\n\nCom os melhores cumprimentos,\n\nEquipa Atlas Horizon Construction & Architecture\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contacto@mbplimpeza.pt`;
+      body = `Olá ${client},\n\nEm seguimento do seu pedido para o projeto ${service} (Data pretendida: ${dateStr || 'Não especificada'}).\n\nEstado atual: ${status}\n\nCom os melhores cumprimentos,\n\nEquipa Atlas Horizon Construction & Architecture\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contact@atlashorizon.eu`;
     } else if (targetLang === 'en') {
       // English
       subject = `ATLAS HORIZON — Your appointment / quote request (${service})`;
-      body = `Hello ${client},\n\nFollowing up on your request for project ${service} (Requested Date: ${dateStr || 'Not specified'}).\n\nCurrent Status: ${status}\n\nBest regards,\n\nAtlas Horizon Construction & Architecture Team\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contacto@mbplimpeza.pt`;
+      body = `Hello ${client},\n\nFollowing up on your request for project ${service} (Requested Date: ${dateStr || 'Not specified'}).\n\nCurrent Status: ${status}\n\nBest regards,\n\nAtlas Horizon Construction & Architecture Team\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contact@atlashorizon.eu`;
     } else {
       // French (default)
       subject = `ATLAS HORIZON — Votre réservation / devis (${service})`;
-      body = `Bonjour ${client},\n\nNous faisons suite à votre demande pour le projet ${service} (Date souhaitée: ${dateStr || 'Non spécifiée'}).\n\nStatut actuel: ${status}\n\nCordialement,\n\nL'équipe Atlas Horizon Construction & Architecture\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contacto@mbplimpeza.pt`;
+      body = `Bonjour ${client},\n\nNous faisons suite à votre demande pour le projet ${service} (Date souhaitée: ${dateStr || 'Non spécifiée'}).\n\nStatut actuel: ${status}\n\nCordialement,\n\nL'équipe Atlas Horizon Construction & Architecture\nTEL: +351 926 930 272 | +351 937 131 260\nEmail: contact@atlashorizon.eu`;
     }
 
     return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
