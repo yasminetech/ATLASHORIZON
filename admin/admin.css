@@ -35,7 +35,7 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #121316;
+  background: #111215;
 }
 ::-webkit-scrollbar-thumb {
   background: #2a2e36;
@@ -45,29 +45,72 @@ body {
   background: var(--brand-copper);
 }
 
+/* Sidebar Active Nav styling */
+.admin-nav-link {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 3px solid transparent;
+}
+
+.admin-nav-link.active-tab {
+  background-color: rgba(200, 90, 50, 0.12) !important;
+  color: var(--brand-copper) !important;
+  border-left-color: var(--brand-copper) !important;
+  font-weight: 700;
+}
+
 /* Status Badges */
 .badge-pending {
   background-color: rgba(245, 158, 11, 0.12);
   color: #fbbf24;
   border: 1px solid rgba(245, 158, 11, 0.3);
+  font-weight: 600;
 }
 
 .badge-confirmed {
   background-color: rgba(16, 185, 129, 0.12);
   color: #34d399;
   border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
 }
 
 .badge-refused {
   background-color: rgba(239, 68, 68, 0.12);
   color: #f87171;
   border: 1px solid rgba(239, 68, 68, 0.3);
+  font-weight: 600;
 }
 
 .badge-cancelled {
   background-color: rgba(100, 116, 139, 0.15);
   color: #94a3b8;
   border: 1px solid rgba(100, 116, 139, 0.3);
+  font-weight: 600;
+}
+
+/* Stat Cards Top Line Accents */
+.stat-card {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card-total {
+  border-top: 3px solid var(--brand-copper);
+}
+
+.stat-card-pending {
+  border-top: 3px solid #f59e0b;
+}
+
+.stat-card-confirmed {
+  border-top: 3px solid #10b981;
+}
+
+.stat-card-refused {
+  border-top: 3px solid #ef4444;
 }
 
 /* Table styling */
@@ -78,13 +121,13 @@ body {
 }
 
 .admin-table th {
-  background-color: #121418;
+  background-color: #111317;
   color: var(--brand-muted);
   font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 1rem 1.25rem;
+  letter-spacing: 0.12em;
+  padding: 1.1rem 1.25rem;
   border-bottom: 1px solid var(--brand-border);
   text-align: left;
 }
@@ -92,15 +135,28 @@ body {
 .admin-table td {
   padding: 1.1rem 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   vertical-align: middle;
 }
 
-.admin-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.02);
+.admin-table tr {
+  transition: background-color 0.15s ease;
 }
 
-/* Modal Animations */
+.admin-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+/* Action Icon Tooltip & Hover Buttons */
+.action-btn {
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Modal Overlay & Animations */
 .modal-overlay {
   transition: opacity 0.25s ease-in-out;
 }

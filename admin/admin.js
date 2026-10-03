@@ -50,11 +50,11 @@ function initTabs() {
 
       // Update Nav active states
       navLinks.forEach(nl => {
-        nl.classList.remove('bg-brand-copper/10', 'text-brand-copper', 'border-brand-copper');
-        nl.classList.add('text-brand-whiteMuted', 'hover:text-brand-white', 'hover:bg-white/5', 'border-transparent');
+        nl.classList.remove('active-tab');
+        nl.classList.add('text-brand-whiteMuted');
       });
-      link.classList.remove('text-brand-whiteMuted', 'hover:text-brand-white', 'hover:bg-white/5', 'border-transparent');
-      link.classList.add('bg-brand-copper/10', 'text-brand-copper', 'border-brand-copper');
+      link.classList.add('active-tab');
+      link.classList.remove('text-brand-whiteMuted');
 
       // Show target tab
       tabViews.forEach(view => {
@@ -189,37 +189,37 @@ function renderReservationsTable() {
         <div class="flex items-center gap-1.5 justify-end">
           
           <!-- View Details -->
-          <button onclick="openDetailsModal('${res.id}')" title="Voir détails" class="p-2 bg-white/5 hover:bg-white/10 text-brand-white border border-white/10 rounded transition-colors">
-            <i data-lucide="eye" class="w-4 h-4"></i>
+          <button onclick="openDetailsModal('${res.id}')" title="Voir détails" class="action-btn p-2 bg-white/5 hover:bg-white/10 text-brand-white border border-white/10 rounded transition-colors">
+            <i data-lucide="file-text" class="w-4 h-4 text-brand-copper"></i>
           </button>
 
           <!-- Confirm -->
-          <button onclick="updateReservationStatus('${res.id}', 'Confirmée')" title="Confirmer la réservation" class="p-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded transition-colors">
-            <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <button onclick="updateReservationStatus('${res.id}', 'Confirmée')" title="Confirmer la réservation" class="action-btn p-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded transition-colors">
+            <i data-lucide="badge-check" class="w-4 h-4"></i>
           </button>
 
           <!-- Refuse -->
-          <button onclick="openRefuseModal('${res.id}')" title="Refuser la réservation" class="p-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded transition-colors">
+          <button onclick="openRefuseModal('${res.id}')" title="Refuser la réservation" class="action-btn p-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded transition-colors">
             <i data-lucide="x-circle" class="w-4 h-4"></i>
           </button>
 
           <!-- Cancel -->
-          <button onclick="updateReservationStatus('${res.id}', 'Annulée')" title="Annuler la réservation" class="p-2 bg-slate-500/10 hover:bg-slate-500/20 text-slate-400 border border-slate-500/30 rounded transition-colors">
-            <i data-lucide="ban" class="w-4 h-4"></i>
+          <button onclick="updateReservationStatus('${res.id}', 'Annulée')" title="Annuler la réservation" class="action-btn p-2 bg-slate-500/10 hover:bg-slate-500/20 text-slate-400 border border-slate-500/30 rounded transition-colors">
+            <i data-lucide="slash" class="w-4 h-4"></i>
           </button>
 
           <!-- WhatsApp -->
-          <button onclick="openWhatsApp('${res.id}')" title="Contacter sur WhatsApp" class="p-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 rounded transition-colors">
+          <button onclick="openWhatsApp('${res.id}')" title="Contacter sur WhatsApp" class="action-btn p-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 rounded transition-colors">
             <i data-lucide="message-square" class="w-4 h-4"></i>
           </button>
 
           <!-- Email -->
-          <button onclick="sendEmail('${res.id}')" title="Envoyer un email" class="p-2 bg-brand-copper/20 hover:bg-brand-copper/30 text-brand-copper border border-brand-copper/30 rounded transition-colors">
+          <button onclick="sendEmail('${res.id}')" title="Envoyer un email" class="action-btn p-2 bg-brand-copper/20 hover:bg-brand-copper/30 text-brand-copper border border-brand-copper/30 rounded transition-colors">
             <i data-lucide="mail" class="w-4 h-4"></i>
           </button>
 
           <!-- Delete -->
-          <button onclick="deleteReservationPrompt('${res.id}')" title="Supprimer définitivement" class="p-2 bg-rose-900/30 hover:bg-rose-800/50 text-rose-300 border border-rose-700/50 rounded transition-colors">
+          <button onclick="deleteReservationPrompt('${res.id}')" title="Supprimer définitivement" class="action-btn p-2 bg-rose-900/30 hover:bg-rose-800/50 text-rose-300 border border-rose-700/50 rounded transition-colors">
             <i data-lucide="trash-2" class="w-4 h-4"></i>
           </button>
 
@@ -253,14 +253,14 @@ function filterByStatus(status) {
 function getStatusBadge(status) {
   switch (status) {
     case 'Confirmée':
-      return `<span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded badge-confirmed"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 🟢 Confirmée</span>`;
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded badge-confirmed"><i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-400"></i> Confirmée</span>`;
     case 'Refusée':
-      return `<span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded badge-refused"><span class="w-2 h-2 rounded-full bg-rose-400"></span> 🔴 Refusée</span>`;
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded badge-refused"><i data-lucide="x-circle" class="w-3.5 h-3.5 text-rose-400"></i> Refusée</span>`;
     case 'Annulée':
-      return `<span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded badge-cancelled"><span class="w-2 h-2 rounded-full bg-slate-400"></span> ⚫ Annulée</span>`;
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded badge-cancelled"><i data-lucide="slash" class="w-3.5 h-3.5 text-slate-400"></i> Annulée</span>`;
     case 'En attente':
     default:
-      return `<span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono rounded badge-pending"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> 🟠 En attente</span>`;
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded badge-pending"><i data-lucide="clock-3" class="w-3.5 h-3.5 text-amber-400"></i> En attente</span>`;
   }
 }
 

@@ -41,13 +41,26 @@
   </script>
   <link rel="stylesheet" href="admin.css">
 
-  <!-- Lucide Icons -->
+  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-brand-charcoal text-brand-white min-h-screen flex flex-col md:flex-row antialiased selection:bg-brand-copper selection:text-white">
 
+  <!-- MOBILE ADMIN TOP HEADER (Shown on small screens) -->
+  <header class="md:hidden bg-brand-surface border-b border-white/10 px-4 py-3 flex items-center justify-between sticky top-0 z-40">
+    <a href="dashboard.html" class="flex items-center gap-2">
+      <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-7">
+    </a>
+    <div class="flex items-center gap-2">
+      <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold">ADMIN</span>
+      <button id="admin-mobile-toggle" onclick="toggleAdminSidebar()" class="p-2 text-brand-white hover:text-brand-copper focus:outline-none">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
   <!-- SIDEBAR NAVIGATION -->
-  <aside class="w-full md:w-64 bg-brand-surface border-r border-white/10 flex flex-col justify-between shrink-0">
+  <aside id="admin-sidebar" class="w-full md:w-64 bg-brand-surface border-r border-white/10 flex flex-col justify-between shrink-0 hidden md:flex min-h-screen sticky top-0">
     
     <div>
       <!-- Logo Header -->
@@ -55,29 +68,29 @@
         <a href="dashboard.html" class="flex items-center gap-3">
           <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-8">
         </a>
-        <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded">ADMIN</span>
+        <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold">ADMIN</span>
       </div>
 
       <!-- Navigation Links -->
-      <nav class="p-4 space-y-1 font-mono text-xs">
+      <nav class="p-4 space-y-1.5 font-mono text-xs">
         
-        <a href="#" data-tab="dashboard" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded border border-brand-copper bg-brand-copper/10 text-brand-copper transition-colors">
-          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+        <a href="#" data-tab="dashboard" class="admin-nav-link active-tab flex items-center gap-3 px-4 py-3 rounded text-brand-copper bg-brand-copper/10 transition-all">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
           <span>Dashboard</span>
         </a>
 
-        <a href="#" data-tab="reservations" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded border border-transparent text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-colors">
-          <i data-lucide="calendar-check-2" class="w-4 h-4"></i>
+        <a href="#" data-tab="reservations" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+          <i data-lucide="clipboard-list" class="w-4 h-4"></i>
           <span>Réservations</span>
         </a>
 
-        <a href="#" data-tab="clients" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded border border-transparent text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-colors">
-          <i data-lucide="users" class="w-4 h-4"></i>
+        <a href="#" data-tab="clients" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+          <i data-lucide="users-2" class="w-4 h-4"></i>
           <span>Clients</span>
         </a>
 
-        <a href="#" data-tab="settings" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded border border-transparent text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-colors">
-          <i data-lucide="settings" class="w-4 h-4"></i>
+        <a href="#" data-tab="settings" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+          <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
           <span>Paramètres</span>
         </a>
 
@@ -86,8 +99,8 @@
 
     <!-- Bottom Admin Profile & Logout -->
     <div class="p-4 border-t border-white/10 space-y-3">
-      <div class="flex items-center gap-3 px-3 py-2 bg-brand-charcoal border border-white/5 rounded">
-        <div class="w-8 h-8 rounded bg-brand-copper/20 border border-brand-copper flex items-center justify-center text-brand-copper font-bold font-mono text-xs">
+      <div class="flex items-center gap-3 px-3 py-2.5 bg-brand-charcoal border border-white/5 rounded-lg">
+        <div class="w-9 h-9 rounded bg-brand-copper/20 border border-brand-copper flex items-center justify-center text-brand-copper font-bold font-mono text-xs shrink-0">
           AH
         </div>
         <div class="overflow-hidden">
@@ -97,7 +110,7 @@
       </div>
 
       <button onclick="handleLogout()" class="w-full py-2.5 px-4 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2">
-        <i data-lucide="log-out" class="w-4 h-4"></i>
+        <i data-lucide="power" class="w-4 h-4"></i>
         <span>Déconnexion</span>
       </button>
     </div>
@@ -108,15 +121,17 @@
   <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
     
     <!-- TOP BAR -->
-    <header class="h-20 border-b border-white/10 px-6 sm:px-10 flex items-center justify-between bg-brand-surface/50 backdrop-blur-md sticky top-0 z-30">
-      <div class="flex items-center gap-4">
+    <header class="h-20 border-b border-white/10 px-6 sm:px-10 flex items-center justify-between bg-brand-surface/70 backdrop-blur-md sticky top-0 z-30">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span class="font-mono text-xs text-brand-copper uppercase tracking-widest hidden sm:inline">SYSTÈME DE GESTION DES RÉSERVATIONS</span>
+        <span class="font-mono text-[10px] text-brand-grey border border-white/10 px-2 py-0.5 rounded hidden lg:inline">● BASE SQLITE</span>
       </div>
 
       <div class="flex items-center gap-4">
-        <a href="../index.html" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs text-brand-white uppercase tracking-wider rounded transition-colors flex items-center gap-2">
+        <a href="../index.html" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs text-brand-white hover:text-brand-copper uppercase tracking-wider rounded transition-all flex items-center gap-2">
           <span>Voir le site public</span>
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </a>
       </div>
     </header>
@@ -128,10 +143,11 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">TABLEAU DE BORD</span>
-          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Aperçu Général</h2>
+          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Aperçu Général</h2>
         </div>
-        <div class="font-mono text-xs text-brand-grey">
-          Dernière mise à jour: <span class="text-brand-white font-bold">En direct</span>
+        <div class="font-mono text-xs text-brand-grey flex items-center gap-2 bg-brand-surface px-3 py-1.5 border border-white/10 rounded">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Mise à jour: <strong class="text-brand-white font-bold">En direct</strong></span>
         </div>
       </div>
 
@@ -139,42 +155,42 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Total -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 relative overflow-hidden">
+        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-total">
           <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
             <span>TOTAL RÉSERVATIONS</span>
-            <i data-lucide="folder" class="w-5 h-5 text-brand-copper"></i>
+            <i data-lucide="layers" class="w-5 h-5 text-brand-copper"></i>
           </div>
-          <div id="stat-total" class="font-syne font-bold text-3xl sm:text-4xl text-brand-white">0</div>
+          <div id="stat-total" class="font-syne font-extrabold text-3xl sm:text-4xl text-brand-white">0</div>
           <div class="text-[11px] font-mono text-brand-grey">Demandes enregistrées sur le site</div>
         </div>
 
         <!-- Pending -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 relative overflow-hidden">
+        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-pending">
           <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span>EN ATTENTE 🟠</span>
-            <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> EN ATTENTE</span>
+            <i data-lucide="clock-3" class="w-5 h-5 text-amber-400"></i>
           </div>
-          <div id="stat-pending" class="font-syne font-bold text-3xl sm:text-4xl text-amber-400">0</div>
+          <div id="stat-pending" class="font-syne font-extrabold text-3xl sm:text-4xl text-amber-400">0</div>
           <div class="text-[11px] font-mono text-amber-400/80">Nécessite une action du gestionnaire</div>
         </div>
 
         <!-- Confirmed -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 relative overflow-hidden">
+        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-confirmed">
           <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span>CONFIRMÉES 🟢</span>
-            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> CONFIRMÉES</span>
+            <i data-lucide="badge-check" class="w-5 h-5 text-emerald-400"></i>
           </div>
-          <div id="stat-confirmed" class="font-syne font-bold text-3xl sm:text-4xl text-emerald-400">0</div>
+          <div id="stat-confirmed" class="font-syne font-extrabold text-3xl sm:text-4xl text-emerald-400">0</div>
           <div class="text-[11px] font-mono text-emerald-400/80">Rendez-vous et devis validés</div>
         </div>
 
         <!-- Refused/Cancelled -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 relative overflow-hidden">
+        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-refused">
           <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span>REFUSÉES / ANNULÉES 🔴</span>
-            <i data-lucide="x-circle" class="w-5 h-5 text-rose-400"></i>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> REFUSÉES / ANNULÉES</span>
+            <i data-lucide="x-octagon" class="w-5 h-5 text-rose-400"></i>
           </div>
-          <div id="stat-refused" class="font-syne font-bold text-3xl sm:text-4xl text-rose-400">0</div>
+          <div id="stat-refused" class="font-syne font-extrabold text-3xl sm:text-4xl text-rose-400">0</div>
           <div class="text-[11px] font-mono text-rose-400/80">Demandes déclinées ou fermées</div>
         </div>
 
@@ -187,9 +203,9 @@
             <h3 class="font-syne font-bold text-lg text-brand-white">Dernières Demandes de Réservation</h3>
             <p class="text-xs text-brand-whiteMuted font-light">Les 5 demandes les plus récentes reçues via le formulaire public.</p>
           </div>
-          <button onclick="document.querySelector('[data-tab=\'reservations\']').click()" class="font-mono text-xs text-brand-copper hover:text-brand-white transition-colors flex items-center gap-1">
+          <button onclick="document.querySelector('[data-tab=\'reservations\']').click()" class="font-mono text-xs text-brand-copper hover:text-brand-white transition-colors flex items-center gap-1.5 group">
             <span>Voir toutes les réservations</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i>
           </button>
         </div>
 
@@ -221,36 +237,40 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">GESTION DES DEMANDES</span>
-          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Gestion des Réservations</h2>
+          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Gestion des Réservations</h2>
         </div>
       </div>
 
       <!-- Filters & Search Toolbar -->
-      <div class="bg-brand-surface border border-white/10 p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="bg-brand-surface border border-white/10 p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
         
         <!-- Status Filter Buttons -->
         <div class="flex flex-wrap items-center gap-2 w-full md:w-auto font-mono text-xs">
-          <button onclick="filterByStatus('ALL')" data-status="ALL" class="filter-btn px-4 py-2 bg-brand-copper text-white border border-brand-copper rounded transition-colors">
+          <button onclick="filterByStatus('ALL')" data-status="ALL" class="filter-btn px-4 py-2 bg-brand-copper text-white border border-brand-copper rounded transition-colors font-bold">
             TOUTES
           </button>
-          <button onclick="filterByStatus('En attente')" data-status="En attente" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors">
-            🟠 EN ATTENTE
+          <button onclick="filterByStatus('En attente')" data-status="En attente" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>EN ATTENTE</span>
           </button>
-          <button onclick="filterByStatus('Confirmée')" data-status="Confirmée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors">
-            🟢 CONFIRMÉES
+          <button onclick="filterByStatus('Confirmée')" data-status="Confirmée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>CONFIRMÉES</span>
           </button>
-          <button onclick="filterByStatus('Refusée')" data-status="Refusée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors">
-            🔴 REFUSÉES
+          <button onclick="filterByStatus('Refusée')" data-status="Refusée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            <span>REFUSÉES</span>
           </button>
-          <button onclick="filterByStatus('Annulée')" data-status="Annulée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors">
-            ⚫ ANNULÉES
+          <button onclick="filterByStatus('Annulée')" data-status="Annulée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+            <span>ANNULÉES</span>
           </button>
         </div>
 
         <!-- Search Bar -->
         <div class="relative w-full md:w-72">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-brand-grey"></i>
-          <input type="text" id="reservation-search" oninput="renderReservationsTable()" placeholder="Rechercher nom, email, ID..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-9 pr-4 py-2 text-xs text-brand-white placeholder-brand-grey focus:outline-none rounded transition-colors">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+          <input type="text" id="reservation-search" oninput="renderReservationsTable()" placeholder="Rechercher nom, email, ID..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-10 pr-4 py-2.5 text-xs text-brand-white placeholder-brand-grey focus:outline-none rounded transition-colors">
         </div>
 
       </div>
@@ -281,8 +301,8 @@
     <!-- TAB 3: CLIENTS LIST -->
     <div id="tab-clients" class="tab-view p-6 sm:p-10 space-y-8 hidden">
       <div>
-        <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">REPERTOIRE CLIENTS</span>
-        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Base Clients</h2>
+        <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">RÉPERTOIRE CLIENTS</span>
+        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Base Clients</h2>
         <p class="text-xs text-brand-whiteMuted font-light mt-1">Liste consolidée des clients ayant soumis une réservation.</p>
       </div>
 
@@ -310,39 +330,46 @@
     <div id="tab-settings" class="tab-view p-6 sm:p-10 space-y-8 hidden">
       <div>
         <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">CONFIGURATION</span>
-        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Paramètres Administration</h2>
+        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Paramètres Administration</h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         <!-- Password Change -->
         <div class="bg-brand-surface border border-white/10 p-6 rounded-xl space-y-6">
-          <h3 class="font-syne font-bold text-lg text-brand-white border-b border-white/10 pb-3">Modifier le Mot de Passe</h3>
+          <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+            <i data-lucide="key-round" class="w-5 h-5 text-brand-copper"></i>
+            <h3 class="font-syne font-bold text-lg text-brand-white">Modifier le Mot de Passe</h3>
+          </div>
           <form onsubmit="handlePasswordChange(event)" class="space-y-4 font-mono text-xs">
             <div class="space-y-2">
               <label class="block text-brand-whiteMuted">Mot de passe actuel</label>
-              <input type="password" required value="admin123" class="w-full bg-brand-charcoal border border-white/10 p-3 text-brand-white focus:border-brand-copper focus:outline-none">
+              <input type="password" required value="admin123" class="w-full bg-brand-charcoal border border-white/10 p-3 text-brand-white focus:border-brand-copper focus:outline-none rounded">
             </div>
             <div class="space-y-2">
               <label class="block text-brand-whiteMuted">Nouveau mot de passe</label>
-              <input type="password" required placeholder="••••••••" class="w-full bg-brand-charcoal border border-white/10 p-3 text-brand-white focus:border-brand-copper focus:outline-none">
+              <input type="password" required placeholder="••••••••" class="w-full bg-brand-charcoal border border-white/10 p-3 text-brand-white focus:border-brand-copper focus:outline-none rounded">
             </div>
-            <button type="submit" class="px-6 py-3 bg-brand-copper text-white uppercase tracking-widest hover:bg-brand-copperHover transition-colors">
-              Enregistrer Modifications
+            <button type="submit" class="px-6 py-3 bg-brand-copper text-white uppercase tracking-widest hover:bg-brand-copperHover rounded transition-colors flex items-center gap-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Enregistrer Modifications</span>
             </button>
           </form>
         </div>
 
         <!-- Data Export & Maintenance -->
         <div class="bg-brand-surface border border-white/10 p-6 rounded-xl space-y-6">
-          <h3 class="font-syne font-bold text-lg text-brand-white border-b border-white/10 pb-3">Exportation & Maintenance</h3>
+          <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+            <i data-lucide="database" class="w-5 h-5 text-brand-copper"></i>
+            <h3 class="font-syne font-bold text-lg text-brand-white">Exportation & Maintenance</h3>
+          </div>
           
-          <div class="space-y-4">
+          <div class="space-y-6">
             <div>
               <h4 class="font-syne font-bold text-sm text-brand-white">Exporter les Réservations (CSV)</h4>
               <p class="text-xs text-brand-whiteMuted font-light mt-1">Télécharger toutes les demandes de réservation sous format tableur Excel / CSV.</p>
-              <button onclick="exportReservationsCSV()" class="mt-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-brand-white border border-white/20 font-mono text-xs uppercase tracking-widest transition-colors flex items-center gap-2">
-                <i data-lucide="download" class="w-4 h-4"></i>
+              <button onclick="exportReservationsCSV()" class="mt-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-brand-white border border-white/20 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center gap-2">
+                <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
                 <span>Télécharger Fichier CSV</span>
               </button>
             </div>
@@ -350,8 +377,8 @@
             <div class="pt-4 border-t border-white/10">
               <h4 class="font-syne font-bold text-sm text-rose-400">Réinitialiser les Données</h4>
               <p class="text-xs text-brand-whiteMuted font-light mt-1">Remettre la base de données aux réservations de démonstration.</p>
-              <button onclick="resetAllData()" class="mt-3 px-6 py-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-mono text-xs uppercase tracking-widest transition-colors flex items-center gap-2">
-                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+              <button onclick="resetAllData()" class="mt-3 px-6 py-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center gap-2">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                 <span>Réinitialiser la Base</span>
               </button>
             </div>
@@ -383,22 +410,28 @@
     <div class="modal-container w-full max-w-md bg-brand-surface border border-rose-500/30 p-6 rounded-xl shadow-2xl relative space-y-4">
       
       <div class="flex items-center gap-3 text-rose-400">
-        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
-        <h3 class="font-syne font-bold text-lg text-brand-white">Motif du Refus (Optionnel)</h3>
+        <div class="w-10 h-10 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center shrink-0">
+          <i data-lucide="x-circle" class="w-5 h-5 text-rose-400"></i>
+        </div>
+        <div>
+          <h3 class="font-syne font-bold text-lg text-brand-white">Motif du Refus (Optionnel)</h3>
+          <span class="font-mono text-xs text-brand-grey">Enregistré dans l'historique client</span>
+        </div>
       </div>
 
       <p class="text-xs text-brand-whiteMuted font-light">
         Vous pouvez saisir la raison du refus qui sera enregistrée dans l'historique du dossier client.
       </p>
 
-      <textarea id="refuse-reason-input" rows="3" placeholder="Ex: Capacités de planification atteintes pour la période demandée..." class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white focus:border-rose-500 focus:outline-none resize-none"></textarea>
+      <textarea id="refuse-reason-input" rows="3" placeholder="Ex: Capacités de planification atteintes pour la période demandée..." class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white focus:border-rose-500 focus:outline-none rounded resize-none"></textarea>
 
       <div class="flex items-center justify-end gap-3 pt-2">
-        <button onclick="closeRefuseModal()" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase">
+        <button onclick="closeRefuseModal()" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase rounded">
           Annuler
         </button>
-        <button onclick="confirmRefusal()" class="px-4 py-2 bg-rose-500 text-white font-mono text-xs uppercase hover:bg-rose-600 transition-colors">
-          Confirmer le Refus
+        <button onclick="confirmRefusal()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase rounded transition-colors flex items-center gap-1.5">
+          <i data-lucide="x-circle" class="w-4 h-4"></i>
+          <span>Confirmer le Refus</span>
         </button>
       </div>
 
@@ -414,7 +447,7 @@
       </button>
 
       <div class="flex items-center gap-3 text-emerald-400">
-        <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0">
           <i data-lucide="message-square" class="w-5 h-5"></i>
         </div>
         <div>
@@ -423,7 +456,7 @@
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded space-y-2 font-mono text-xs">
+      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg space-y-2 font-mono text-xs">
         <div class="flex items-center justify-between">
           <span class="text-brand-grey">Client:</span>
           <span id="wa-modal-client" class="text-brand-white font-bold">Client Name</span>
@@ -434,7 +467,7 @@
         </div>
         <div class="flex items-center justify-between">
           <span class="text-brand-grey">Langue du Message:</span>
-          <select id="wa-lang-select" onchange="updateWaModalLang(this.value)" class="bg-brand-surface border border-white/20 text-brand-copper font-bold font-mono text-xs px-2.5 py-1 focus:outline-none focus:border-brand-copper">
+          <select id="wa-lang-select" onchange="updateWaModalLang(this.value)" class="bg-brand-surface border border-white/20 text-brand-copper font-bold font-mono text-xs px-2.5 py-1 focus:outline-none focus:border-brand-copper rounded">
             <option value="fr">🇫🇷 Français (FR)</option>
             <option value="en">🇬🇧 English (EN)</option>
             <option value="pt">🇵🇹 Português (PT)</option>
@@ -450,7 +483,7 @@
             <span id="copy-btn-text">Copier le message</span>
           </button>
         </div>
-        <textarea id="wa-modal-message" rows="4" readonly class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white font-mono focus:outline-none resize-none leading-relaxed"></textarea>
+        <textarea id="wa-modal-message" rows="4" readonly class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white font-mono focus:outline-none rounded resize-none leading-relaxed"></textarea>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -485,7 +518,7 @@
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded space-y-2">
+      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg space-y-2">
         <p class="text-sm font-light text-brand-white">
           Êtes-vous sûr de vouloir supprimer définitivement la réservation <span id="delete-modal-target" class="font-bold text-rose-400 font-mono">RES-2026-005</span> ?
         </p>
@@ -517,7 +550,7 @@
 
       <div class="flex items-center gap-3 text-brand-copper">
         <div class="w-12 h-12 rounded-full bg-brand-copper/10 border border-brand-copper/30 flex items-center justify-center shrink-0">
-          <i data-lucide="log-out" class="w-6 h-6 text-brand-copper"></i>
+          <i data-lucide="power" class="w-6 h-6 text-brand-copper"></i>
         </div>
         <div>
           <h3 class="font-syne font-bold text-xl text-brand-white">Déconnexion</h3>
@@ -525,7 +558,7 @@
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded">
+      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg">
         <p class="text-sm font-light text-brand-white">
           Voulez-vous vraiment fermer votre session d'administration Atlas Horizon ?
         </p>
@@ -536,7 +569,7 @@
           Annuler
         </button>
         <button onclick="confirmLogoutAction()" class="px-5 py-2.5 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center gap-2">
-          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <i data-lucide="power" class="w-4 h-4"></i>
           <span>Se Déconnecter</span>
         </button>
       </div>
@@ -547,5 +580,13 @@
   <!-- Scripts -->
   <script src="../assets/js/reservation-store.js"></script>
   <script src="admin.js"></script>
+  <script>
+    function toggleAdminSidebar() {
+      const sidebar = document.getElementById('admin-sidebar');
+      if (sidebar) {
+        sidebar.classList.toggle('hidden');
+      }
+    }
+  </script>
 </body>
 </html>
