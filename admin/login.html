@@ -126,18 +126,25 @@
       }
     });
 
-    function handleLogin(event) {
+    async function handleLogin(event) {
       event.preventDefault();
       const emailInput = document.getElementById('admin-email').value;
       const passInput = document.getElementById('admin-password').value;
       const errorAlert = document.getElementById('login-error-alert');
       const errorText = document.getElementById('login-error-text');
 
-      const result = ReservationStore.login(emailInput, passInput);
-      if (result.success) {
-        window.location.href = 'dashboard.html';
-      } else {
-        errorText.textContent = result.message || 'Identifiants invalides.';
+      errorAlert.classList.add('hidden');
+
+      try {
+        const result = await ReservationStore.login(emailInput, passInput);
+        if (result && result.success) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorText.textContent = (result && result.message) || 'Identifiants invalides.';
+          errorAlert.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorText.textContent = 'Erreur de connexion au serveur.';
         errorAlert.classList.remove('hidden');
       }
     }
