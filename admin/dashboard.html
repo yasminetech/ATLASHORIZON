@@ -44,52 +44,60 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-brand-charcoal text-brand-white min-h-screen flex flex-col md:flex-row antialiased selection:bg-brand-copper selection:text-white">
+<body class="bg-brand-charcoal text-brand-white min-h-screen flex flex-col md:flex-row antialiased selection:bg-brand-copper selection:text-white relative">
 
-  <!-- MOBILE ADMIN TOP HEADER (Shown on small screens) -->
+  <!-- MOBILE ADMIN TOP HEADER (Shown on mobile phone screens) -->
   <header class="md:hidden bg-brand-surface border-b border-white/10 px-4 py-3 flex items-center justify-between sticky top-0 z-40">
     <a href="dashboard.html" class="flex items-center gap-2">
       <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-7">
     </a>
     <div class="flex items-center gap-2">
       <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold">ADMIN</span>
-      <button id="admin-mobile-toggle" onclick="toggleAdminSidebar()" class="p-2 text-brand-white hover:text-brand-copper focus:outline-none">
-        <i data-lucide="menu" class="w-6 h-6"></i>
+      <button id="admin-mobile-toggle" onclick="toggleAdminSidebar()" class="p-2 text-brand-white hover:text-brand-copper focus:outline-none rounded bg-white/5 border border-white/10" aria-label="Toggle Menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
       </button>
     </div>
   </header>
 
+  <!-- SIDEBAR BACKDROP OVERLAY (Mobile phone view) -->
+  <div id="sidebar-backdrop" onclick="toggleAdminSidebar()" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm hidden md:hidden transition-opacity duration-300"></div>
+
   <!-- SIDEBAR NAVIGATION -->
-  <aside id="admin-sidebar" class="w-full md:w-64 bg-brand-surface border-r border-white/10 flex flex-col justify-between shrink-0 hidden md:flex min-h-screen sticky top-0">
+  <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-brand-surface border-r border-white/10 flex-col justify-between shrink-0 hidden md:flex md:static md:w-64 min-h-screen top-0 shadow-2xl md:shadow-none transition-all duration-300">
     
     <div>
       <!-- Logo Header -->
-      <div class="p-6 border-b border-white/10 flex items-center justify-between">
+      <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
         <a href="dashboard.html" class="flex items-center gap-3">
-          <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-8">
+          <img src="../assets/logo.svg" alt="Atlas Horizon Logo" class="h-7 sm:h-8">
         </a>
-        <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold">ADMIN</span>
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold">ADMIN</span>
+          <button onclick="toggleAdminSidebar()" class="md:hidden p-1 text-brand-whiteMuted hover:text-brand-white">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Navigation Links -->
-      <nav class="p-4 space-y-1.5 font-mono text-xs">
+      <nav class="p-3 sm:p-4 space-y-1.5 font-mono text-xs">
         
-        <a href="#" data-tab="dashboard" class="admin-nav-link active-tab flex items-center gap-3 px-4 py-3 rounded text-brand-copper bg-brand-copper/10 transition-all">
+        <a href="#" data-tab="dashboard" onclick="closeAdminSidebarOnMobile()" class="admin-nav-link active-tab flex items-center gap-3 px-4 py-3 rounded text-brand-copper bg-brand-copper/10 transition-all">
           <i data-lucide="layout-grid" class="w-4 h-4"></i>
           <span>Dashboard</span>
         </a>
 
-        <a href="#" data-tab="reservations" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+        <a href="#" data-tab="reservations" onclick="closeAdminSidebarOnMobile()" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
           <i data-lucide="clipboard-list" class="w-4 h-4"></i>
           <span>Réservations</span>
         </a>
 
-        <a href="#" data-tab="clients" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+        <a href="#" data-tab="clients" onclick="closeAdminSidebarOnMobile()" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
           <i data-lucide="users-2" class="w-4 h-4"></i>
           <span>Clients</span>
         </a>
 
-        <a href="#" data-tab="settings" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
+        <a href="#" data-tab="settings" onclick="closeAdminSidebarOnMobile()" class="admin-nav-link flex items-center gap-3 px-4 py-3 rounded text-brand-whiteMuted hover:text-brand-white hover:bg-white/5 transition-all">
           <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
           <span>Paramètres</span>
         </a>
@@ -121,90 +129,91 @@
   <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
     
     <!-- TOP BAR -->
-    <header class="h-20 border-b border-white/10 px-6 sm:px-10 flex items-center justify-between bg-brand-surface/70 backdrop-blur-md sticky top-0 z-30">
-      <div class="flex items-center gap-3">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <header class="h-16 sm:h-20 border-b border-white/10 px-4 sm:px-8 flex items-center justify-between bg-brand-surface/70 backdrop-blur-md sticky top-0 z-30">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
         <span class="font-mono text-xs text-brand-copper uppercase tracking-widest hidden sm:inline">SYSTÈME DE GESTION DES RÉSERVATIONS</span>
-        <span class="font-mono text-[10px] text-brand-grey border border-white/10 px-2 py-0.5 rounded hidden lg:inline">● BASE SQLITE</span>
+        <span class="font-mono text-[10px] text-brand-grey border border-white/10 px-2 py-0.5 rounded hidden sm:inline">● BASE SQLITE</span>
+        <span class="font-mono text-xs text-brand-copper font-bold sm:hidden">ATLAS HORIZON</span>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a href="../index.html" target="_blank" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs text-brand-white hover:text-brand-copper uppercase tracking-wider rounded transition-all flex items-center gap-2">
-          <span>Voir le site public</span>
+      <div class="flex items-center gap-3">
+        <a href="../index.html" target="_blank" class="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-[11px] sm:text-xs text-brand-white hover:text-brand-copper uppercase tracking-wider rounded transition-all flex items-center gap-1.5">
+          <span>Site Public</span>
           <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </a>
       </div>
     </header>
 
     <!-- TAB 1: DASHBOARD OVERVIEW -->
-    <div id="tab-dashboard" class="tab-view p-6 sm:p-10 space-y-8">
+    <div id="tab-dashboard" class="tab-view p-4 sm:p-8 space-y-6 sm:space-y-8">
       
       <!-- Page Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">TABLEAU DE BORD</span>
-          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Aperçu Général</h2>
+          <span class="font-mono text-[10px] sm:text-xs text-brand-copper uppercase tracking-widest block">TABLEAU DE BORD</span>
+          <h2 class="font-syne font-bold text-xl sm:text-3xl text-brand-white mt-0.5">Aperçu Général</h2>
         </div>
-        <div class="font-mono text-xs text-brand-grey flex items-center gap-2 bg-brand-surface px-3 py-1.5 border border-white/10 rounded">
+        <div class="font-mono text-[11px] sm:text-xs text-brand-grey flex items-center gap-2 bg-brand-surface px-3 py-1.5 border border-white/10 rounded self-start sm:self-auto">
           <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span>Mise à jour: <strong class="text-brand-white font-bold">En direct</strong></span>
         </div>
       </div>
 
-      <!-- 4 Stat Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 4 Stat Cards (Responsive 2x2 grid on mobile phones!) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         
         <!-- Total -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-total">
-          <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span>TOTAL RÉSERVATIONS</span>
-            <i data-lucide="layers" class="w-5 h-5 text-brand-copper"></i>
+        <div class="p-3.5 sm:p-6 bg-brand-surface border border-white/10 rounded-xl space-y-2 sm:space-y-3 stat-card stat-card-total">
+          <div class="flex items-center justify-between text-brand-grey font-mono text-[10px] sm:text-xs">
+            <span class="truncate">TOTAL</span>
+            <i data-lucide="layers" class="w-4 h-4 sm:w-5 sm:h-5 text-brand-copper shrink-0"></i>
           </div>
-          <div id="stat-total" class="font-syne font-extrabold text-3xl sm:text-4xl text-brand-white">0</div>
-          <div class="text-[11px] font-mono text-brand-grey">Demandes enregistrées sur le site</div>
+          <div id="stat-total" class="font-syne font-extrabold text-2xl sm:text-4xl text-brand-white">0</div>
+          <div class="text-[10px] sm:text-[11px] font-mono text-brand-grey truncate">Enregistrées en BDD</div>
         </div>
 
         <!-- Pending -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-pending">
-          <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> EN ATTENTE</span>
-            <i data-lucide="clock-3" class="w-5 h-5 text-amber-400"></i>
+        <div class="p-3.5 sm:p-6 bg-brand-surface border border-white/10 rounded-xl space-y-2 sm:space-y-3 stat-card stat-card-pending">
+          <div class="flex items-center justify-between text-brand-grey font-mono text-[10px] sm:text-xs">
+            <span class="flex items-center gap-1 truncate"><span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shrink-0"></span> EN ATTENTE</span>
+            <i data-lucide="clock-3" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0"></i>
           </div>
-          <div id="stat-pending" class="font-syne font-extrabold text-3xl sm:text-4xl text-amber-400">0</div>
-          <div class="text-[11px] font-mono text-amber-400/80">Nécessite une action du gestionnaire</div>
+          <div id="stat-pending" class="font-syne font-extrabold text-2xl sm:text-4xl text-amber-400">0</div>
+          <div class="text-[10px] sm:text-[11px] font-mono text-amber-400/80 truncate">À traiter</div>
         </div>
 
         <!-- Confirmed -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-confirmed">
-          <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> CONFIRMÉES</span>
-            <i data-lucide="badge-check" class="w-5 h-5 text-emerald-400"></i>
+        <div class="p-3.5 sm:p-6 bg-brand-surface border border-white/10 rounded-xl space-y-2 sm:space-y-3 stat-card stat-card-confirmed">
+          <div class="flex items-center justify-between text-brand-grey font-mono text-[10px] sm:text-xs">
+            <span class="flex items-center gap-1 truncate"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> CONFIRMÉES</span>
+            <i data-lucide="badge-check" class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0"></i>
           </div>
-          <div id="stat-confirmed" class="font-syne font-extrabold text-3xl sm:text-4xl text-emerald-400">0</div>
-          <div class="text-[11px] font-mono text-emerald-400/80">Rendez-vous et devis validés</div>
+          <div id="stat-confirmed" class="font-syne font-extrabold text-2xl sm:text-4xl text-emerald-400">0</div>
+          <div class="text-[10px] sm:text-[11px] font-mono text-emerald-400/80 truncate">Validées</div>
         </div>
 
         <!-- Refused/Cancelled -->
-        <div class="p-6 bg-brand-surface border border-white/10 rounded-xl space-y-3 stat-card stat-card-refused">
-          <div class="flex items-center justify-between text-brand-grey font-mono text-xs">
-            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> REFUSÉES / ANNULÉES</span>
-            <i data-lucide="x-octagon" class="w-5 h-5 text-rose-400"></i>
+        <div class="p-3.5 sm:p-6 bg-brand-surface border border-white/10 rounded-xl space-y-2 sm:space-y-3 stat-card stat-card-refused">
+          <div class="flex items-center justify-between text-brand-grey font-mono text-[10px] sm:text-xs">
+            <span class="flex items-center gap-1 truncate"><span class="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0"></span> REFUS / ANNULÉ</span>
+            <i data-lucide="x-octagon" class="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 shrink-0"></i>
           </div>
-          <div id="stat-refused" class="font-syne font-extrabold text-3xl sm:text-4xl text-rose-400">0</div>
-          <div class="text-[11px] font-mono text-rose-400/80">Demandes déclinées ou fermées</div>
+          <div id="stat-refused" class="font-syne font-extrabold text-2xl sm:text-4xl text-rose-400">0</div>
+          <div class="text-[10px] sm:text-[11px] font-mono text-rose-400/80 truncate">Fermées</div>
         </div>
 
       </div>
 
       <!-- Recent Activity Table -->
       <div class="bg-brand-surface border border-white/10 rounded-xl overflow-hidden shadow-xl">
-        <div class="p-6 border-b border-white/10 flex items-center justify-between">
+        <div class="p-4 sm:p-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h3 class="font-syne font-bold text-lg text-brand-white">Dernières Demandes de Réservation</h3>
-            <p class="text-xs text-brand-whiteMuted font-light">Les 5 demandes les plus récentes reçues via le formulaire public.</p>
+            <h3 class="font-syne font-bold text-base sm:text-lg text-brand-white">Dernières Demandes</h3>
+            <p class="text-[11px] sm:text-xs text-brand-whiteMuted font-light">Les demandes les plus récentes reçues via le formulaire public.</p>
           </div>
-          <button onclick="document.querySelector('[data-tab=\'reservations\']').click()" class="font-mono text-xs text-brand-copper hover:text-brand-white transition-colors flex items-center gap-1.5 group">
-            <span>Voir toutes les réservations</span>
+          <button onclick="document.querySelector('[data-tab=\'reservations\']').click()" class="font-mono text-xs text-brand-copper hover:text-brand-white transition-colors flex items-center gap-1.5 group self-start sm:self-auto">
+            <span>Voir tout</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i>
           </button>
         </div>
@@ -231,46 +240,46 @@
     </div>
 
     <!-- TAB 2: RESERVATIONS MANAGEMENT -->
-    <div id="tab-reservations" class="tab-view p-6 sm:p-10 space-y-8 hidden">
+    <div id="tab-reservations" class="tab-view p-4 sm:p-8 space-y-6 sm:space-y-8 hidden">
       
       <!-- Page Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">GESTION DES DEMANDES</span>
-          <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Gestion des Réservations</h2>
+          <span class="font-mono text-[10px] sm:text-xs text-brand-copper uppercase tracking-widest block">GESTION DES DEMANDES</span>
+          <h2 class="font-syne font-bold text-xl sm:text-3xl text-brand-white mt-0.5">Gestion des Réservations</h2>
         </div>
       </div>
 
       <!-- Filters & Search Toolbar -->
-      <div class="bg-brand-surface border border-white/10 p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
+      <div class="bg-brand-surface border border-white/10 p-3.5 sm:p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-3 shadow-lg">
         
-        <!-- Status Filter Buttons -->
-        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto font-mono text-xs">
-          <button onclick="filterByStatus('ALL')" data-status="ALL" class="filter-btn px-4 py-2 bg-brand-copper text-white border border-brand-copper rounded transition-colors font-bold">
+        <!-- Status Filter Buttons (Swipeable horizontal pills on mobile phones!) -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 w-full md:w-auto font-mono text-xs">
+          <button onclick="filterByStatus('ALL')" data-status="ALL" class="filter-btn px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-copper text-white border border-brand-copper rounded transition-colors font-bold text-[11px] sm:text-xs shrink-0">
             TOUTES
           </button>
-          <button onclick="filterByStatus('En attente')" data-status="En attente" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <button onclick="filterByStatus('En attente')" data-status="En attente" class="filter-btn px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1 text-[11px] sm:text-xs shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
             <span>EN ATTENTE</span>
           </button>
-          <button onclick="filterByStatus('Confirmée')" data-status="Confirmée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <button onclick="filterByStatus('Confirmée')" data-status="Confirmée" class="filter-btn px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1 text-[11px] sm:text-xs shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
             <span>CONFIRMÉES</span>
           </button>
-          <button onclick="filterByStatus('Refusée')" data-status="Refusée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+          <button onclick="filterByStatus('Refusée')" data-status="Refusée" class="filter-btn px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1 text-[11px] sm:text-xs shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
             <span>REFUSÉES</span>
           </button>
-          <button onclick="filterByStatus('Annulée')" data-status="Annulée" class="filter-btn px-4 py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+          <button onclick="filterByStatus('Annulée')" data-status="Annulée" class="filter-btn px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-surface text-brand-whiteMuted border border-white/10 rounded hover:text-brand-white transition-colors flex items-center gap-1 text-[11px] sm:text-xs shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
             <span>ANNULÉES</span>
           </button>
         </div>
 
         <!-- Search Bar -->
         <div class="relative w-full md:w-72">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-grey"></i>
-          <input type="text" id="reservation-search" oninput="renderReservationsTable()" placeholder="Rechercher nom, email, ID..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-10 pr-4 py-2.5 text-xs text-brand-white placeholder-brand-grey focus:outline-none rounded transition-colors">
+          <i data-lucide="search" class="w-3.5 h-3.5 sm:w-4 sm:h-4 absolute left-3 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+          <input type="text" id="reservation-search" oninput="renderReservationsTable()" placeholder="Rechercher nom, email, ID..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-9 pr-4 py-2 text-xs text-brand-white placeholder-brand-grey focus:outline-none rounded transition-colors">
         </div>
 
       </div>
@@ -299,10 +308,10 @@
     </div>
 
     <!-- TAB 3: CLIENTS LIST -->
-    <div id="tab-clients" class="tab-view p-6 sm:p-10 space-y-8 hidden">
+    <div id="tab-clients" class="tab-view p-4 sm:p-8 space-y-6 sm:space-y-8 hidden">
       <div>
-        <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">RÉPERTOIRE CLIENTS</span>
-        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Base Clients</h2>
+        <span class="font-mono text-[10px] sm:text-xs text-brand-copper uppercase tracking-widest block">RÉPERTOIRE CLIENTS</span>
+        <h2 class="font-syne font-bold text-xl sm:text-3xl text-brand-white mt-0.5">Base Clients</h2>
         <p class="text-xs text-brand-whiteMuted font-light mt-1">Liste consolidée des clients ayant soumis une réservation.</p>
       </div>
 
@@ -327,19 +336,19 @@
     </div>
 
     <!-- TAB 4: SETTINGS -->
-    <div id="tab-settings" class="tab-view p-6 sm:p-10 space-y-8 hidden">
+    <div id="tab-settings" class="tab-view p-4 sm:p-8 space-y-6 sm:space-y-8 hidden">
       <div>
-        <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block">CONFIGURATION</span>
-        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white mt-0.5">Paramètres Administration</h2>
+        <span class="font-mono text-[10px] sm:text-xs text-brand-copper uppercase tracking-widest block">CONFIGURATION</span>
+        <h2 class="font-syne font-bold text-xl sm:text-3xl text-brand-white mt-0.5">Paramètres Administration</h2>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         
         <!-- Password Change -->
-        <div class="bg-brand-surface border border-white/10 p-6 rounded-xl space-y-6">
+        <div class="bg-brand-surface border border-white/10 p-5 sm:p-6 rounded-xl space-y-5">
           <div class="flex items-center gap-3 border-b border-white/10 pb-4">
             <i data-lucide="key-round" class="w-5 h-5 text-brand-copper"></i>
-            <h3 class="font-syne font-bold text-lg text-brand-white">Modifier le Mot de Passe</h3>
+            <h3 class="font-syne font-bold text-base sm:text-lg text-brand-white">Modifier le Mot de Passe</h3>
           </div>
           <form onsubmit="handlePasswordChange(event)" class="space-y-4 font-mono text-xs">
             <div class="space-y-2">
@@ -350,7 +359,7 @@
               <label class="block text-brand-whiteMuted">Nouveau mot de passe</label>
               <input type="password" required placeholder="••••••••" class="w-full bg-brand-charcoal border border-white/10 p-3 text-brand-white focus:border-brand-copper focus:outline-none rounded">
             </div>
-            <button type="submit" class="px-6 py-3 bg-brand-copper text-white uppercase tracking-widest hover:bg-brand-copperHover rounded transition-colors flex items-center gap-2">
+            <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-brand-copper text-white uppercase tracking-widest hover:bg-brand-copperHover rounded transition-colors flex items-center justify-center gap-2">
               <i data-lucide="save" class="w-4 h-4"></i>
               <span>Enregistrer Modifications</span>
             </button>
@@ -358,17 +367,17 @@
         </div>
 
         <!-- Data Export & Maintenance -->
-        <div class="bg-brand-surface border border-white/10 p-6 rounded-xl space-y-6">
+        <div class="bg-brand-surface border border-white/10 p-5 sm:p-6 rounded-xl space-y-5">
           <div class="flex items-center gap-3 border-b border-white/10 pb-4">
             <i data-lucide="database" class="w-5 h-5 text-brand-copper"></i>
-            <h3 class="font-syne font-bold text-lg text-brand-white">Exportation & Maintenance</h3>
+            <h3 class="font-syne font-bold text-base sm:text-lg text-brand-white">Exportation & Maintenance</h3>
           </div>
           
           <div class="space-y-6">
             <div>
               <h4 class="font-syne font-bold text-sm text-brand-white">Exporter les Réservations (CSV)</h4>
               <p class="text-xs text-brand-whiteMuted font-light mt-1">Télécharger toutes les demandes de réservation sous format tableur Excel / CSV.</p>
-              <button onclick="exportReservationsCSV()" class="mt-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-brand-white border border-white/20 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center gap-2">
+              <button onclick="exportReservationsCSV()" class="mt-3 w-full sm:w-auto px-6 py-3 bg-white/10 hover:bg-white/20 text-brand-white border border-white/20 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2">
                 <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
                 <span>Télécharger Fichier CSV</span>
               </button>
@@ -377,7 +386,7 @@
             <div class="pt-4 border-t border-white/10">
               <h4 class="font-syne font-bold text-sm text-rose-400">Réinitialiser les Données</h4>
               <p class="text-xs text-brand-whiteMuted font-light mt-1">Remettre la base de données aux réservations de démonstration.</p>
-              <button onclick="resetAllData()" class="mt-3 px-6 py-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center gap-2">
+              <button onclick="resetAllData()" class="mt-3 w-full sm:w-auto px-6 py-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 font-mono text-xs uppercase tracking-widest rounded transition-colors flex items-center justify-center gap-2">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                 <span>Réinitialiser la Base</span>
               </button>
@@ -391,11 +400,11 @@
   </main>
 
   <!-- MODAL: RESERVATION DETAILS -->
-  <div id="details-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="modal-container w-full max-w-2xl bg-brand-surface border border-white/10 p-6 sm:p-8 rounded-xl shadow-2xl relative max-h-[90vh] overflow-y-auto">
+  <div id="details-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+    <div class="modal-container w-full max-w-2xl bg-brand-surface border border-white/10 p-4 sm:p-8 rounded-2xl shadow-2xl relative max-h-[92vh] overflow-y-auto">
       
-      <button onclick="closeDetailsModal()" class="absolute top-6 right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button onclick="closeDetailsModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
+        <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
       </button>
 
       <div id="details-modal-body">
@@ -406,8 +415,8 @@
   </div>
 
   <!-- MODAL: REFUSAL REASON -->
-  <div id="refuse-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="modal-container w-full max-w-md bg-brand-surface border border-rose-500/30 p-6 rounded-xl shadow-2xl relative space-y-4">
+  <div id="refuse-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+    <div class="modal-container w-full max-w-md bg-brand-surface border border-rose-500/30 p-5 sm:p-6 rounded-2xl shadow-2xl relative space-y-4">
       
       <div class="flex items-center gap-3 text-rose-400">
         <div class="w-10 h-10 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center shrink-0">
@@ -423,13 +432,13 @@
         Vous pouvez saisir la raison du refus qui sera enregistrée dans l'historique du dossier client.
       </p>
 
-      <textarea id="refuse-reason-input" rows="3" placeholder="Ex: Capacités de planification atteintes pour la période demandée..." class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white focus:border-rose-500 focus:outline-none rounded resize-none"></textarea>
+      <textarea id="refuse-reason-input" rows="3" placeholder="Ex: Capacités de planification atteintes pour la période demandée..." class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white focus:border-rose-500 focus:outline-none rounded-lg resize-none"></textarea>
 
-      <div class="flex items-center justify-end gap-3 pt-2">
-        <button onclick="closeRefuseModal()" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase rounded">
+      <div class="flex items-center justify-end gap-2.5 pt-2">
+        <button onclick="closeRefuseModal()" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase rounded-lg">
           Annuler
         </button>
-        <button onclick="confirmRefusal()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase rounded transition-colors flex items-center gap-1.5">
+        <button onclick="confirmRefusal()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase rounded-lg transition-colors flex items-center gap-1.5">
           <i data-lucide="x-circle" class="w-4 h-4"></i>
           <span>Confirmer le Refus</span>
         </button>
@@ -439,11 +448,11 @@
   </div>
 
   <!-- MODAL: WHATSAPP ACTION -->
-  <div id="whatsapp-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="modal-container w-full max-w-lg bg-brand-surface border border-emerald-500/30 p-6 sm:p-8 rounded-xl shadow-2xl relative space-y-6">
+  <div id="whatsapp-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+    <div class="modal-container w-full max-w-lg bg-brand-surface border border-emerald-500/30 p-5 sm:p-8 rounded-2xl shadow-2xl relative space-y-5 sm:space-y-6">
       
-      <button onclick="closeWhatsAppModal()" class="absolute top-6 right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button onclick="closeWhatsAppModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
+        <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
       </button>
 
       <div class="flex items-center gap-3 text-emerald-400">
@@ -451,12 +460,12 @@
           <i data-lucide="message-square" class="w-5 h-5"></i>
         </div>
         <div>
-          <h3 class="font-syne font-bold text-xl text-brand-white">Contacter via WhatsApp</h3>
+          <h3 class="font-syne font-bold text-lg sm:text-xl text-brand-white">Contacter via WhatsApp</h3>
           <p id="wa-modal-subtitle" class="text-xs text-brand-whiteMuted font-mono">Message généré dans la langue du client</p>
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg space-y-2 font-mono text-xs">
+      <div class="p-3.5 sm:p-4 bg-brand-charcoal border border-white/10 rounded-xl space-y-2 font-mono text-xs">
         <div class="flex items-center justify-between">
           <span class="text-brand-grey">Client:</span>
           <span id="wa-modal-client" class="text-brand-white font-bold">Client Name</span>
@@ -467,7 +476,7 @@
         </div>
         <div class="flex items-center justify-between">
           <span class="text-brand-grey">Langue du Message:</span>
-          <select id="wa-lang-select" onchange="updateWaModalLang(this.value)" class="bg-brand-surface border border-white/20 text-brand-copper font-bold font-mono text-xs px-2.5 py-1 focus:outline-none focus:border-brand-copper rounded">
+          <select id="wa-lang-select" onchange="updateWaModalLang(this.value)" class="bg-brand-surface border border-white/20 text-brand-copper font-bold font-mono text-xs px-2 py-1 focus:outline-none focus:border-brand-copper rounded">
             <option value="fr">🇫🇷 Français (FR)</option>
             <option value="en">🇬🇧 English (EN)</option>
             <option value="pt">🇵🇹 Português (PT)</option>
@@ -483,16 +492,16 @@
             <span id="copy-btn-text">Copier le message</span>
           </button>
         </div>
-        <textarea id="wa-modal-message" rows="4" readonly class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white font-mono focus:outline-none rounded resize-none leading-relaxed"></textarea>
+        <textarea id="wa-modal-message" rows="4" readonly class="w-full bg-brand-charcoal border border-white/10 p-3 text-xs text-brand-white font-mono focus:outline-none rounded-xl resize-none leading-relaxed"></textarea>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-        <button id="wa-btn-web" onclick="launchWaWeb()" class="py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+        <button id="wa-btn-web" onclick="launchWaWeb()" class="py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2">
           <i data-lucide="globe" class="w-4 h-4"></i>
           <span>WhatsApp Web</span>
         </button>
         
-        <button id="wa-btn-app" onclick="launchWaApp()" class="py-3 px-4 bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/40 font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2">
+        <button id="wa-btn-app" onclick="launchWaApp()" class="py-3 px-4 bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/40 font-mono text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-2">
           <i data-lucide="smartphone" class="w-4 h-4"></i>
           <span>App WhatsApp</span>
         </button>
@@ -501,37 +510,37 @@
   </div>
 
   <!-- MODAL: DELETE CONFIRMATION -->
-  <div id="delete-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="modal-container w-full max-w-md bg-brand-surface border border-rose-500/30 p-6 sm:p-8 rounded-xl shadow-2xl relative space-y-5">
+  <div id="delete-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+    <div class="modal-container w-full max-w-md bg-brand-surface border border-rose-500/30 p-5 sm:p-8 rounded-2xl shadow-2xl relative space-y-4 sm:space-y-5">
       
-      <button onclick="closeDeleteModal()" class="absolute top-6 right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button onclick="closeDeleteModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
+        <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
       </button>
 
       <div class="flex items-center gap-3 text-rose-400">
-        <div class="w-12 h-12 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center shrink-0">
-          <i data-lucide="trash-2" class="w-6 h-6 text-rose-400"></i>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-rose-500/10 border border-rose-500/30 flex items-center justify-center shrink-0">
+          <i data-lucide="trash-2" class="w-5 h-5 sm:w-6 sm:h-6 text-rose-400"></i>
         </div>
         <div>
-          <h3 class="font-syne font-bold text-xl text-brand-white">Supprimer la Réservation</h3>
+          <h3 class="font-syne font-bold text-lg sm:text-xl text-brand-white">Supprimer la Réservation</h3>
           <span id="delete-modal-id" class="font-mono text-xs text-brand-copper font-bold block">RES-2026-005</span>
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg space-y-2">
-        <p class="text-sm font-light text-brand-white">
+      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-xl space-y-2">
+        <p class="text-xs sm:text-sm font-light text-brand-white">
           Êtes-vous sûr de vouloir supprimer définitivement la réservation <span id="delete-modal-target" class="font-bold text-rose-400 font-mono">RES-2026-005</span> ?
         </p>
-        <p class="text-xs text-brand-grey font-mono pt-1">
+        <p class="text-[11px] text-brand-grey font-mono pt-1">
           ⚠️ Cette action est irréversible et supprimera les données de la base SQLite.
         </p>
       </div>
 
-      <div class="flex items-center justify-end gap-3 pt-2">
-        <button onclick="closeDeleteModal()" class="px-5 py-2.5 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase tracking-wider rounded transition-colors">
+      <div class="flex items-center justify-end gap-2.5 pt-1">
+        <button onclick="closeDeleteModal()" class="px-4 py-2.5 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase tracking-wider rounded-lg transition-colors">
           Annuler
         </button>
-        <button onclick="executeDeleteReservation()" class="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(225,29,72,0.3)]">
+        <button onclick="executeDeleteReservation()" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(225,29,72,0.3)]">
           <i data-lucide="trash-2" class="w-4 h-4"></i>
           <span>Supprimer Définitivement</span>
         </button>
@@ -541,34 +550,34 @@
   </div>
 
   <!-- MODAL: LOGOUT CONFIRMATION -->
-  <div id="logout-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="modal-container w-full max-w-md bg-brand-surface border border-white/10 p-6 sm:p-8 rounded-xl shadow-2xl relative space-y-5">
+  <div id="logout-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+    <div class="modal-container w-full max-w-md bg-brand-surface border border-white/10 p-5 sm:p-8 rounded-2xl shadow-2xl relative space-y-4 sm:space-y-5">
       
-      <button onclick="closeLogoutModal()" class="absolute top-6 right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
-        <i data-lucide="x" class="w-6 h-6"></i>
+      <button onclick="closeLogoutModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 text-brand-whiteMuted hover:text-brand-white">
+        <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
       </button>
 
       <div class="flex items-center gap-3 text-brand-copper">
-        <div class="w-12 h-12 rounded-full bg-brand-copper/10 border border-brand-copper/30 flex items-center justify-center shrink-0">
-          <i data-lucide="power" class="w-6 h-6 text-brand-copper"></i>
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-copper/10 border border-brand-copper/30 flex items-center justify-center shrink-0">
+          <i data-lucide="power" class="w-5 h-5 sm:w-6 sm:h-6 text-brand-copper"></i>
         </div>
         <div>
-          <h3 class="font-syne font-bold text-xl text-brand-white">Déconnexion</h3>
+          <h3 class="font-syne font-bold text-lg sm:text-xl text-brand-white">Déconnexion</h3>
           <span class="font-mono text-xs text-brand-grey block">Portail Administration</span>
         </div>
       </div>
 
-      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-lg">
-        <p class="text-sm font-light text-brand-white">
+      <div class="p-4 bg-brand-charcoal border border-white/10 rounded-xl">
+        <p class="text-xs sm:text-sm font-light text-brand-white">
           Voulez-vous vraiment fermer votre session d'administration Atlas Horizon ?
         </p>
       </div>
 
-      <div class="flex items-center justify-end gap-3 pt-2">
-        <button onclick="closeLogoutModal()" class="px-5 py-2.5 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase tracking-wider rounded transition-colors">
+      <div class="flex items-center justify-end gap-2.5 pt-1">
+        <button onclick="closeLogoutModal()" class="px-4 py-2.5 bg-white/5 hover:bg-white/10 text-brand-white font-mono text-xs uppercase tracking-wider rounded-lg transition-colors">
           Annuler
         </button>
-        <button onclick="confirmLogoutAction()" class="px-5 py-2.5 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-wider rounded transition-colors flex items-center gap-2">
+        <button onclick="confirmLogoutAction()" class="px-4 py-2.5 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2">
           <i data-lucide="power" class="w-4 h-4"></i>
           <span>Se Déconnecter</span>
         </button>
@@ -583,8 +592,25 @@
   <script>
     function toggleAdminSidebar() {
       const sidebar = document.getElementById('admin-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
       if (sidebar) {
-        sidebar.classList.toggle('hidden');
+        if (sidebar.classList.contains('hidden')) {
+          sidebar.classList.remove('hidden');
+          sidebar.classList.remove('-translate-x-full');
+          if (backdrop) backdrop.classList.remove('hidden');
+        } else {
+          sidebar.classList.add('hidden');
+          if (backdrop) backdrop.classList.add('hidden');
+        }
+      }
+    }
+
+    function closeAdminSidebarOnMobile() {
+      if (window.innerWidth < 768) {
+        const sidebar = document.getElementById('admin-sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        if (sidebar) sidebar.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
       }
     }
   </script>

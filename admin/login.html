@@ -67,41 +67,41 @@
     </div>
 
     <!-- Login Card -->
-    <div class="bg-brand-surface border border-white/10 border-t-4 border-t-brand-copper p-8 shadow-2xl rounded-xl relative">
-      <form id="admin-login-form" onsubmit="handleLogin(event)" class="space-y-6">
+    <div class="bg-brand-surface border border-white/10 border-t-4 border-t-brand-copper p-5 sm:p-8 shadow-2xl rounded-2xl relative">
+      <form id="admin-login-form" onsubmit="handleLogin(event)" class="space-y-5 sm:space-y-6">
         
-        <div id="login-error-alert" class="hidden p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono flex items-center gap-3 rounded">
+        <div id="login-error-alert" class="hidden p-3.5 sm:p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono flex items-center gap-3 rounded-lg">
           <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-rose-400"></i>
           <span id="login-error-text">Identifiants incorrects. Veuillez réessayer.</span>
         </div>
 
-        <div class="space-y-2">
-          <label for="admin-email" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted">Nom d'utilisateur ou Email</label>
+        <div class="space-y-1.5 sm:space-y-2">
+          <label for="admin-email" class="block font-mono text-[11px] sm:text-xs uppercase tracking-wider text-brand-whiteMuted">Nom d'utilisateur ou Email</label>
           <div class="relative">
-            <i data-lucide="user-check" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-brand-grey"></i>
-            <input type="text" id="admin-email" required placeholder="admin@atlashorizon.com" value="admin@atlashorizon.com" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-11 pr-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none rounded transition-colors">
+            <i data-lucide="user-check" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+            <input type="text" id="admin-email" required placeholder="admin@atlashorizon.com" value="admin@atlashorizon.com" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-10 pr-4 py-3 text-brand-white placeholder-brand-grey text-xs sm:text-sm focus:outline-none rounded-lg transition-colors">
           </div>
         </div>
 
-        <div class="space-y-2">
+        <div class="space-y-1.5 sm:space-y-2">
           <div class="flex items-center justify-between">
-            <label for="admin-password" class="block font-mono text-xs uppercase tracking-wider text-brand-whiteMuted">Mot de passe</label>
+            <label for="admin-password" class="block font-mono text-[11px] sm:text-xs uppercase tracking-wider text-brand-whiteMuted">Mot de passe</label>
             <span class="text-[10px] font-mono text-brand-grey">Par défaut: admin123</span>
           </div>
           <div class="relative">
-            <i data-lucide="key-round" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-brand-grey"></i>
-            <input type="password" id="admin-password" required placeholder="••••••••" value="admin123" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-11 pr-4 py-3.5 text-brand-white placeholder-brand-grey text-sm focus:outline-none rounded transition-colors">
+            <i data-lucide="key-round" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-grey"></i>
+            <input type="password" id="admin-password" required placeholder="••••••••" value="admin123" class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper pl-10 pr-4 py-3 text-brand-white placeholder-brand-grey text-xs sm:text-sm focus:outline-none rounded-lg transition-colors">
           </div>
         </div>
 
-        <button type="submit" class="w-full py-4 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-widest rounded transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(200,90,50,0.3)]">
+        <button type="submit" class="w-full py-3.5 sm:py-4 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-widest rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(200,90,50,0.3)]">
           <span>Se connecter au Dashboard</span>
           <i data-lucide="log-in" class="w-4 h-4"></i>
         </button>
 
       </form>
 
-      <div class="mt-8 pt-6 border-t border-white/10 text-center">
+      <div class="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 text-center">
         <a href="../index.html" class="inline-flex items-center gap-2 font-mono text-xs text-brand-whiteMuted hover:text-brand-white transition-colors">
           <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
           <span>Retour au site public Atlas Horizon</span>

@@ -173,3 +173,28 @@ body {
 .modal-overlay.hidden-modal .modal-container {
   transform: scale(0.96) translateY(10px);
 }
+
+/* Mobile Phone Responsiveness Utilities */
+@media (max-width: 767px) {
+  .admin-table th {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.62rem;
+  }
+  
+  .admin-table td {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .action-btn {
+    padding: 0.35rem !important;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
