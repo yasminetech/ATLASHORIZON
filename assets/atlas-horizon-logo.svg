@@ -1,0 +1,67 @@
+<svg width="1800" height="500" viewBox="0 0 1800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Atlas Horizon Logo</title>
+  <desc>Construction themed logo with crane and building icon, white lettering and orange accent.</desc>
+
+  <g transform="translate(0 20)">
+    <!-- Left construction mark -->
+    <g transform="translate(0 20)">
+      <!-- Building silhouette -->
+      <path d="M80 300L335 300L335 75H525V300H830V90H990V300H1180V75H1315V300H1430V330H80V300Z" fill="#F4F3EF"/>
+      <path d="M335 300H525V75H335V300ZM525 300H830V90H525V300ZM830 300H990V90H830V300ZM990 300H1180V75H990V300ZM1180 300H1315V75H1180V300Z" fill="#F4F3EF" opacity="0.92"/>
+
+      <!-- Orange building accent -->
+      <rect x="390" y="70" width="130" height="230" fill="#F28A2E"/>
+      <rect x="390" y="90" width="20" height="190" fill="#F4F3EF" opacity="0.9"/>
+      <rect x="500" y="90" width="20" height="190" fill="#F4F3EF" opacity="0.9"/>
+      <rect x="885" y="8" width="105" height="292" fill="#F28A2E"/>
+      <rect x="885" y="30" width="105" height="30" fill="#F4F3EF" opacity="0.9"/>
+
+      <!-- Crane -->
+      <g transform="translate(590 0)">
+        <path d="M130 120L340 120L363 144L342 165L96 165L72 140L96 120H130Z" fill="#F4F3EF"/>
+        <path d="M180 0L260 0L245 90H195L180 0Z" fill="#F4F3EF"/>
+        <path d="M160 115H238L225 170H174L160 115Z" fill="#F4F3EF"/>
+        <path d="M115 210H388V258H115V210Z" fill="#F4F3EF"/>
+        <path d="M175 172H255V210H175V172Z" fill="#F4F3EF"/>
+        <path d="M110 140H170V170H110V140Z" fill="#F28A2E"/>
+        <path d="M220 0L270 0L300 112H190L220 0Z" fill="#F28A2E" opacity="0.9"/>
+        <path d="M102 93H380V120H102V93Z" fill="#F4F3EF"/>
+        <path d="M70 120H468V145H70V120Z" fill="#F4F3EF" opacity="0.9"/>
+
+        <!-- Crane cable line and hook -->
+        <path d="M180 125V205" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+        <path d="M290 125V205" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+        <path d="M90 126L180 165L290 165L380 126" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M180 258L180 295" stroke="#F4F3EF" stroke-width="10" stroke-linecap="round"/>
+        <path d="M290 258L290 295" stroke="#F4F3EF" stroke-width="10" stroke-linecap="round"/>
+        <path d="M170 298C170 283 181 270 196 270H274C289 270 300 283 300 298V300H170V298Z" fill="#F4F3EF"/>
+      </g>
+
+      <!-- Lower curved support and orange accent -->
+      <path d="M70 315C175 255 300 245 430 245C520 245 690 261 763 300L844 330H58L70 315Z" fill="#F28A2E"/>
+      <path d="M77 330C220 260 375 256 517 256C630 256 706 274 772 305" stroke="#F4F3EF" stroke-width="12" stroke-linecap="round"/>
+
+      <!-- Left-side rebar line -->
+      <path d="M40 310V360" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M90 310V375" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M140 310V390" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M190 310V365" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M240 310V380" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M290 310V360" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+      <path d="M340 310V370" stroke="#F4F3EF" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Wordmark -->
+    <g transform="translate(700 10)">
+      <text x="0" y="210" fill="#F4F3EF" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="200" letter-spacing="-12">ATLAS</text>
+      <text x="140" y="355" fill="#F4F3EF" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="140" letter-spacing="2">HORIZON</text>
+
+      <!-- Orange line accent under HORIZON -->
+      <path d="M185 385H708" stroke="#F28A2E" stroke-width="14" stroke-linecap="round"/>
+      <path d="M156 385H724" stroke="#F4F3EF" stroke-width="2.5" opacity="0.6"/>
+
+      <!-- Small orange triangular mark before HORIZON -->
+      <path d="M145 390L181 345L217 390H145Z" fill="#F28A2E" opacity="0.95"/>
+    </g>
+  </g>
+</svg>

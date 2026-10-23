@@ -182,6 +182,47 @@ class AtlasHTTPRequestHandler(SimpleHTTPRequestHandler):
         elif path in ['/admin', '/admin/']:
             self.path = '/admin/index.html'
 
+        # Handle Range requests (essential for iOS Safari, mobile and smooth video seeking)
+        range_header = self.headers.get('Range')
+        if range_header and range_header.startswith('bytes='):
+            req_file_path = self.translate_path(self.path)
+            if os.path.isfile(req_file_path):
+                file_size = os.path.getsize(req_file_path)
+                try:
+                    ranges = range_header.replace('bytes=', '').split('-')
+                    start = int(ranges[0]) if ranges[0] else 0
+                    end = int(ranges[1]) if len(ranges) > 1 and ranges[1] else file_size - 1
+                    if start >= file_size:
+                        self.send_error(416, "Requested Range Not Satisfiable")
+                        return
+                    end = min(end, file_size - 1)
+                    content_length = (end - start) + 1
+                    content_type = self.guess_type(req_file_path)
+
+                    self.send_response(206)
+                    self.send_header('Content-Type', content_type)
+                    self.send_header('Content-Range', f'bytes {start}-{end}/{file_size}')
+                    self.send_header('Content-Length', str(content_length))
+                    self.send_header('Accept-Ranges', 'bytes')
+                    self.end_headers()
+
+                    with open(req_file_path, 'rb') as f:
+                        f.seek(start)
+                        remaining = content_length
+                        chunk_size = 64 * 1024
+                        while remaining > 0:
+                            read_bytes = min(remaining, chunk_size)
+                            data = f.read(read_bytes)
+                            if not data:
+                                break
+                            self.wfile.write(data)
+                            remaining -= len(data)
+                    return
+                except (ConnectionResetError, BrokenPipeError):
+                    return
+                except Exception:
+                    pass
+
         return super().do_GET()
 
     def do_POST(self):

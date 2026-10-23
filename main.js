@@ -259,6 +259,234 @@ function closeLightbox() {
   }
 }
 
+// On-Site Field Footage & Video Theater Controls
+const siteVideosData = [
+  {
+    src: 'assets/videos/video-excavation.mp4',
+    poster: 'assets/videos/video-excavation-poster.jpg',
+    phaseKey: 'video1Phase',
+    titleKey: 'video1Title',
+    locKey: 'video1Loc',
+    descKey: 'video1Desc',
+    specsKey: 'video1Specs',
+    defaultPhase: '01 // SUBSTRUCTURE',
+    defaultTitle: 'Deep Excavation & Crane Logistics',
+    defaultLoc: 'Lisbon Hub, Portugal',
+    defaultDesc: 'Large-scale subterranean earthworks, perimeter retaining stabilization, and tower crane operations preparing the foundation bed.',
+    defaultSpecs: 'Deep Excavation • Tower Crane • Retaining Embankments'
+  },
+  {
+    src: 'assets/videos/video-formwork-rebar.mp4',
+    poster: 'assets/videos/video-formwork-rebar-poster.jpg',
+    phaseKey: 'video2Phase',
+    titleKey: 'video2Title',
+    locKey: 'video2Loc',
+    descKey: 'video2Desc',
+    specsKey: 'video2Specs',
+    defaultPhase: '02 // REINFORCEMENT',
+    defaultTitle: 'Curved Formwork & Dense Rebar',
+    defaultLoc: 'Cascais Coast, Portugal',
+    defaultDesc: 'Complex curved timber shuttering and high-yield seismic steel reinforcement matrix inspected prior to concrete pour.',
+    defaultSpecs: 'Bespoke Timber Forms • Seismic Rebar Matrix • Tolerance ±2mm'
+  },
+  {
+    src: 'assets/videos/video-wall-shoring.mp4',
+    poster: 'assets/videos/video-wall-shoring-poster.jpg',
+    phaseKey: 'video3Phase',
+    titleKey: 'video3Title',
+    locKey: 'video3Loc',
+    descKey: 'video3Desc',
+    specsKey: 'video3Specs',
+    defaultPhase: '03 // SHUTTERING',
+    defaultTitle: 'High-Wall Shuttering & Shoring',
+    defaultLoc: 'Brussels Complex, Belgium',
+    defaultDesc: 'High-load industrial wall formwork panels secured with adjustable telescopic red steel shoring struts for vertical wall casting.',
+    defaultSpecs: 'Heavy Steel Props • Wall Formwork Panels • Laser Leveling'
+  }
+];
+
+let activeModalVideoIndex = 0;
+
+function toggleVideoPlayback(index) {
+  const video = document.getElementById(`site-video-${index}`);
+  const card = document.querySelector(`.site-video-card[data-video-index="${index}"]`);
+  if (!video || !card) return;
+
+  const playIcon = card.querySelector('.video-play-icon');
+  const pauseIcon = card.querySelector('.video-pause-icon');
+  const playBtn = card.querySelector('.video-play-btn');
+
+  // Pause all other inline videos
+  [0, 1, 2].forEach(i => {
+    if (i !== index) {
+      const otherVid = document.getElementById(`site-video-${i}`);
+      const otherCard = document.querySelector(`.site-video-card[data-video-index="${i}"]`);
+      if (otherVid && !otherVid.paused) {
+        otherVid.pause();
+        if (otherCard) {
+          otherCard.querySelector('.video-play-icon')?.classList.remove('hidden');
+          otherCard.querySelector('.video-pause-icon')?.classList.add('hidden');
+          otherCard.querySelector('.video-play-btn')?.classList.remove('opacity-0');
+        }
+      }
+    }
+  });
+
+  if (video.paused) {
+    video.play().then(() => {
+      playIcon?.classList.add('hidden');
+      pauseIcon?.classList.remove('hidden');
+      playBtn?.classList.add('opacity-0', 'group-hover:opacity-100');
+    }).catch(err => {
+      console.warn("Autoplay note:", err);
+    });
+  } else {
+    video.pause();
+    playIcon?.classList.remove('hidden');
+    pauseIcon?.classList.add('hidden');
+    playBtn?.classList.remove('opacity-0');
+  }
+}
+
+function toggleVideoSound(index, event) {
+  if (event) event.stopPropagation();
+  const video = document.getElementById(`site-video-${index}`);
+  const card = document.querySelector(`.site-video-card[data-video-index="${index}"]`);
+  if (!video || !card) return;
+
+  video.muted = !video.muted;
+  const mutedIcon = card.querySelector('.video-muted-icon');
+  const unmutedIcon = card.querySelector('.video-unmuted-icon');
+
+  if (video.muted) {
+    mutedIcon?.classList.remove('hidden');
+    unmutedIcon?.classList.add('hidden');
+  } else {
+    mutedIcon?.classList.add('hidden');
+    unmutedIcon?.classList.remove('hidden');
+    if (video.paused) {
+      toggleVideoPlayback(index);
+    }
+  }
+}
+
+function initVideoProgressListeners() {
+  [0, 1, 2].forEach(index => {
+    const video = document.getElementById(`site-video-${index}`);
+    const progress = document.getElementById(`video-progress-${index}`);
+    const card = document.querySelector(`.site-video-card[data-video-index="${index}"]`);
+    if (!video || !progress) return;
+
+    video.addEventListener('timeupdate', () => {
+      if (video.duration) {
+        const percent = (video.currentTime / video.duration) * 100;
+        progress.style.width = `${percent}%`;
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      if (card) {
+        card.querySelector('.video-play-icon')?.classList.remove('hidden');
+        card.querySelector('.video-pause-icon')?.classList.add('hidden');
+        card.querySelector('.video-play-btn')?.classList.remove('opacity-0');
+      }
+      progress.style.width = '0%';
+    });
+  });
+}
+
+function openVideoModal(index, event) {
+  if (event) event.stopPropagation();
+  activeModalVideoIndex = index;
+  const modal = document.getElementById('video-theater-modal');
+  const modalVideo = document.getElementById('modal-active-video');
+  if (!modal || !modalVideo) return;
+
+  // Pause all inline videos
+  [0, 1, 2].forEach(i => {
+    const vid = document.getElementById(`site-video-${i}`);
+    if (vid && !vid.paused) {
+      vid.pause();
+      const card = document.querySelector(`.site-video-card[data-video-index="${i}"]`);
+      if (card) {
+        card.querySelector('.video-play-icon')?.classList.remove('hidden');
+        card.querySelector('.video-pause-icon')?.classList.add('hidden');
+        card.querySelector('.video-play-btn')?.classList.remove('opacity-0');
+      }
+    }
+  });
+
+  updateVideoModalContent(index);
+  modal.classList.remove('opacity-0', 'pointer-events-none');
+  document.body.style.overflow = 'hidden';
+
+  modalVideo.src = siteVideosData[index].src;
+  modalVideo.poster = siteVideosData[index].poster;
+  modalVideo.currentTime = 0;
+  modalVideo.play().catch(e => console.log('Autoplay handled:', e));
+}
+
+function updateVideoModalContent(index) {
+  const data = siteVideosData[index];
+  if (!data) return;
+
+  const lang = window.currentLang || 'en';
+  const t = (window.translations && window.translations[lang]) ? window.translations[lang] : {};
+
+  const phaseElem = document.getElementById('modal-video-phase');
+  const locElem = document.getElementById('modal-video-location');
+  const titleElem = document.getElementById('modal-video-title');
+  const descElem = document.getElementById('modal-video-desc');
+  const specsElem = document.getElementById('modal-video-specs');
+  const counterElem = document.getElementById('modal-video-counter');
+
+  if (phaseElem) phaseElem.textContent = t[data.phaseKey] || data.defaultPhase;
+  if (locElem) locElem.textContent = t[data.locKey] || data.defaultLoc;
+  if (titleElem) titleElem.textContent = t[data.titleKey] || data.defaultTitle;
+  if (descElem) descElem.textContent = t[data.descKey] || data.defaultDesc;
+  if (specsElem) specsElem.textContent = t[data.specsKey] || data.defaultSpecs;
+  if (counterElem) counterElem.textContent = `${index + 1} / 3`;
+}
+
+function navigateVideoModal(direction) {
+  let nextIndex = activeModalVideoIndex + direction;
+  if (nextIndex < 0) nextIndex = siteVideosData.length - 1;
+  if (nextIndex >= siteVideosData.length) nextIndex = 0;
+  openVideoModal(nextIndex);
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('video-theater-modal');
+  const modalVideo = document.getElementById('modal-active-video');
+  if (modalVideo) {
+    modalVideo.pause();
+    modalVideo.src = '';
+  }
+  if (modal) {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Global Keyboard Listeners
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeVideoModal();
+    closeLightbox();
+    closeQuoteModal();
+  } else if (e.key === 'ArrowLeft') {
+    const modal = document.getElementById('video-theater-modal');
+    if (modal && !modal.classList.contains('opacity-0')) {
+      navigateVideoModal(-1);
+    }
+  } else if (e.key === 'ArrowRight') {
+    const modal = document.getElementById('video-theater-modal');
+    if (modal && !modal.classList.contains('opacity-0')) {
+      navigateVideoModal(1);
+    }
+  }
+});
+
 // Header Scroll Glassmorphism Effect
 window.addEventListener('scroll', () => {
   const header = document.getElementById('main-header');
@@ -271,7 +499,11 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Initialize Language on DOM Content Loaded
+// Initialize Language & Video Listeners on DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
   setLanguage(currentLang);
+  initVideoProgressListeners();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 });

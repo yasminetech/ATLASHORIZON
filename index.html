@@ -7,7 +7,7 @@
   <meta name="description" content="Atlas Horizon delivers construction projects where technical expertise, quality, and attention to detail come together. Portugal & Belgium operations.">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="icon" type="image/png" href="Logo.png">
 
   <!-- Google Fonts: Syne (Editorial Display), Plus Jakarta Sans (Body), Space Mono (Technical Labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,29 +74,30 @@
 
   <!-- NAVIGATION -->
   <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 border-b border-white/10 backdrop-blur-md bg-brand-charcoal/90">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- LEFT: Atlas Horizon Logo -->
       <a href="#" class="flex items-center gap-3 group focus:outline-none" aria-label="Atlas Horizon Home">
-        <div class="w-56 h-12 md:w-64 md:h-14 transition-transform duration-300 group-hover:scale-[1.02]">
-          <img src="assets/logo.svg" alt="Atlas Horizon Logo" class="w-full h-full object-contain object-left">
+        <div class="w-44 h-8 sm:w-52 sm:h-10 md:w-56 md:h-11 transition-transform duration-300 group-hover:scale-[1.02]">
+          <img src="Logo.png" alt="Atlas Horizon Logo" class="w-full h-full object-contain object-left">
         </div>
       </a>
 
       <!-- CENTER/RIGHT: Nav Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
-        <a href="#projects" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navProjects">Projects</a>
-        <a href="#services" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navServices">Services</a>
-        <a href="#about" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navAbout">About</a>
-        <a href="#approach" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navApproach">Approach</a>
-        <a href="#contact" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-2 relative group" data-i18n="navContact">Contact</a>
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs sm:text-sm font-medium tracking-wide">
+        <a href="#projects" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navProjects">Projects<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#videos" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navVideos">Field Footage<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#services" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navServices">Services<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#about" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navAbout">About<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#approach" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navApproach">Approach<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
+        <a href="#contact" class="text-brand-whiteMuted hover:text-brand-white transition-colors duration-200 py-1 relative group" data-i18n="navContact">Contact<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-copper transition-all duration-300 group-hover:w-full"></span></a>
       </nav>
 
       <!-- RIGHT: Language Switcher & CTA Button -->
-      <div class="hidden sm:flex items-center gap-6">
+      <div class="hidden sm:flex items-center gap-3 sm:gap-4">
         
         <!-- Language Switcher Toggle (EN | FR | PT) -->
-        <div class="flex items-center gap-2 font-mono text-xs border border-white/10 bg-brand-surface px-3 py-1.5 rounded">
+        <div class="flex items-center gap-1.5 font-mono text-[11px] sm:text-xs border border-white/10 bg-brand-surface px-2.5 py-1 rounded">
           <button onclick="setLanguage('en')" data-lang="en" class="lang-btn text-brand-copper font-bold hover:text-brand-white transition-colors px-1">EN</button>
           <span class="text-white/20">|</span>
           <button onclick="setLanguage('fr')" data-lang="fr" class="lang-btn text-brand-whiteMuted hover:text-brand-white transition-colors px-1">FR</button>
@@ -104,8 +105,8 @@
           <button onclick="setLanguage('pt')" data-lang="pt" class="lang-btn text-brand-whiteMuted hover:text-brand-white transition-colors px-1">PT</button>
         </div>
 
-        <button onclick="openQuoteModal()" class="group relative px-6 py-3 border border-brand-copper/60 hover:border-brand-copper bg-brand-copperLight text-brand-white font-mono text-xs uppercase tracking-widest transition-all duration-300 hover:bg-brand-copper hover:shadow-[0_0_20px_rgba(200,90,50,0.3)]">
-          <span class="relative z-10 flex items-center gap-2">
+        <button onclick="openQuoteModal()" class="group relative px-3.5 py-1.5 sm:px-4 sm:py-2 border border-brand-copper/60 hover:border-brand-copper bg-brand-copperLight text-brand-white font-mono text-[11px] sm:text-xs uppercase tracking-wider rounded transition-all duration-300 hover:bg-brand-copper hover:shadow-[0_0_15px_rgba(200,90,50,0.3)]">
+          <span class="relative z-10 flex items-center gap-1.5">
             <span data-i18n="navQuoteBtn">Request a Quote</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
           </span>
@@ -124,7 +125,7 @@
     <div>
       <div class="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
         <div class="w-48 h-10">
-          <img src="assets/logo.svg" alt="Atlas Horizon" class="w-full h-full object-contain object-left">
+          <img src="Logo.png" alt="Atlas Horizon" class="w-full h-full object-contain object-left">
         </div>
         <button onclick="toggleMobileMenu()" class="p-2 text-brand-white hover:text-brand-copper focus:outline-none" aria-label="Close Menu">
           <i data-lucide="x" class="w-7 h-7"></i>
@@ -142,6 +143,7 @@
 
       <nav class="flex flex-col gap-6 text-2xl font-syne font-bold">
         <a href="#projects" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navProjects">Selected Projects</a>
+        <a href="#videos" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navVideos">Field Footage</a>
         <a href="#services" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navServices">Services & Solutions</a>
         <a href="#about" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navAbout">About Atlas Horizon</a>
         <a href="#approach" onclick="toggleMobileMenu()" class="text-brand-white hover:text-brand-copper transition-colors py-1" data-i18n="navApproach">Our Approach</a>
@@ -151,7 +153,7 @@
     </div>
 
     <div class="border-t border-white/10 pt-6 mt-8 space-y-3">
-      <button onclick="toggleMobileMenu(); openQuoteModal()" class="w-full py-4 text-center bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-sm uppercase tracking-widest transition-colors shadow-lg">
+      <button onclick="toggleMobileMenu(); openQuoteModal()" class="w-full py-2.5 sm:py-3 text-center bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-wider rounded transition-colors shadow-lg">
         <span data-i18n="navQuoteBtn">Request a Quote</span> ↗
       </button>
       <p class="text-xs font-mono text-brand-grey text-center">contact@atlashorizon.eu | +351 926 930 272</p>
@@ -206,7 +208,7 @@
       <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-mono text-brand-whiteMuted">
         <div class="space-y-1">
           <span class="block text-brand-copper uppercase tracking-widest text-[10px]">FOUNDED</span>
-          <span class="text-brand-white font-bold text-sm" data-i18n="heroFounding">2011 — INTERNATIONAL</span>
+          <span class="text-brand-white font-bold text-sm" data-i18n="heroFounding">2024 INTERNATIONAL</span>
         </div>
         <div class="space-y-1">
           <span class="block text-brand-copper uppercase tracking-widest text-[10px]">CORE DISCIPLINE</span>
@@ -456,6 +458,309 @@
               </div>
             </div>
 
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ON-SITE FIELD FOOTAGE & VIDEO ARCHIVE -->
+  <section id="videos" class="py-28 md:py-40 border-b border-white/10 bg-[#090a0c] relative overflow-hidden">
+    <!-- Blueprint Grid Background Pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-2 h-2 rounded-full bg-brand-copper animate-ping"></span>
+            <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="videoSectionLabel">03 / FIELD FOOTAGE</span>
+            <span class="px-2.5 py-0.5 border border-brand-copper/40 bg-brand-copper/10 text-brand-copper font-mono text-[10px] uppercase tracking-wider" data-i18n="videoLiveBadge">3 ACTIVE SITE ARCHIVES</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-white" data-i18n="videoTitle">Active Sites in Motion.</h2>
+        </div>
+        <p class="text-brand-whiteMuted max-w-lg text-sm font-light leading-relaxed" data-i18n="videoSub">
+          Unfiltered on-site captures from our active construction operations across Portugal and Belgium. Experience our civil engineering, structural formwork, and heavy reinforcement in real time.
+        </p>
+      </div>
+
+      <!-- Video Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- VIDEO CARD 1: Deep Excavation -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="0">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-0"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-excavation-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-excavation.mp4" type="video/mp4">
+              <source src="WhatsApp Video 2026-02-28 at 15.15.28 (1).mp4" type="video/mp4">
+            </video>
+
+            <!-- Gradient Overlays for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <!-- Top Badges -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>REC // SITE B</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:15 • 4K/HD
+              </span>
+            </div>
+
+            <!-- Center Custom Play Button Overlay -->
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(0)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <!-- Video Progress Bar -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-0" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <!-- Quick Action Floating Controls (Sound & Theater) -->
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(0, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(0, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Technical Information Card Body -->
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video1Phase">01 // SUBSTRUCTURE</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video1Loc">Lisbon Hub, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video1Title">
+              Deep Excavation & Crane Logistics
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video1Desc">
+              Large-scale subterranean earthworks, perimeter retaining stabilization, and tower crane operations preparing the foundation bed.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video1Specs">Deep Excavation • Tower Crane</span>
+              <button onclick="openVideoModal(0)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 2: Curved Formwork & Rebar -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="1">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-1"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-formwork-rebar-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-formwork-rebar.mp4" type="video/mp4">
+              <source src="WhatsApp Video 2026-02-28 at 15.15.27.mp4" type="video/mp4">
+            </video>
+
+            <!-- Gradient Overlays for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <!-- Top Badges -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // CASCAIS</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:29 • 4K/HD
+              </span>
+            </div>
+
+            <!-- Center Custom Play Button Overlay -->
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(1)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <!-- Video Progress Bar -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-1" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <!-- Quick Action Floating Controls (Sound & Theater) -->
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(1, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(1, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Technical Information Card Body -->
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video2Phase">02 // REINFORCEMENT</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video2Loc">Cascais Coast, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video2Title">
+              Curved Formwork & Dense Rebar
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video2Desc">
+              Complex curved timber shuttering and high-yield seismic steel reinforcement matrix inspected prior to concrete pour.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video2Specs">Timber Forms • Seismic Rebar</span>
+              <button onclick="openVideoModal(1)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 3: Wall Shuttering & Shoring -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="2">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-2"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-wall-shoring-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-wall-shoring.mp4" type="video/mp4">
+              <source src="WhatsApp Video 2026-02-28 at 15.15.28 (2).mp4" type="video/mp4">
+            </video>
+
+            <!-- Gradient Overlays for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <!-- Top Badges -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // BRUSSELS</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:10 • 4K/HD
+              </span>
+            </div>
+
+            <!-- Center Custom Play Button Overlay -->
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(2)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <!-- Video Progress Bar -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-2" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <!-- Quick Action Floating Controls (Sound & Theater) -->
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(2, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(2, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Technical Information Card Body -->
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video3Phase">03 // SHUTTERING</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video3Loc">Brussels Complex, Belgium</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video3Title">
+              High-Wall Shuttering & Shoring
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video3Desc">
+              High-load industrial wall formwork panels secured with adjustable telescopic red steel shoring struts for vertical wall casting.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video3Specs">Steel Props • Wall Panels</span>
+              <button onclick="openVideoModal(2)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
           </div>
         </article>
 
@@ -805,8 +1110,14 @@
           <div class="aspect-[4/5] overflow-hidden">
             <img src="assets/images/detail-craftsmanship.jpg" alt="Craftsman Formwork Detail" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'WOOD & TIMBER FORMWORK DETAIL')">
           </div>
-          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
-            <span class="text-brand-copper font-bold block" data-i18n="det1Tag">01 / WOOD & FORMWORK</span>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det1Tag">01 / WOOD & FORMWORK</span>
+              <button onclick="openVideoModal(1)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video</span>
+              </button>
+            </div>
             <p class="text-brand-whiteMuted" data-i18n="det1Desc">Hand-built Doka formwork for custom concrete beam geometry.</p>
           </div>
         </div>
@@ -815,8 +1126,14 @@
           <div class="aspect-[4/5] overflow-hidden">
             <img src="assets/images/project-rebar-mesh.jpg" alt="Steel Rebar Foundation Grid" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'STEEL & REBAR MESH DETAIL')">
           </div>
-          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
-            <span class="text-brand-copper font-bold block" data-i18n="det2Tag">02 / STEEL & REBAR</span>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det2Tag">02 / STEEL & REBAR</span>
+              <button onclick="openVideoModal(1)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video</span>
+              </button>
+            </div>
             <p class="text-brand-whiteMuted" data-i18n="det2Desc">High-density seismic rebar matting prior to foundation pour.</p>
           </div>
         </div>
@@ -825,8 +1142,14 @@
           <div class="aspect-[4/5] overflow-hidden">
             <img src="assets/images/detail-precision.jpg" alt="Precision Spirit Leveling" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'PRECISION ALIGNMENT DETAIL')">
           </div>
-          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
-            <span class="text-brand-copper font-bold block" data-i18n="det3Tag">03 / CONCRETE & ALIGNMENT</span>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det3Tag">03 / CONCRETE & ALIGNMENT</span>
+              <button onclick="openVideoModal(2)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video</span>
+              </button>
+            </div>
             <p class="text-brand-whiteMuted" data-i18n="det3Desc">Sub-millimeter laser verification on trench foundation walls.</p>
           </div>
         </div>
@@ -835,8 +1158,14 @@
           <div class="aspect-[21/9] md:aspect-[16/9] overflow-hidden">
             <img src="assets/images/project-structural-dome.jpg" alt="Structural Rebar Dome" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105" onclick="openLightbox(this.src, 'CIRCULAR STRUCTURAL DOME REBAR')">
           </div>
-          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-1">
-            <span class="text-brand-copper font-bold block" data-i18n="det4Tag">04 / ARCHITECTURAL DOME GEOMETRY</span>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det4Tag">04 / ARCHITECTURAL DOME GEOMETRY</span>
+              <button onclick="openVideoModal(0)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Watch Excavation & Dome Video ↗</span>
+              </button>
+            </div>
             <p class="text-brand-whiteMuted" data-i18n="det4Desc">Heavy infrastructure circular reinforcement cage for heavy load bearing.</p>
           </div>
         </div>
@@ -1041,7 +1370,7 @@
         
         <div class="lg:col-span-5 space-y-6">
           <a href="#">
-            <img src="assets/logo.svg" alt="Atlas Horizon Logo" class="h-14 md:h-16">
+            <img src="Logo.png" alt="Atlas Horizon Logo" class="h-14 md:h-16">
           </a>
           <p class="text-brand-whiteMuted font-light text-sm max-w-sm leading-relaxed" data-i18n="footerDesc">
             Construction, architecture and spaces built with purpose. Delivering uncompromised engineering and structural mastery across Portugal and Belgium.
@@ -1056,6 +1385,7 @@
           <span class="font-mono text-xs text-brand-copper uppercase tracking-widest block mb-2">NAVIGATION</span>
           <ul class="space-y-3 font-mono text-xs text-brand-whiteMuted">
             <li><a href="#projects" class="hover:text-brand-white transition-colors" data-i18n="navProjects">Projects Archive</a></li>
+            <li><a href="#videos" class="hover:text-brand-white transition-colors" data-i18n="navVideos">Field Footage</a></li>
             <li><a href="#services" class="hover:text-brand-white transition-colors" data-i18n="navServices">Services & Capabilities</a></li>
             <li><a href="#about" class="hover:text-brand-white transition-colors" data-i18n="navAbout">About Atlas Horizon</a></li>
             <li><a href="#approach" class="hover:text-brand-white transition-colors" data-i18n="navApproach">Execution Approach</a></li>
@@ -1170,7 +1500,7 @@
           <textarea id="modal-notes" rows="3" placeholder="Additional details, site parameters in Portugal or Belgium..." class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper p-3.5 text-sm text-brand-white focus:outline-none resize-none"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-4 bg-brand-copper text-white font-mono text-xs uppercase tracking-widest hover:bg-brand-copperHover transition-colors flex items-center justify-center gap-2">
+        <button type="submit" class="w-full py-2.5 sm:py-3 bg-brand-copper text-white font-mono text-xs uppercase tracking-wider rounded hover:bg-brand-copperHover transition-colors flex items-center justify-center gap-2">
           <span data-i18n="quoteModalSubmit">Submit Quote Request</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
@@ -1195,6 +1525,60 @@
     <div class="max-w-5xl w-full space-y-4" onclick="event.stopPropagation()">
       <img id="lightbox-img" src="" alt="Enlarged Project Photo" class="w-full max-h-[80vh] object-contain border border-white/10">
       <p id="lightbox-caption" class="font-mono text-xs text-brand-copper uppercase tracking-wider text-center"></p>
+    </div>
+  </div>
+
+  <!-- VIDEO THEATER MODAL -->
+  <div id="video-theater-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 opacity-0 pointer-events-none transition-all duration-300" onclick="closeVideoModal()">
+    <div class="max-w-5xl w-full bg-brand-surface border border-white/15 shadow-2xl relative overflow-hidden flex flex-col max-h-[94vh]" onclick="event.stopPropagation()">
+      
+      <!-- Modal Top Navigation Bar -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-brand-charcoal/90">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-copper animate-ping"></span>
+          <span id="modal-video-phase" class="font-mono text-xs text-brand-copper uppercase tracking-wider font-bold">01 // SUBSTRUCTURE</span>
+          <span class="text-white/20">|</span>
+          <span id="modal-video-location" class="font-mono text-xs text-brand-whiteMuted">Lisbon Hub, Portugal</span>
+        </div>
+        <button onclick="closeVideoModal()" class="p-2 text-brand-whiteMuted hover:text-white transition-colors rounded-full hover:bg-white/10" aria-label="Close Theater">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Active Video Frame -->
+      <div class="relative bg-black flex items-center justify-center flex-1 min-h-[300px] max-h-[64vh] overflow-hidden">
+        <video 
+          id="modal-active-video"
+          class="w-full h-full max-h-[64vh] object-contain"
+          controls
+          playsinline
+        ></video>
+      </div>
+
+      <!-- Technical Metadata & Navigation Controls -->
+      <div class="p-5 sm:p-6 bg-brand-charcoal border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-xs">
+        <div class="space-y-1">
+          <h4 id="modal-video-title" class="font-syne font-bold text-lg text-brand-white">Deep Excavation & Crane Logistics</h4>
+          <p id="modal-video-desc" class="font-sans text-xs text-brand-whiteMuted max-w-xl font-light">
+            Large-scale subterranean earthworks, perimeter retaining stabilization, and tower crane operations preparing the foundation bed.
+          </p>
+          <p id="modal-video-specs" class="text-brand-copper text-[11px] pt-1">Deep Excavation • Tower Crane • Retaining Embankments</p>
+        </div>
+
+        <!-- Prev / Next Switcher -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="navigateVideoModal(-1)" class="px-4 py-2 border border-white/15 hover:border-brand-copper bg-brand-surface text-brand-white hover:text-brand-copper transition-colors flex items-center gap-2">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            <span data-i18n="videoModalPrev">Prev</span>
+          </button>
+          <span id="modal-video-counter" class="text-brand-copper font-bold px-2">1 / 3</span>
+          <button onclick="navigateVideoModal(1)" class="px-4 py-2 border border-white/15 hover:border-brand-copper bg-brand-surface text-brand-white hover:text-brand-copper transition-colors flex items-center gap-2">
+            <span data-i18n="videoModalNext">Next</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 
