@@ -24,7 +24,7 @@ const translations = {
     heroBtnProjects: "Our Projects",
     heroBtnContact: "Contact Us",
     
-    heroFounding: "2011 — INTERNATIONAL",
+    heroFounding: "2024 — INTERNATIONAL",
     heroDiscipline: "HEAVY STRUCTURES",
     heroGeo: "PORTUGAL & BELGIUM",
     heroMethod: "BIM + ZERO-DEFECT",
@@ -247,7 +247,7 @@ const translations = {
     heroBtnProjects: "Nos Projets",
     heroBtnContact: "Nous Contacter",
     
-    heroFounding: "2011 — INTERNATIONAL",
+    heroFounding: "2024 — INTERNATIONAL",
     heroDiscipline: "STRUCTURES LOURDES",
     heroGeo: "PORTUGAL & BELGIQUE",
     heroMethod: "BIM + ZÉRO DÉFAUT",
@@ -470,7 +470,7 @@ const translations = {
     heroBtnProjects: "Nossos Projetos",
     heroBtnContact: "Fale Conosco",
     
-    heroFounding: "2011 — INTERNACIONAL",
+    heroFounding: "2024 — INTERNACIONAL",
     heroDiscipline: "ESTRUTURAS PESADAS",
     heroGeo: "PORTUGAL E BÉLGICA",
     heroMethod: "BIM + ZERO DEFEITOS",
