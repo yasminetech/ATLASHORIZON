@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Administration — Atlas Horizon</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:; img-src 'self' data: https: http:;">
+  <link rel="icon" type="image/png" href="../Logo.png">
+  <link rel="icon" type="image/x-icon" href="../Logo.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              charcoal: '#0f1012',
+              surface: '#16181c',
+              card: '#1c1f24',
+              copper: '#c85a32',
+              copperHover: '#db683d',
+              white: '#F4F3EF',
+              whiteMuted: '#9e9e9e',
+              grey: '#6e727a'
+            }
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="bg-brand-charcoal text-brand-white min-h-screen flex items-center justify-center p-4 antialiased">
+  <div class="w-full max-w-md">
+    <div class="bg-brand-surface border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
+      <div class="text-center mb-8">
+        <a href="dashboard.html" class="inline-flex items-center gap-2 mb-6">
+          <img src="../Logo.png" alt="Atlas Horizon Logo" class="h-10">
+        </a>
+        <div class="px-2 py-0.5 bg-brand-copper/10 text-brand-copper text-[10px] font-mono border border-brand-copper/30 rounded font-bold inline-block mb-4">PORTAIL ADMIN</div>
+        <h1 class="font-syne font-bold text-2xl sm:text-3xl text-brand-white">Connexion</h1>
+        <p class="text-sm text-brand-whiteMuted mt-2 font-light">Accès réservé à l'équipe Atlas Horizon</p>
+      </div>
+
+      <form id="login-form" class="space-y-5" onsubmit="handleLogin(event)">
+        <div>
+          <label for="username" class="block font-mono text-xs text-brand-whiteMuted mb-1.5 uppercase tracking-wide">Identifiant / Email</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            required 
+            autocomplete="username"
+            placeholder="admin ou contact@atlashorizon.eu"
+            class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper focus:outline-none px-4 py-3 text-brand-white placeholder-brand-grey rounded-lg transition-colors text-sm"
+          >
+        </div>
+
+        <div>
+          <label for="password" class="block font-mono text-xs text-brand-whiteMuted mb-1.5 uppercase tracking-wide">Mot de passe</label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              required 
+              autocomplete="current-password"
+              placeholder="••••••••"
+              class="w-full bg-brand-charcoal border border-white/10 focus:border-brand-copper focus:outline-none px-4 py-3 text-brand-white placeholder-brand-grey rounded-lg transition-colors text-sm pr-12"
+            >
+            <button 
+              type="button" 
+              onclick="togglePasswordVisibility()" 
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-grey hover:text-brand-white"
+              aria-label="Afficher/Masquer le mot de passe"
+            >
+              <i data-lucide="eye" id="password-toggle-icon" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error" class="hidden p-3 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono rounded-lg"></div>
+
+        <button 
+          type="submit" 
+          id="login-btn"
+          class="w-full py-3.5 bg-brand-copper hover:bg-brand-copperHover text-white font-mono text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center justify-center gap-2 font-bold"
+        >
+          <i data-lucide="lock" class="w-4 h-4"></i>
+          <span>Se connecter</span>
+        </button>
+      </form>
+
+      <div class="mt-6 pt-6 border-t border-white/10 text-center">
+        <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs text-brand-whiteMuted hover:text-brand-copper transition-colors font-mono">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Retour au site public</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mt-6 text-[10px] font-mono text-brand-grey">
+      Atlas Horizon Construction & Architecture
+    </div>
+  </div>
+
+  <script src="../assets/js/reservation-store.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      
+      if (ReservationStore.getAuth()) {
+        window.location.replace('dashboard.html');
+      }
+    });
+
+    function togglePasswordVisibility() {
+      const input = document.getElementById('password');
+      const icon = document.getElementById('password-toggle-icon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        input.type = 'password';
+        icon.setAttribute('data-lucide', 'eye');
+      }
+      lucide.createIcons();
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      
+      const btn = document.getElementById('login-btn');
+      const errorEl = document.getElementById('login-error');
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      errorEl.classList.add('hidden');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i><span>Connexion...</span>';
+      lucide.createIcons();
+
+      const result = await ReservationStore.login(username, password);
+
+      if (result.success) {
+        window.location.replace('dashboard.html');
+      } else {
+        errorEl.textContent = result.message || 'Email ou mot de passe incorrect.';
+        errorEl.classList.remove('hidden');
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Se connecter</span>';
+        lucide.createIcons();
+      }
+    }
+  </script>
+</body>
+</html>

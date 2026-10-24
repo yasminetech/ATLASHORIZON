@@ -209,7 +209,7 @@ const ReservationStore = {
 
     // Default master admin credentials fallback
     const cleanUser = (emailOrUsername || '').trim().toLowerCase();
-    if ((cleanUser === 'contact@atlashorizon.eu' || cleanUser === 'admin@atlashorizon.com' || cleanUser === 'admin') && password === 'admin123') {
+    if ((cleanUser === 'contact@atlashorizon.eu' || cleanUser === 'admin@atlashorizon.com' || cleanUser === 'admin') && password === 'moha@jas2089') {
       const sessionData = {
         username: 'Admin Atlas Horizon',
         email: 'contact@atlashorizon.eu',
