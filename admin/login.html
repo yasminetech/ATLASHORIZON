@@ -119,10 +119,6 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
-      
-      if (ReservationStore.getAuth()) {
-        window.location.replace('dashboard.html');
-      }
     });
 
     function togglePasswordVisibility() {
@@ -154,7 +150,7 @@
       const result = await ReservationStore.login(username, password);
 
       if (result.success) {
-        window.location.replace('dashboard.html');
+        window.location.replace('/admin/dashboard.html');
       } else {
         errorEl.textContent = result.message || 'Email ou mot de passe incorrect.';
         errorEl.classList.remove('hidden');

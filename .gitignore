@@ -4,3 +4,5 @@
 *.zip
 __pycache__/
 database.db
+node_modules/
+.netlify/

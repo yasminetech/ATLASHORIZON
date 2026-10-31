@@ -11,9 +11,9 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (ReservationStore.getAuth()) {
-        window.location.replace('dashboard.html');
+        window.location.replace('/admin/dashboard.html');
       } else {
-        window.location.replace('login.html');
+        window.location.replace('/admin/login.html');
       }
     });
   </script>

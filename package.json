@@ -1,0 +1,9 @@
+{
+  "name": "atlas-horizon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Atlas Horizon website and admin dashboard with Netlify Functions API",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.7"
+  }
+}

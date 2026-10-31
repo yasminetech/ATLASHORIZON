@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check Authentication Protection
   const session = ReservationStore.getAuth();
   if (!session) {
-    window.location.replace('login.html');
+    window.location.replace('/admin/login.html');
     return;
   }
 
@@ -734,7 +734,7 @@ function closeLogoutModal() {
 
 function confirmLogoutAction() {
   ReservationStore.logout();
-  window.location.replace('login.html');
+  window.location.replace('/admin/login.html');
 }
 
 // Utility: HTML Escaper

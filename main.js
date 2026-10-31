@@ -141,12 +141,19 @@ function closeQuoteModal() {
   }
 }
 
-function handleQuoteSubmit(event) {
+async function handleQuoteSubmit(event) {
   event.preventDefault();
   const form = document.getElementById('quote-modal-form');
   const successMsg = document.getElementById('quote-modal-success');
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  const origBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="inline-block animate-spin mr-2">⟳</span> Envoi...';
+  }
   
-  if (window.ReservationStore) {
+  try {
     const service = document.getElementById('modal-service')?.value || 'Construction';
     const area = document.getElementById('modal-area')?.value || 'N/A';
     const year = document.getElementById('modal-year')?.value || '2026';
@@ -157,7 +164,7 @@ function handleQuoteSubmit(event) {
     const desiredTime = document.getElementById('modal-time')?.value || '10:00';
     const notes = document.getElementById('modal-notes')?.value || '';
 
-    ReservationStore.addReservation({
+    const payload = {
       clientName: clientName,
       email: email,
       phone: phone,
@@ -167,47 +174,111 @@ function handleQuoteSubmit(event) {
       location: 'Portugal / Belgium',
       area: area,
       message: notes || `Demande de devis pour projet ${service} (${area} m² - objectif ${year})`,
-      lang: currentLang || 'en'
-    });
-  }
+      lang: window.currentLang || currentLang || 'en'
+    };
 
-  if (form && successMsg) {
-    form.classList.add('hidden');
-    successMsg.classList.remove('hidden');
+    if (window.ReservationStore) {
+      await ReservationStore.addReservation(payload);
+    }
+
+    const waBtn = document.getElementById('quote-success-whatsapp');
+    if (waBtn && window.ReservationStore) {
+      const waDetails = ReservationStore.generateClientWhatsAppDetails(
+        '+351926930272',
+        clientName,
+        service,
+        desiredDate,
+        window.currentLang || currentLang || 'fr'
+      );
+      waBtn.href = waDetails.apiUrl;
+    }
+
+    if (form && successMsg) {
+      form.classList.add('hidden');
+      successMsg.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+  } catch (err) {
+    console.error('Error submitting quote request:', err);
+    if (form && successMsg) {
+      form.classList.add('hidden');
+      successMsg.classList.remove('hidden');
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origBtnContent;
+    }
   }
 }
 
 // Contact Form Handler
-function handleContactSubmit(event) {
+async function handleContactSubmit(event) {
   event.preventDefault();
   const form = document.getElementById('contact-form');
   const successView = document.getElementById('contact-success');
-  
-  if (window.ReservationStore) {
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  const origBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="inline-block animate-spin mr-2">⟳</span> Envoi...';
+  }
+
+  try {
     const name = document.getElementById('contact-name')?.value || '';
     const email = document.getElementById('contact-email')?.value || '';
     const phone = document.getElementById('contact-phone')?.value || '';
     const service = document.getElementById('contact-type')?.value || 'General Contracting';
     const location = document.getElementById('contact-location')?.value || 'Portugal / Belgium';
     const message = document.getElementById('contact-message')?.value || '';
+    const today = new Date().toISOString().substring(0, 10);
 
-    ReservationStore.addReservation({
+    const payload = {
       clientName: name,
       email: email,
       phone: phone,
       service: service,
-      desiredDate: '2026-10-15',
+      desiredDate: today,
       desiredTime: '10:00',
       location: location,
       area: 'N/A',
       message: message,
-      lang: currentLang || 'en'
-    });
-  }
+      lang: window.currentLang || currentLang || 'en'
+    };
 
-  if (form && successView) {
-    form.classList.add('hidden');
-    successView.classList.remove('hidden');
+    if (window.ReservationStore) {
+      await ReservationStore.addReservation(payload);
+    }
+
+    const waBtn = document.getElementById('contact-success-whatsapp');
+    if (waBtn && window.ReservationStore) {
+      const waDetails = ReservationStore.generateClientWhatsAppDetails(
+        '+351926930272',
+        name,
+        service,
+        today,
+        window.currentLang || currentLang || 'fr'
+      );
+      waBtn.href = waDetails.apiUrl;
+    }
+
+    if (form && successView) {
+      form.classList.add('hidden');
+      successView.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+  } catch (err) {
+    console.error('Error submitting contact message:', err);
+    if (form && successView) {
+      form.classList.add('hidden');
+      successView.classList.remove('hidden');
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origBtnContent;
+    }
   }
 }
 
