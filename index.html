@@ -464,6 +464,58 @@
           </div>
         </article>
 
+        <!-- PROJECT 5: Industrial Logistics Complex -->
+        <article class="project-item group" data-category="commercial">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 relative overflow-hidden border border-white/10 bg-brand-surface">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img src="assets/images/masonry-craftsman.jpg" alt="Atlas Industrial Logistics Complex" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105 cursor-pointer" onclick="openLightbox(this.src, '05 / ATLAS INDUSTRIAL LOGISTICS COMPLEX — PORTUGAL')">
+              </div>
+              <div class="absolute bottom-4 left-4 bg-brand-charcoal/90 px-3 py-1.5 border border-white/10 font-mono text-[11px] text-brand-white">
+                PRECISION BLOCKWORK & STAGING — VILA NOVA / BRAGA
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6">
+              <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="proj5Section">05 / COMMERCIAL & INDUSTRIAL</span>
+              <h3 class="font-syne font-bold text-3xl sm:text-4xl text-brand-white group-hover:text-brand-copper transition-colors duration-300" data-i18n="proj5Title">
+                ATLAS INDUSTRIAL LOGISTICS COMPLEX
+              </h3>
+              <p class="text-brand-whiteMuted font-light text-base leading-relaxed" data-i18n="proj5Desc">
+                Turnkey construction of a high-capacity logistics warehouse facility in Portugal, featuring precast structural columns, fire-rated acoustic concrete block dividing walls, and engineered scaffolding systems.
+              </p>
+              
+              <ul class="space-y-3 font-mono text-xs text-brand-whiteMuted border-t border-b border-white/10 py-4">
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">LOCATION:</span>
+                  <span class="text-brand-white" data-i18n="proj5LocVal">Vila Nova / Braga Industrial Hub, Portugal</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">SCOPE:</span>
+                  <span class="text-brand-white" data-i18n="proj5ScopeVal">Precast Structure & Precision Masonry</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="text-brand-grey">FOOTPRINT:</span>
+                  <span class="text-brand-copper" data-i18n="proj5Footprint">4,800 M² FOOTPRINT</span>
+                </li>
+              </ul>
+
+              <div class="flex items-center gap-4 pt-2">
+                <a href="#videos" class="inline-flex items-center gap-2 font-mono text-xs text-brand-copper uppercase tracking-wider hover:underline font-bold">
+                  <span>Watch Field Footage</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+                <span class="text-white/20">|</span>
+                <button onclick="openLightbox('assets/images/masonry-wall-long.jpg', '05 / INDUSTRIAL ENCLOSURE WALL')" class="font-mono text-xs text-brand-whiteMuted hover:text-white uppercase tracking-wider">
+                  View Wall Gallery ↗
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
       </div>
 
     </div>
@@ -482,7 +534,7 @@
           <div class="flex items-center gap-3 mb-3">
             <span class="w-2 h-2 rounded-full bg-brand-copper animate-ping"></span>
             <span class="text-brand-copper font-mono text-xs uppercase tracking-widest block" data-i18n="videoSectionLabel">03 / FIELD FOOTAGE</span>
-            <span class="px-2.5 py-0.5 border border-brand-copper/40 bg-brand-copper/10 text-brand-copper font-mono text-[10px] uppercase tracking-wider" data-i18n="videoLiveBadge">3 ACTIVE SITE ARCHIVES</span>
+            <span class="px-2.5 py-0.5 border border-brand-copper/40 bg-brand-copper/10 text-brand-copper font-mono text-[10px] uppercase tracking-wider" data-i18n="videoLiveBadge">9 ACTIVE SITE ARCHIVES</span>
           </div>
           <h2 class="font-syne font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-white" data-i18n="videoTitle">Active Sites in Motion.</h2>
         </div>
@@ -491,11 +543,18 @@
         </p>
       </div>
 
+      <!-- Video Category Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-3 mb-12 font-mono text-xs">
+        <button onclick="filterVideos('all')" class="video-filter-btn active-filter px-5 py-2.5 border border-brand-copper bg-brand-copper text-white uppercase tracking-wider transition-all" data-i18n="videoFilterAll">All Footage (9)</button>
+        <button onclick="filterVideos('civil')" class="video-filter-btn px-5 py-2.5 border border-white/10 hover:border-white/40 text-brand-whiteMuted hover:text-white uppercase tracking-wider transition-all" data-i18n="videoFilterCivil">Substructure & Civil (3)</button>
+        <button onclick="filterVideos('masonry')" class="video-filter-btn px-5 py-2.5 border border-white/10 hover:border-white/40 text-brand-whiteMuted hover:text-white uppercase tracking-wider transition-all" data-i18n="videoFilterMasonry">Industrial & Masonry (6)</button>
+      </div>
+
       <!-- Video Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- VIDEO CARD 1: Deep Excavation -->
-        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="0">
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="0" data-video-category="civil">
           <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
             <video 
               id="site-video-0"
@@ -586,7 +645,7 @@
         </article>
 
         <!-- VIDEO CARD 2: Curved Formwork & Rebar -->
-        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="1">
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="1" data-video-category="civil">
           <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
             <video 
               id="site-video-1"
@@ -677,7 +736,7 @@
         </article>
 
         <!-- VIDEO CARD 3: Wall Shuttering & Shoring -->
-        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="2">
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="2" data-video-category="civil">
           <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
             <video 
               id="site-video-2"
@@ -761,6 +820,510 @@
             <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
               <span class="text-brand-grey uppercase" data-i18n="video3Specs">Steel Props • Wall Panels</span>
               <button onclick="openVideoModal(2)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 4: Scaffolding Assembly & Team Staging -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="3" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-3"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-scaffolding-team-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-scaffolding-team.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // VILA NOVA</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:10 • 4K/HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(3)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-3" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(3, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(3, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video4Phase">04 // STAGING & TEAM</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video4Loc">Vila Nova Hub, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video4Title">
+              Scaffolding Assembly & Masonry Staging
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video4Desc">
+              Coordinated site crew erecting modular heavy staging platforms and safety planks to enable high-wall blockwork.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video4Specs">Modular Scaffolding • Team Staging</span>
+              <button onclick="openVideoModal(3)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 5: Logistics Warehouse Hall Assembly -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="4" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-4"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-logistics-hall-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-logistics-hall.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>REC // BRAGA HUB</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:13 • 4K/HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(4)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-4" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(4, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(4, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video5Phase">05 // COMMERCIAL STRUCTURE</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video5Loc">Braga Hub, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video5Title">
+              Logistics Warehouse & Hall Assembly
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video5Desc">
+              Panoramic view of active logistics warehouse construction with material distribution, workers, and aerial cranes.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video5Specs">Precast Concrete Pillars • Industrial Scale</span>
+              <button onclick="openVideoModal(4)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 6: Precast Structure & Materials -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="5" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-5"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-industrial-facility-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-industrial-facility.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // MATERIALS</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:12 • 1080p HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(5)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-5" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(5, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(5, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video6Phase">06 // PRECAST & MATERIALS</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video6Loc">Industrial Center, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video6Title">
+              Precast Structure & Concrete Block Reserve
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video6Desc">
+              4K detailed inspection of high-yield precast concrete columns, perimeter enclosure beams, and certified masonry units.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video6Specs">High-Strength Blocks • Precast Grid</span>
+              <button onclick="openVideoModal(5)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 7: Masonry Partition Walkthrough -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="6" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-6"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-masonry-hall-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-masonry-hall.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // PARTITION</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:10 • 4K/HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(6)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-6" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(6, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(6, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video7Phase">07 // MASONRY EXECUTION</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video7Loc">Industrial Facility, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video7Title">
+              Interior Partition Wall Walkthrough
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video7Desc">
+              Continuous tracking inspection of reinforced concrete masonry dividing walls built to strict fire-separation standards.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video7Specs">Fire-Rated Blockwork • Acoustic Partition</span>
+              <button onclick="openVideoModal(6)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 8: Precision Mortar Tooling -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="7" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-7"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-block-precision-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-block-precision.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper animate-pulse"></span>
+                <span>REC // DETAIL</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:07 • 4K/HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(7)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-7" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(7, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(7, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video8Phase">08 // CRAFTSMANSHIP</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video8Loc">Industrial Facility, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video8Title">
+              Mortar Tooling & Block Joint Precision
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video8Desc">
+              Close-up craftsmanship showing master mason tooling mortar joints to achieve sub-millimeter horizontal uniformity.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video8Specs">Hand-Tooled Joints • Laser Alignment</span>
+              <button onclick="openVideoModal(7)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
+                <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 9: Extended Dividing Wall & Alignment Pan -->
+        <article class="site-video-card group relative border border-white/10 bg-brand-surface overflow-hidden flex flex-col justify-between hover:border-brand-copper/50 transition-all duration-500" data-video-index="8" data-video-category="masonry">
+          <div class="relative aspect-[9/14] sm:aspect-[9/15] overflow-hidden bg-black">
+            <video 
+              id="site-video-8"
+              class="site-video-player w-full h-full object-cover filter contrast-[1.05] transition-transform duration-700" 
+              poster="assets/videos/video-masonry-pan-poster.jpg"
+              preload="metadata"
+              playsinline
+              loop
+              muted
+            >
+              <source src="assets/videos/video-masonry-pan.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-brand-charcoal/50 pointer-events-none"></div>
+
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-10">
+              <span class="font-mono text-[10px] text-brand-white bg-black/60 backdrop-blur-md px-2.5 py-1 border border-white/10 uppercase tracking-widest flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>REC // ELEVATION</span>
+              </span>
+              <span class="font-mono text-[10px] text-brand-whiteMuted bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10">
+                00:23 • 4K/HD
+              </span>
+            </div>
+
+            <button 
+              type="button"
+              onclick="toggleVideoPlayback(8)" 
+              class="video-play-btn absolute inset-0 m-auto w-16 h-16 rounded-full bg-brand-charcoal/80 hover:bg-brand-copper backdrop-blur-md border border-white/20 hover:border-brand-copper text-brand-white flex items-center justify-center transition-all duration-300 shadow-2xl group-hover:scale-110 z-20 cursor-pointer"
+              aria-label="Play or Pause video"
+            >
+              <i data-lucide="play" class="video-play-icon w-7 h-7 translate-x-0.5 text-white"></i>
+              <i data-lucide="pause" class="video-pause-icon w-7 h-7 text-white hidden"></i>
+            </button>
+
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
+              <div id="video-progress-8" class="h-full bg-brand-copper w-0 transition-all duration-100"></div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+              <button 
+                type="button"
+                onclick="toggleVideoSound(8, event)" 
+                class="video-sound-btn p-2 rounded-full bg-black/70 hover:bg-black text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Toggle Mute"
+                aria-label="Toggle Mute"
+              >
+                <i data-lucide="volume-x" class="video-muted-icon w-4 h-4"></i>
+                <i data-lucide="volume-2" class="video-unmuted-icon w-4 h-4 hidden text-brand-copper"></i>
+              </button>
+              <button 
+                type="button"
+                onclick="openVideoModal(8, event)" 
+                class="p-2 rounded-full bg-black/70 hover:bg-brand-copper text-brand-white border border-white/15 hover:border-white/40 transition-colors"
+                title="Watch in Theater Mode"
+                aria-label="Watch in Theater Mode"
+              >
+                <i data-lucide="maximize-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 border-t border-white/10 font-mono space-y-3 bg-brand-surface">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-brand-copper font-bold" data-i18n="video9Phase">09 // STRUCTURAL WALL</span>
+              <span class="text-brand-grey text-[11px]" data-i18n="video9Loc">Industrial Hub, Portugal</span>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-brand-white group-hover:text-brand-copper transition-colors" data-i18n="video9Title">
+              Extended Dividing Wall & Alignment Pan
+            </h3>
+            <p class="font-sans text-xs text-brand-whiteMuted leading-relaxed font-light" data-i18n="video9Desc">
+              Full architectural elevation tracking the long industrial concrete block wall along the warehouse floor.
+            </p>
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
+              <span class="text-brand-grey uppercase" data-i18n="video9Specs">Long-Span Partition • Structural Plumb</span>
+              <button onclick="openVideoModal(8)" class="text-brand-copper hover:underline inline-flex items-center gap-1 font-bold">
                 <span data-i18n="videoTheaterBtn">Theater Mode</span> ↗
               </button>
             </div>
@@ -1170,6 +1733,57 @@
               </button>
             </div>
             <p class="text-brand-whiteMuted" data-i18n="det4Desc">Heavy infrastructure circular reinforcement cage for heavy load bearing.</p>
+          </div>
+        </div>
+
+        <!-- CRAFTSMANSHIP 5: Precision Masonry -->
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/masonry-craftsman.jpg" alt="Precision Concrete Block Masonry" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105 cursor-pointer" onclick="openLightbox(this.src, 'PRECISION BLOCK MASONRY & JOINT TOOLING')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det5Tag">05 / PRECISION BLOCK MASONRY</span>
+              <button onclick="openVideoModal(7)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video ↗</span>
+              </button>
+            </div>
+            <p class="text-brand-whiteMuted" data-i18n="det5Desc">Hand-tooled mortar joints and certified concrete blockwork with laser alignment verification.</p>
+          </div>
+        </div>
+
+        <!-- CRAFTSMANSHIP 6: Scaffolding Staging -->
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/masonry-scaffolding-crane.jpg" alt="Modular Scaffolding Staging" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105 cursor-pointer" onclick="openLightbox(this.src, 'MODULAR SCAFFOLDING & SITE ACCESS')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det6Tag">06 / MODULAR SCAFFOLDING & STAGING</span>
+              <button onclick="openVideoModal(3)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video ↗</span>
+              </button>
+            </div>
+            <p class="text-brand-whiteMuted" data-i18n="det6Desc">Heavy modular staging towers and aerial access for industrial warehouse partition heights.</p>
+          </div>
+        </div>
+
+        <!-- CRAFTSMANSHIP 7: Warehouse Structural Enclosure -->
+        <div class="group relative border border-white/10 bg-brand-surface overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img src="assets/images/masonry-wall-long.jpg" alt="Structural Warehouse Enclosure" class="w-full h-full object-cover filter contrast-[1.08] transition-transform duration-700 group-hover:scale-105 cursor-pointer" onclick="openLightbox(this.src, 'INDUSTRIAL WAREHOUSE ENCLOSURE')">
+          </div>
+          <div class="p-6 border-t border-white/10 font-mono text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-brand-copper font-bold block" data-i18n="det7Tag">07 / STRUCTURAL WAREHOUSE ENCLOSURE</span>
+              <button onclick="openVideoModal(8)" class="text-[10px] text-brand-copper hover:text-white uppercase tracking-wider flex items-center gap-1 border border-brand-copper/30 px-2 py-0.5 rounded bg-brand-copper/10 hover:bg-brand-copper transition-all">
+                <i data-lucide="play" class="w-3 h-3"></i>
+                <span>Video ↗</span>
+              </button>
+            </div>
+            <p class="text-brand-whiteMuted" data-i18n="det7Desc">High-durability acoustic and fire-rated dividing partition masonry across the entire facility.</p>
           </div>
         </div>
 

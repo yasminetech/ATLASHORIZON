@@ -264,6 +264,7 @@ const siteVideosData = [
   {
     src: 'assets/videos/video-excavation.mp4',
     poster: 'assets/videos/video-excavation-poster.jpg',
+    category: 'civil',
     phaseKey: 'video1Phase',
     titleKey: 'video1Title',
     locKey: 'video1Loc',
@@ -278,6 +279,7 @@ const siteVideosData = [
   {
     src: 'assets/videos/video-formwork-rebar.mp4',
     poster: 'assets/videos/video-formwork-rebar-poster.jpg',
+    category: 'civil',
     phaseKey: 'video2Phase',
     titleKey: 'video2Title',
     locKey: 'video2Loc',
@@ -292,6 +294,7 @@ const siteVideosData = [
   {
     src: 'assets/videos/video-wall-shoring.mp4',
     poster: 'assets/videos/video-wall-shoring-poster.jpg',
+    category: 'civil',
     phaseKey: 'video3Phase',
     titleKey: 'video3Title',
     locKey: 'video3Loc',
@@ -302,10 +305,132 @@ const siteVideosData = [
     defaultLoc: 'Brussels Complex, Belgium',
     defaultDesc: 'High-load industrial wall formwork panels secured with adjustable telescopic red steel shoring struts for vertical wall casting.',
     defaultSpecs: 'Heavy Steel Props • Wall Formwork Panels • Laser Leveling'
+  },
+  {
+    src: 'assets/videos/video-scaffolding-team.mp4',
+    poster: 'assets/videos/video-scaffolding-team-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video4Phase',
+    titleKey: 'video4Title',
+    locKey: 'video4Loc',
+    descKey: 'video4Desc',
+    specsKey: 'video4Specs',
+    defaultPhase: '04 // STAGING & TEAM',
+    defaultTitle: 'Scaffolding Assembly & Masonry Staging',
+    defaultLoc: 'Vila Nova Industrial Hub, Portugal',
+    defaultDesc: 'Coordinated site crew erecting modular heavy staging platforms and safety planks to enable high-wall blockwork.',
+    defaultSpecs: 'Modular Scaffolding • Team Staging • Safety Certified'
+  },
+  {
+    src: 'assets/videos/video-logistics-hall.mp4',
+    poster: 'assets/videos/video-logistics-hall-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video5Phase',
+    titleKey: 'video5Title',
+    locKey: 'video5Loc',
+    descKey: 'video5Desc',
+    specsKey: 'video5Specs',
+    defaultPhase: '05 // COMMERCIAL STRUCTURE',
+    defaultTitle: 'Logistics Warehouse & Hall Assembly',
+    defaultLoc: 'Braga Industrial Hub, Portugal',
+    defaultDesc: 'Panoramic view of active logistics warehouse construction with material distribution, workers, and aerial cranes.',
+    defaultSpecs: 'Precast Concrete Pillars • Hall Distribution • Industrial Scale'
+  },
+  {
+    src: 'assets/videos/video-industrial-facility.mp4',
+    poster: 'assets/videos/video-industrial-facility-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video6Phase',
+    titleKey: 'video6Title',
+    locKey: 'video6Loc',
+    descKey: 'video6Desc',
+    specsKey: 'video6Specs',
+    defaultPhase: '06 // PRECAST & MATERIALS',
+    defaultTitle: 'Precast Structure & Concrete Block Reserve',
+    defaultLoc: 'Industrial Logistics Center, Portugal',
+    defaultDesc: '4K detailed inspection of high-yield precast concrete columns, perimeter enclosure beams, and certified masonry units.',
+    defaultSpecs: 'High-Strength Concrete Blocks • Precast Grid • Material Pallets'
+  },
+  {
+    src: 'assets/videos/video-masonry-hall.mp4',
+    poster: 'assets/videos/video-masonry-hall-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video7Phase',
+    titleKey: 'video7Title',
+    locKey: 'video7Loc',
+    descKey: 'video7Desc',
+    specsKey: 'video7Specs',
+    defaultPhase: '07 // MASONRY EXECUTION',
+    defaultTitle: 'Interior Partition Wall Walkthrough',
+    defaultLoc: 'Industrial Facility, Portugal',
+    defaultDesc: 'Continuous tracking inspection of reinforced concrete masonry dividing walls built to strict fire-separation standards.',
+    defaultSpecs: 'Fire-Rated Blockwork • Acoustic Partition • Continuous Inspection'
+  },
+  {
+    src: 'assets/videos/video-block-precision.mp4',
+    poster: 'assets/videos/video-block-precision-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video8Phase',
+    titleKey: 'video8Title',
+    locKey: 'video8Loc',
+    descKey: 'video8Desc',
+    specsKey: 'video8Specs',
+    defaultPhase: '08 // CRAFTSMANSHIP',
+    defaultTitle: 'Mortar Tooling & Block Joint Precision',
+    defaultLoc: 'Industrial Facility, Portugal',
+    defaultDesc: 'Close-up craftsmanship showing master mason tooling mortar joints to achieve sub-millimeter horizontal uniformity.',
+    defaultSpecs: 'Hand-Tooled Joints • Laser Alignment • Certified Masonry'
+  },
+  {
+    src: 'assets/videos/video-masonry-pan.mp4',
+    poster: 'assets/videos/video-masonry-pan-poster.jpg',
+    category: 'masonry',
+    phaseKey: 'video9Phase',
+    titleKey: 'video9Title',
+    locKey: 'video9Loc',
+    descKey: 'video9Desc',
+    specsKey: 'video9Specs',
+    defaultPhase: '09 // STRUCTURAL WALL',
+    defaultTitle: 'Extended Dividing Wall & Alignment Pan',
+    defaultLoc: 'Industrial Logistics Hub, Portugal',
+    defaultDesc: 'Full architectural elevation tracking the long industrial concrete block wall along the warehouse floor.',
+    defaultSpecs: 'Long-Span Partition • Structural Plumb • Seismic Tie-in'
   }
 ];
 
 let activeModalVideoIndex = 0;
+
+function filterVideos(category) {
+  const cards = document.querySelectorAll('.site-video-card');
+  const btns = document.querySelectorAll('.video-filter-btn');
+
+  btns.forEach(btn => {
+    btn.classList.remove('active-filter', 'bg-brand-copper', 'border-brand-copper', 'text-white');
+    btn.classList.add('border-white/10', 'text-brand-whiteMuted');
+    if (btn.getAttribute('onclick')?.includes(`'${category}'`)) {
+      btn.classList.add('active-filter', 'bg-brand-copper', 'border-brand-copper', 'text-white');
+      btn.classList.remove('border-white/10', 'text-brand-whiteMuted');
+    }
+  });
+
+  cards.forEach(card => {
+    const itemCat = card.getAttribute('data-video-category');
+    if (category === 'all' || itemCat === category) {
+      card.style.display = 'flex';
+      card.classList.add('animate-fade-in');
+    } else {
+      card.style.display = 'none';
+      card.classList.remove('animate-fade-in');
+      const v = card.querySelector('video');
+      if (v && !v.paused) {
+        v.pause();
+        card.querySelector('.video-play-icon')?.classList.remove('hidden');
+        card.querySelector('.video-pause-icon')?.classList.add('hidden');
+        card.querySelector('.video-play-btn')?.classList.remove('opacity-0');
+      }
+    }
+  });
+}
 
 function toggleVideoPlayback(index) {
   const video = document.getElementById(`site-video-${index}`);
@@ -317,7 +442,7 @@ function toggleVideoPlayback(index) {
   const playBtn = card.querySelector('.video-play-btn');
 
   // Pause all other inline videos
-  [0, 1, 2].forEach(i => {
+  siteVideosData.forEach((_, i) => {
     if (i !== index) {
       const otherVid = document.getElementById(`site-video-${i}`);
       const otherCard = document.querySelector(`.site-video-card[data-video-index="${i}"]`);
@@ -371,7 +496,7 @@ function toggleVideoSound(index, event) {
 }
 
 function initVideoProgressListeners() {
-  [0, 1, 2].forEach(index => {
+  siteVideosData.forEach((_, index) => {
     const video = document.getElementById(`site-video-${index}`);
     const progress = document.getElementById(`video-progress-${index}`);
     const card = document.querySelector(`.site-video-card[data-video-index="${index}"]`);
@@ -403,7 +528,7 @@ function openVideoModal(index, event) {
   if (!modal || !modalVideo) return;
 
   // Pause all inline videos
-  [0, 1, 2].forEach(i => {
+  siteVideosData.forEach((_, i) => {
     const vid = document.getElementById(`site-video-${i}`);
     if (vid && !vid.paused) {
       vid.pause();
@@ -445,7 +570,7 @@ function updateVideoModalContent(index) {
   if (titleElem) titleElem.textContent = t[data.titleKey] || data.defaultTitle;
   if (descElem) descElem.textContent = t[data.descKey] || data.defaultDesc;
   if (specsElem) specsElem.textContent = t[data.specsKey] || data.defaultSpecs;
-  if (counterElem) counterElem.textContent = `${index + 1} / 3`;
+  if (counterElem) counterElem.textContent = `${index + 1} / ${siteVideosData.length}`;
 }
 
 function navigateVideoModal(direction) {
